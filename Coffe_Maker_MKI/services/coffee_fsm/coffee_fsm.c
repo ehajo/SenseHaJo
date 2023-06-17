@@ -35,6 +35,8 @@ typedef enum {
 	coffeemaker_wait_xsec_cup,
 	coffeemaker_cont_fill_cup,
 	coffeemaker_cont_calc_cup,
+	coffeemaker_boiler_cold_clean,
+	coffeemaker_pump_till_empty,
 } coffeefsm_t;
 
 typedef struct {
@@ -263,17 +265,31 @@ void voCoffeeFSM_Task( void ){
 						emFSMState = coffeemaker_preheat;
 					} 
 			
+					//If both keys are pressed we will fill the boiler, this is a quick add on and may work ugly
 					/* KeyPrioritys if a Coffee is wished this has priority and we will skip the Preheat ! */
 					if( (KeyChanged == OneCupButtonKeyevent.KeyChangeState) & ( SWITCH_PRESSED == OneCupButtonKeyevent.SwitchState ) ){
-						emFSMState = coffeemaker_brewcoffee;
-						tStatusBits.bFillTwoCups=0;
+						if( SWITCH_PRESSED == TwoCupButtonKeyevent.SwitchState ){
+							emFSMState = coffeemaker_boiler_cold_clean;
+						} else {
+							emFSMState = coffeemaker_brewcoffee;
+							tStatusBits.bFillTwoCups=0;
+						}
 					} 
-			
+					
+					/* Key Prioritys if a Coffee we skip pre heat and brew one */ 
 					if( (KeyChanged == TwoCupButtonKeyevent.KeyChangeState) & ( SWITCH_PRESSED == TwoCupButtonKeyevent.SwitchState ) ){
-						emFSMState = coffeemaker_brewcoffee;
-						tStatusBits.bFillTwoCups=1;
+						if( SWITCH_PRESSED == OneCupButtonKeyevent.SwitchState ){
+							emFSMState = coffeemaker_boiler_cold_clean;
+						} else {
+							emFSMState = coffeemaker_brewcoffee;
+							tStatusBits.bFillTwoCups=1;	
+						}
+						
 					}
-			
+					
+					
+					
+						
 			
 			
 			
@@ -495,6 +511,23 @@ void voCoffeeFSM_Task( void ){
 			
 		}break;
 		
+		case coffeemaker_boiler_cold_clean:{
+			voBTC_SetBoilerSetTemp(INT16_MIN); /* 0°C */
+			LLS_voSetLedLightning(LED_ONECUP,LED_BLINK_2Hz);
+			LLS_voSetLedLightning(LED_POWER,LED_BLINK_2Hz);
+			LLS_voSetLedLightning(LED_TWOCUP,LED_BLINK_2Hz);
+			voSetPumpState(PUMP_RUNNING); /* Enable pump */
+			emFSMState = coffeemaker_pump_till_empty;
+		}break;
+		
+		case coffeemaker_pump_till_empty:{
+			FaultAndWarning_t htl = HMon_tGetFaultAndWarning();
+			if( ( 1 == htl.WaterLevelLowFault  ) || ( 1 == htl.WaterLevelLowWarning) ){
+				emFSMState = coffeemaker_idle; //Back to idle....
+			} else {
+				asm("nop");
+			}
+		}break;
 		
 		default:{
 			emFSMState = coffeemaker_idle;

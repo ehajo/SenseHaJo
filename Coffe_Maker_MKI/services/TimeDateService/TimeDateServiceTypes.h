@@ -15,6 +15,7 @@
 #ifndef TIMEDATESERVICETYPES_H_
 #define TIMEDATESERVICETYPES_H_
 
+#include "stdint.h"
 
 typedef struct {
 	uint8_t  Day;

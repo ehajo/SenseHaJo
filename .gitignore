@@ -53,3 +53,5 @@ Coffe_Maker_MKI/Debug
 *.srec
 *.d
 *.o
+Coffe_Maker_MKI/Debug/Makefile
+Coffe_Maker_MKI/Debug/makedep.mk
