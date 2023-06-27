@@ -44,6 +44,8 @@ services\powermeter\powermeter.c
 
 services\pumpservice\pumpservice.c
 
+services\TimeDateService\TimeDateService.c
+
 services\TimerService\TimerService.c
 
 services\waterlevelmessurment\waterlevelmessurment.c

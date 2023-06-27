@@ -111,7 +111,7 @@ void voMS100_Tasks ( void );
 void voMS10_Tasks ( void );
 void voMS50_Tasks ( void );
 void voMS1_Task ( void );
-void voMS1000_Task ( void );
+void voMS1000_Tasks ( void );
 
 FILE USBSerialStream;
 volatile uint8_t connected=0;
@@ -290,6 +290,10 @@ void voMS50_Tasks(void){
 	DPS_voTask();
 	LLS_voTask();
 	
+	
+}
+
+void voMS1000_Tasks(){
 	
 }
 
