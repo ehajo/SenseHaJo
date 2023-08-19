@@ -23,7 +23,7 @@ typedef enum {
 }KEYSTATEREAD_t; 
 
 typedef struct {
-
+	uint16_t KeyPressDuration;
 	KeyEvent_t KeyEvent;
 	uint8_t Debouncecounter;
 	emSWITCHSTATE IntermediateSwitchstate;
@@ -81,6 +81,21 @@ void voKeyEvent_Task( void ){
 				
 			}
 			
+		}
+	    if ( astrKeyEventRegister[i].KeyEvent.SwitchState == SWITCH_PRESSED ){
+			if(astrKeyEventRegister[i].KeyPressDuration < UINT16_MAX){
+				astrKeyEventRegister[i].KeyPressDuration++;
+			}
+		} else if( astrKeyEventRegister[i].KeyEvent.SwitchState == SWITCH_RELEASED ){
+			astrKeyEventRegister[i].KeyPressDuration=0;
+		}
+		if( (astrKeyEventRegister[i].KeyPressDuration > 0 ) && (astrKeyEventRegister[i].KeyPressDuration < 400 ) ) { //We cáll this every 10ms
+			//Keypress less than 4 seconds is considered short
+			astrKeyEventRegister[i].KeyEvent.KeyPressType = KeyShortPressed;
+		} else if (astrKeyEventRegister[i].KeyPressDuration >= 400 ){
+			astrKeyEventRegister[i].KeyEvent.KeyPressType = KeyLongPressed;
+		} else if (0 == astrKeyEventRegister[i].KeyPressDuration  ){
+			astrKeyEventRegister[i].KeyEvent.KeyPressType = KeyNotPressed;
 		}
 		
 	}	

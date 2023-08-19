@@ -267,7 +267,7 @@ void voCoffeeFSM_Task( void ){
 			
 					//If both keys are pressed we will fill the boiler, this is a quick add on and may work ugly
 					/* KeyPrioritys if a Coffee is wished this has priority and we will skip the Preheat ! */
-					if( (KeyChanged == OneCupButtonKeyevent.KeyChangeState) & ( SWITCH_PRESSED == OneCupButtonKeyevent.SwitchState ) ){
+					if( (KeyChanged == OneCupButtonKeyevent.KeyChangeState) & ( SWITCH_RELEASED == OneCupButtonKeyevent.SwitchState ) ){
 						if( SWITCH_PRESSED == TwoCupButtonKeyevent.SwitchState ){
 							emFSMState = coffeemaker_boiler_cold_clean;
 						} else {
@@ -277,7 +277,7 @@ void voCoffeeFSM_Task( void ){
 					} 
 					
 					/* Key Prioritys if a Coffee we skip pre heat and brew one */ 
-					if( (KeyChanged == TwoCupButtonKeyevent.KeyChangeState) & ( SWITCH_PRESSED == TwoCupButtonKeyevent.SwitchState ) ){
+					if( (KeyChanged == TwoCupButtonKeyevent.KeyChangeState) & ( SWITCH_RELEASED == TwoCupButtonKeyevent.SwitchState ) ){
 						if( SWITCH_PRESSED == OneCupButtonKeyevent.SwitchState ){
 							emFSMState = coffeemaker_boiler_cold_clean;
 						} else {
@@ -286,7 +286,6 @@ void voCoffeeFSM_Task( void ){
 						}
 						
 					}
-					
 					
 					
 						
@@ -605,17 +604,12 @@ void voCoffeeFSM_DrawArrows(bool boBrewing){
 
 void voCoffeeFSM_DrawWaterEmpty( bool boEmpty ){
 	/* we let the symbol blink if have a Empty */
-	switch (boEmpty){
-		case true:{
+	if(true == boEmpty ){
 			DPS_SetBlinkFreq(BLINK_1Hz,WATER);
 			
-		} break;
-		
-		case false:{
+	} else {
 			DPS_SetIconVisibility(INVISIBLE,WATER);
 			DPS_SetBlinkFreq(BLINK_OFF,WATER);
-		} break;
-		
 	}
 }
 

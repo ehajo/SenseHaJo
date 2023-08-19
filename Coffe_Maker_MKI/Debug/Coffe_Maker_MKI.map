@@ -1,7 +1,7 @@
 Archive member included to satisfy reference by file (symbol)
 
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_mulhi3.o)
-                              services/buttondriver/buttondriver.o (__mulhi3)
+                              services/powermeter/powermeter.o (__mulhi3)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_mulsi3.o)
                               services/boilertemp/boilertemp.o (__mulsi3)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_udivmodhi4.o)
@@ -846,7 +846,7 @@ Discarded input sections
  .debug_macro   0x00000000      0xa66 services/TimeDateService/TimeDateService.o
  .debug_macro   0x00000000      0x1c9 services/TimeDateService/TimeDateService.o
  .debug_line    0x00000000      0x30e services/TimeDateService/TimeDateService.o
- .debug_str     0x00000000     0x33d6 services/TimeDateService/TimeDateService.o
+ .debug_str     0x00000000     0x33df services/TimeDateService/TimeDateService.o
  .comment       0x00000000       0x31 services/TimeDateService/TimeDateService.o
  .debug_frame   0x00000000       0x94 services/TimeDateService/TimeDateService.o
  COMMON         0x00000000        0x8 services/TimeDateService/TimeDateService.o
@@ -1146,8 +1146,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.o
  .debug_macro   0x00000000      0x1be src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.o
  .debug_macro   0x00000000       0x16 src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.o
- .debug_line    0x00000000      0xf4c src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.o
- .debug_str     0x00000000    0x127e5 src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.o
+ .debug_line    0x00000000      0xfb0 src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.o
+ .debug_str     0x00000000    0x127ee src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.o
  .comment       0x00000000       0x31 src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.o
  .debug_frame   0x00000000       0xa8 src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.o
  .group         0x00000000        0x8 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
@@ -1462,8 +1462,8 @@ Discarded input sections
  .debug_macro   0x00000000      0x154 src/LUFA/LUFA/Drivers/USB/Class/Device/HIDClassDevice.o
  .debug_macro   0x00000000       0x2a src/LUFA/LUFA/Drivers/USB/Class/Device/HIDClassDevice.o
  .debug_macro   0x00000000      0x6ce src/LUFA/LUFA/Drivers/USB/Class/Device/HIDClassDevice.o
- .debug_line    0x00000000     0x103e src/LUFA/LUFA/Drivers/USB/Class/Device/HIDClassDevice.o
- .debug_str     0x00000000    0x1282e src/LUFA/LUFA/Drivers/USB/Class/Device/HIDClassDevice.o
+ .debug_line    0x00000000     0x10f5 src/LUFA/LUFA/Drivers/USB/Class/Device/HIDClassDevice.o
+ .debug_str     0x00000000    0x12837 src/LUFA/LUFA/Drivers/USB/Class/Device/HIDClassDevice.o
  .comment       0x00000000       0x31 src/LUFA/LUFA/Drivers/USB/Class/Device/HIDClassDevice.o
  .debug_frame   0x00000000       0xe4 src/LUFA/LUFA/Drivers/USB/Class/Device/HIDClassDevice.o
  .group         0x00000000        0x8 src/LUFA/LUFA/Drivers/USB/Class/Device/MassStorageClassDevice.o
@@ -1620,8 +1620,8 @@ Discarded input sections
  .debug_macro   0x00000000      0x1be src/LUFA/LUFA/Drivers/USB/Class/Device/MassStorageClassDevice.o
  .debug_macro   0x00000000       0x16 src/LUFA/LUFA/Drivers/USB/Class/Device/MassStorageClassDevice.o
  .debug_macro   0x00000000      0x12c src/LUFA/LUFA/Drivers/USB/Class/Device/MassStorageClassDevice.o
- .debug_line    0x00000000      0xfea src/LUFA/LUFA/Drivers/USB/Class/Device/MassStorageClassDevice.o
- .debug_str     0x00000000    0x12937 src/LUFA/LUFA/Drivers/USB/Class/Device/MassStorageClassDevice.o
+ .debug_line    0x00000000     0x104e src/LUFA/LUFA/Drivers/USB/Class/Device/MassStorageClassDevice.o
+ .debug_str     0x00000000    0x12940 src/LUFA/LUFA/Drivers/USB/Class/Device/MassStorageClassDevice.o
  .comment       0x00000000       0x31 src/LUFA/LUFA/Drivers/USB/Class/Device/MassStorageClassDevice.o
  .debug_frame   0x00000000       0x80 src/LUFA/LUFA/Drivers/USB/Class/Device/MassStorageClassDevice.o
  .group         0x00000000        0x8 src/LUFA/LUFA/Drivers/USB/Class/Device/MIDIClassDevice.o
@@ -1782,8 +1782,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 src/LUFA/LUFA/Drivers/USB/Class/Device/MIDIClassDevice.o
  .debug_macro   0x00000000       0x10 src/LUFA/LUFA/Drivers/USB/Class/Device/MIDIClassDevice.o
  .debug_macro   0x00000000       0x6c src/LUFA/LUFA/Drivers/USB/Class/Device/MIDIClassDevice.o
- .debug_line    0x00000000      0xf01 src/LUFA/LUFA/Drivers/USB/Class/Device/MIDIClassDevice.o
- .debug_str     0x00000000    0x127a5 src/LUFA/LUFA/Drivers/USB/Class/Device/MIDIClassDevice.o
+ .debug_line    0x00000000      0xf65 src/LUFA/LUFA/Drivers/USB/Class/Device/MIDIClassDevice.o
+ .debug_str     0x00000000    0x127ae src/LUFA/LUFA/Drivers/USB/Class/Device/MIDIClassDevice.o
  .comment       0x00000000       0x31 src/LUFA/LUFA/Drivers/USB/Class/Device/MIDIClassDevice.o
  .debug_frame   0x00000000       0x70 src/LUFA/LUFA/Drivers/USB/Class/Device/MIDIClassDevice.o
  .group         0x00000000        0x8 src/LUFA/LUFA/Drivers/USB/Class/Device/PrinterClassDevice.o
@@ -1964,8 +1964,8 @@ Discarded input sections
  .debug_macro   0x00000000      0x1be src/LUFA/LUFA/Drivers/USB/Class/Device/PrinterClassDevice.o
  .debug_macro   0x00000000       0x16 src/LUFA/LUFA/Drivers/USB/Class/Device/PrinterClassDevice.o
  .debug_macro   0x00000000       0x16 src/LUFA/LUFA/Drivers/USB/Class/Device/PrinterClassDevice.o
- .debug_line    0x00000000     0x11e9 src/LUFA/LUFA/Drivers/USB/Class/Device/PrinterClassDevice.o
- .debug_str     0x00000000    0x12a76 src/LUFA/LUFA/Drivers/USB/Class/Device/PrinterClassDevice.o
+ .debug_line    0x00000000     0x124d src/LUFA/LUFA/Drivers/USB/Class/Device/PrinterClassDevice.o
+ .debug_str     0x00000000    0x12a7f src/LUFA/LUFA/Drivers/USB/Class/Device/PrinterClassDevice.o
  .comment       0x00000000       0x31 src/LUFA/LUFA/Drivers/USB/Class/Device/PrinterClassDevice.o
  .debug_frame   0x00000000      0x13c src/LUFA/LUFA/Drivers/USB/Class/Device/PrinterClassDevice.o
  .group         0x00000000        0x8 src/LUFA/LUFA/Drivers/USB/Class/Device/RNDISClassDevice.o
@@ -2131,8 +2131,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 src/LUFA/LUFA/Drivers/USB/Class/Device/RNDISClassDevice.o
  .debug_macro   0x00000000       0x10 src/LUFA/LUFA/Drivers/USB/Class/Device/RNDISClassDevice.o
  .debug_macro   0x00000000      0x1be src/LUFA/LUFA/Drivers/USB/Class/Device/RNDISClassDevice.o
- .debug_line    0x00000000     0x11d5 src/LUFA/LUFA/Drivers/USB/Class/Device/RNDISClassDevice.o
- .debug_str     0x00000000    0x12ea0 src/LUFA/LUFA/Drivers/USB/Class/Device/RNDISClassDevice.o
+ .debug_line    0x00000000     0x1239 src/LUFA/LUFA/Drivers/USB/Class/Device/RNDISClassDevice.o
+ .debug_str     0x00000000    0x12ea9 src/LUFA/LUFA/Drivers/USB/Class/Device/RNDISClassDevice.o
  .comment       0x00000000       0x31 src/LUFA/LUFA/Drivers/USB/Class/Device/RNDISClassDevice.o
  .debug_frame   0x00000000      0x10c src/LUFA/LUFA/Drivers/USB/Class/Device/RNDISClassDevice.o
  .group         0x00000000        0x8 src/LUFA/LUFA/Drivers/USB/Class/Host/AndroidAccessoryClassHost.o
@@ -2979,8 +2979,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x12 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
  .debug_macro   0x00000000       0x41 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
  .debug_macro   0x00000000       0x1c src/LUFA/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
- .debug_line    0x00000000      0x8d7 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
- .debug_str     0x00000000     0xc176 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
+ .debug_line    0x00000000      0x936 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
+ .debug_str     0x00000000     0xc17f src/LUFA/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
  .comment       0x00000000       0x31 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
  .debug_frame   0x00000000       0x24 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
  .group         0x00000000        0x8 src/LUFA/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
@@ -4728,7 +4728,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x4446
+.text           0x00000000     0x44a2
  *(.vectors)
  .vectors       0x00000000       0x74 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.106/gcc/dev/atmega32u2/avr35/crtatmega32u2.o
                 0x00000000                __vector_default
@@ -5055,411 +5055,411 @@ END GROUP
                 0x00001082        0xa services/boilertemp/boilertemp.o
                 0x00001082                s16BLTMP_GetBoilerTemp
  .text.voKeyEvent_TaskInit
-                0x0000108c       0x2c services/buttondriver/buttondriver.o
+                0x0000108c       0x2a services/buttondriver/buttondriver.o
                 0x0000108c                voKeyEvent_TaskInit
  .text.emGetSwitchStateHAL
-                0x000010b8       0x10 services/buttondriver/buttondriver.o
-                0x000010b8                emGetSwitchStateHAL
+                0x000010b6       0x10 services/buttondriver/buttondriver.o
+                0x000010b6                emGetSwitchStateHAL
  .text.voKeyEvent_Task
-                0x000010c8       0x8a services/buttondriver/buttondriver.o
-                0x000010c8                voKeyEvent_Task
+                0x000010c6       0xe0 services/buttondriver/buttondriver.o
+                0x000010c6                voKeyEvent_Task
  .text.strGetKeyEvent
-                0x00001152       0x26 services/buttondriver/buttondriver.o
-                0x00001152                strGetKeyEvent
+                0x000011a6       0x2e services/buttondriver/buttondriver.o
+                0x000011a6                strGetKeyEvent
  .text.u16GetStandbyTemp
-                0x00001178        0xa services/coffee_fsm/coffee_fsm.o
-                0x00001178                u16GetStandbyTemp
+                0x000011d4        0xa services/coffee_fsm/coffee_fsm.o
+                0x000011d4                u16GetStandbyTemp
  .text.voSetStandbyTemp
-                0x00001182       0x1c services/coffee_fsm/coffee_fsm.o
-                0x00001182                voSetStandbyTemp
+                0x000011de       0x1c services/coffee_fsm/coffee_fsm.o
+                0x000011de                voSetStandbyTemp
  .text.voCoffeeFSM_TaskInit
-                0x0000119e        0x6 services/coffee_fsm/coffee_fsm.o
-                0x0000119e                voCoffeeFSM_TaskInit
+                0x000011fa        0x6 services/coffee_fsm/coffee_fsm.o
+                0x000011fa                voCoffeeFSM_TaskInit
  .text.boCoffeeFSM_LoadProgramm
-                0x000011a4       0x6a services/coffee_fsm/coffee_fsm.o
-                0x000011a4                boCoffeeFSM_LoadProgramm
+                0x00001200       0x6a services/coffee_fsm/coffee_fsm.o
+                0x00001200                boCoffeeFSM_LoadProgramm
  .text.u8GetCurrenProgrammIdx
-                0x0000120e        0x6 services/coffee_fsm/coffee_fsm.o
-                0x0000120e                u8GetCurrenProgrammIdx
+                0x0000126a        0x6 services/coffee_fsm/coffee_fsm.o
+                0x0000126a                u8GetCurrenProgrammIdx
  .text.voCoffeeFSM_LoadSystemSettings
-                0x00001214       0x52 services/coffee_fsm/coffee_fsm.o
-                0x00001214                voCoffeeFSM_LoadSystemSettings
+                0x00001270       0x52 services/coffee_fsm/coffee_fsm.o
+                0x00001270                voCoffeeFSM_LoadSystemSettings
  .text.boCoffeeFSM_MakeCoffee
-                0x00001266       0x34 services/coffee_fsm/coffee_fsm.o
-                0x00001266                boCoffeeFSM_MakeCoffee
+                0x000012c2       0x34 services/coffee_fsm/coffee_fsm.o
+                0x000012c2                boCoffeeFSM_MakeCoffee
  .text.voCoffeeFSM_SetPower
-                0x0000129a       0x1a services/coffee_fsm/coffee_fsm.o
-                0x0000129a                voCoffeeFSM_SetPower
+                0x000012f6       0x1a services/coffee_fsm/coffee_fsm.o
+                0x000012f6                voCoffeeFSM_SetPower
  .text.voSetCupLevel
-                0x000012b4       0x24 services/coffee_fsm/coffee_fsm.o
-                0x000012b4                voSetCupLevel
+                0x00001310       0x24 services/coffee_fsm/coffee_fsm.o
+                0x00001310                voSetCupLevel
  .text.u8GetCupLevel
-                0x000012d8        0x6 services/coffee_fsm/coffee_fsm.o
-                0x000012d8                u8GetCupLevel
+                0x00001334        0x6 services/coffee_fsm/coffee_fsm.o
+                0x00001334                u8GetCupLevel
  .text.voSetAutoPowerOff
-                0x000012de       0x12 services/coffee_fsm/coffee_fsm.o
-                0x000012de                voSetAutoPowerOff
+                0x0000133a       0x12 services/coffee_fsm/coffee_fsm.o
+                0x0000133a                voSetAutoPowerOff
  .text.u8GetAutoPowerOff
-                0x000012f0        0x6 services/coffee_fsm/coffee_fsm.o
-                0x000012f0                u8GetAutoPowerOff
+                0x0000134c        0x6 services/coffee_fsm/coffee_fsm.o
+                0x0000134c                u8GetAutoPowerOff
  .text.voCoffeeFSM_DrawCup
-                0x000012f6       0x38 services/coffee_fsm/coffee_fsm.o
-                0x000012f6                voCoffeeFSM_DrawCup
+                0x00001352       0x38 services/coffee_fsm/coffee_fsm.o
+                0x00001352                voCoffeeFSM_DrawCup
  .text.voProcessLidKey
-                0x0000132e       0x38 services/coffee_fsm/coffee_fsm.o
-                0x0000132e                voProcessLidKey
+                0x0000138a       0x38 services/coffee_fsm/coffee_fsm.o
+                0x0000138a                voProcessLidKey
  .text.voCoffeeFSM_DrawArrows
-                0x00001366       0x10 services/coffee_fsm/coffee_fsm.o
-                0x00001366                voCoffeeFSM_DrawArrows
+                0x000013c2       0x10 services/coffee_fsm/coffee_fsm.o
+                0x000013c2                voCoffeeFSM_DrawArrows
  .text.voCoffeeFSM_DrawWaterEmpty
-                0x00001376       0x18 services/coffee_fsm/coffee_fsm.o
-                0x00001376                voCoffeeFSM_DrawWaterEmpty
+                0x000013d2       0x18 services/coffee_fsm/coffee_fsm.o
+                0x000013d2                voCoffeeFSM_DrawWaterEmpty
  .text.voCoffeeFSM_DrawThermometer
-                0x0000138e       0x4a services/coffee_fsm/coffee_fsm.o
-                0x0000138e                voCoffeeFSM_DrawThermometer
+                0x000013ea       0x4a services/coffee_fsm/coffee_fsm.o
+                0x000013ea                voCoffeeFSM_DrawThermometer
  .text.voCoffeeFSM_Task
-                0x000013d8      0x512 services/coffee_fsm/coffee_fsm.o
-                0x000013d8                voCoffeeFSM_Task
+                0x00001434      0x512 services/coffee_fsm/coffee_fsm.o
+                0x00001434                voCoffeeFSM_Task
  .text.voCleanBuffer
-                0x000018ea       0x1a services/CommandInterpreter/CommandInterpreter.o
-                0x000018ea                voCleanBuffer
+                0x00001946       0x1a services/CommandInterpreter/CommandInterpreter.o
+                0x00001946                voCleanBuffer
  .text.CMDI_voInit
-                0x00001904       0x10 services/CommandInterpreter/CommandInterpreter.o
-                0x00001904                CMDI_voInit
+                0x00001960       0x10 services/CommandInterpreter/CommandInterpreter.o
+                0x00001960                CMDI_voInit
  .text.CMDI_boAddCharToBuffer
-                0x00001914       0x6a services/CommandInterpreter/CommandInterpreter.o
-                0x00001914                CMDI_boAddCharToBuffer
+                0x00001970       0x6a services/CommandInterpreter/CommandInterpreter.o
+                0x00001970                CMDI_boAddCharToBuffer
  .text.StringToUint
-                0x0000197e       0xca services/CommandInterpreter/CommandInterpreter.o
-                0x0000197e                StringToUint
+                0x000019da       0xca services/CommandInterpreter/CommandInterpreter.o
+                0x000019da                StringToUint
  .text.finddelimiter
-                0x00001a48       0x38 services/CommandInterpreter/CommandInterpreter.o
-                0x00001a48                finddelimiter
+                0x00001aa4       0x38 services/CommandInterpreter/CommandInterpreter.o
+                0x00001aa4                finddelimiter
  .text.voResponseParamErr
-                0x00001a80       0x26 services/CommandInterpreter/CommandInterpreter.o
-                0x00001a80                voResponseParamErr
+                0x00001adc       0x26 services/CommandInterpreter/CommandInterpreter.o
+                0x00001adc                voResponseParamErr
  .text.voResponseParserErr
-                0x00001aa6       0x26 services/CommandInterpreter/CommandInterpreter.o
-                0x00001aa6                voResponseParserErr
+                0x00001b02       0x26 services/CommandInterpreter/CommandInterpreter.o
+                0x00001b02                voResponseParserErr
  .text.voResponseOk
-                0x00001acc       0x26 services/CommandInterpreter/CommandInterpreter.o
-                0x00001acc                voResponseOk
+                0x00001b28       0x26 services/CommandInterpreter/CommandInterpreter.o
+                0x00001b28                voResponseOk
  .text.voProcessData
-                0x00001af2      0x8ee services/CommandInterpreter/CommandInterpreter.o
-                0x00001af2                voProcessData
+                0x00001b4e      0x8ee services/CommandInterpreter/CommandInterpreter.o
+                0x00001b4e                voProcessData
  .text.CMDI_voTask
-                0x000023e0       0x2c services/CommandInterpreter/CommandInterpreter.o
-                0x000023e0                CMDI_voTask
+                0x0000243c       0x2c services/CommandInterpreter/CommandInterpreter.o
+                0x0000243c                CMDI_voTask
  .text.DPS_Init
-                0x0000240c       0x46 services/displayservice/displayservice.o
-                0x0000240c                DPS_Init
+                0x00002468       0x46 services/displayservice/displayservice.o
+                0x00002468                DPS_Init
  .text.DPS_voTask
-                0x00002452      0x102 services/displayservice/displayservice.o
-                0x00002452                DPS_voTask
+                0x000024ae      0x102 services/displayservice/displayservice.o
+                0x000024ae                DPS_voTask
  .text.DPS_SetBlinkFreq
-                0x00002554       0x14 services/displayservice/displayservice.o
-                0x00002554                DPS_SetBlinkFreq
+                0x000025b0       0x14 services/displayservice/displayservice.o
+                0x000025b0                DPS_SetBlinkFreq
  .text.DPS_SetIconVisibility
-                0x00002568        0xa services/displayservice/displayservice.o
-                0x00002568                DPS_SetIconVisibility
+                0x000025c4        0xa services/displayservice/displayservice.o
+                0x000025c4                DPS_SetIconVisibility
  .text._crc_ccitt_update
-                0x00002572       0x24 services/eepromFileSystem/eepromFileSystem.o
+                0x000025ce       0x24 services/eepromFileSystem/eepromFileSystem.o
  .text.voSetDefaultSystemSettingsValues
-                0x00002596       0x24 services/eepromFileSystem/eepromFileSystem.o
-                0x00002596                voSetDefaultSystemSettingsValues
+                0x000025f2       0x24 services/eepromFileSystem/eepromFileSystem.o
+                0x000025f2                voSetDefaultSystemSettingsValues
  .text.voSetDefaultUserSettingsValues
-                0x000025ba       0x3c services/eepromFileSystem/eepromFileSystem.o
-                0x000025ba                voSetDefaultUserSettingsValues
+                0x00002616       0x3c services/eepromFileSystem/eepromFileSystem.o
+                0x00002616                voSetDefaultUserSettingsValues
  .text.voWriteMagicKey
-                0x000025f6       0x80 services/eepromFileSystem/eepromFileSystem.o
-                0x000025f6                voWriteMagicKey
+                0x00002652       0x80 services/eepromFileSystem/eepromFileSystem.o
+                0x00002652                voWriteMagicKey
  .text.voEEFS_WriteSystemSettings
-                0x00002676       0x54 services/eepromFileSystem/eepromFileSystem.o
-                0x00002676                voEEFS_WriteSystemSettings
+                0x000026d2       0x54 services/eepromFileSystem/eepromFileSystem.o
+                0x000026d2                voEEFS_WriteSystemSettings
  .text.voEEFS_ReadSystemSettings
-                0x000026ca       0x72 services/eepromFileSystem/eepromFileSystem.o
-                0x000026ca                voEEFS_ReadSystemSettings
+                0x00002726       0x72 services/eepromFileSystem/eepromFileSystem.o
+                0x00002726                voEEFS_ReadSystemSettings
  .text.voEEFS_WriteUserProgramm
-                0x0000273c       0x74 services/eepromFileSystem/eepromFileSystem.o
-                0x0000273c                voEEFS_WriteUserProgramm
+                0x00002798       0x74 services/eepromFileSystem/eepromFileSystem.o
+                0x00002798                voEEFS_WriteUserProgramm
  .text.boEEFS_ReadUserProgramm
-                0x000027b0      0x11c services/eepromFileSystem/eepromFileSystem.o
-                0x000027b0                boEEFS_ReadUserProgramm
+                0x0000280c      0x11c services/eepromFileSystem/eepromFileSystem.o
+                0x0000280c                boEEFS_ReadUserProgramm
  .text.boEEFS_UpdateUserProgramm
-                0x000028cc       0xae services/eepromFileSystem/eepromFileSystem.o
-                0x000028cc                boEEFS_UpdateUserProgramm
+                0x00002928       0xae services/eepromFileSystem/eepromFileSystem.o
+                0x00002928                boEEFS_UpdateUserProgramm
  .text.boEEFS_ReadUserProgrammParam
-                0x0000297a       0x64 services/eepromFileSystem/eepromFileSystem.o
-                0x0000297a                boEEFS_ReadUserProgrammParam
+                0x000029d6       0x64 services/eepromFileSystem/eepromFileSystem.o
+                0x000029d6                boEEFS_ReadUserProgrammParam
  .text.voInitCoffeeCounter
-                0x000029de        0xc services/eepromFileSystem/eepromFileSystem.o
-                0x000029de                voInitCoffeeCounter
+                0x00002a3a        0xc services/eepromFileSystem/eepromFileSystem.o
+                0x00002a3a                voInitCoffeeCounter
  .text.voEEFS_Init
-                0x000029ea       0xc8 services/eepromFileSystem/eepromFileSystem.o
-                0x000029ea                voEEFS_Init
+                0x00002a46       0xc8 services/eepromFileSystem/eepromFileSystem.o
+                0x00002a46                voEEFS_Init
  .text.voHMon_Init
-                0x00002ab2       0x10 services/healthmonitor/healthmonitor.o
-                0x00002ab2                voHMon_Init
+                0x00002b0e       0x10 services/healthmonitor/healthmonitor.o
+                0x00002b0e                voHMon_Init
  .text.voHMon_Task
-                0x00002ac2       0x60 services/healthmonitor/healthmonitor.o
-                0x00002ac2                voHMon_Task
+                0x00002b1e       0x60 services/healthmonitor/healthmonitor.o
+                0x00002b1e                voHMon_Task
  .text.HMon_tGetFaultAndWarning
-                0x00002b22       0x40 services/healthmonitor/healthmonitor.o
-                0x00002b22                HMon_tGetFaultAndWarning
+                0x00002b7e       0x40 services/healthmonitor/healthmonitor.o
+                0x00002b7e                HMon_tGetFaultAndWarning
  .text.voHPC_TaskInit
-                0x00002b62       0x12 services/heaterpowercontroller/heaterpowercontroller.o
-                0x00002b62                voHPC_TaskInit
+                0x00002bbe       0x12 services/heaterpowercontroller/heaterpowercontroller.o
+                0x00002bbe                voHPC_TaskInit
  .text.voHPC_SetPowerOutput
-                0x00002b74        0xc services/heaterpowercontroller/heaterpowercontroller.o
-                0x00002b74                voHPC_SetPowerOutput
+                0x00002bd0        0xc services/heaterpowercontroller/heaterpowercontroller.o
+                0x00002bd0                voHPC_SetPowerOutput
  .text.LLS_voInitTask
-                0x00002b80       0x2c services/lightningservice/ledlightningservice.o
-                0x00002b80                LLS_voInitTask
+                0x00002bdc       0x2c services/lightningservice/ledlightningservice.o
+                0x00002bdc                LLS_voInitTask
  .text.LLS_voTask
-                0x00002bac       0xf0 services/lightningservice/ledlightningservice.o
-                0x00002bac                LLS_voTask
+                0x00002c08       0xf0 services/lightningservice/ledlightningservice.o
+                0x00002c08                LLS_voTask
  .text.LLS_voSetLedLightning
-                0x00002c9c       0x34 services/lightningservice/ledlightningservice.o
-                0x00002c9c                LLS_voSetLedLightning
+                0x00002cf8       0x34 services/lightningservice/ledlightningservice.o
+                0x00002cf8                LLS_voSetLedLightning
  .text.voPWRMTR_InitPowermeter
-                0x00002cd0        0xa services/powermeter/powermeter.o
-                0x00002cd0                voPWRMTR_InitPowermeter
+                0x00002d2c        0xa services/powermeter/powermeter.o
+                0x00002d2c                voPWRMTR_InitPowermeter
  .text.voPWRMTR_AddNewMessurment
-                0x00002cda       0xaa services/powermeter/powermeter.o
-                0x00002cda                voPWRMTR_AddNewMessurment
+                0x00002d36       0xaa services/powermeter/powermeter.o
+                0x00002d36                voPWRMTR_AddNewMessurment
  .text.u32PWRMTR_GetmAmp
-                0x00002d84       0x1a services/powermeter/powermeter.o
-                0x00002d84                u32PWRMTR_GetmAmp
+                0x00002de0       0x1a services/powermeter/powermeter.o
+                0x00002de0                u32PWRMTR_GetmAmp
  .text.voPSE_TaskInit
-                0x00002d9e       0x10 services/pumpservice/pumpservice.o
-                0x00002d9e                voPSE_TaskInit
+                0x00002dfa       0x10 services/pumpservice/pumpservice.o
+                0x00002dfa                voPSE_TaskInit
  .text.voPSE_Task
-                0x00002dae       0x32 services/pumpservice/pumpservice.o
-                0x00002dae                voPSE_Task
+                0x00002e0a       0x32 services/pumpservice/pumpservice.o
+                0x00002e0a                voPSE_Task
  .text.voSetPumpState
-                0x00002de0       0x16 services/pumpservice/pumpservice.o
-                0x00002de0                voSetPumpState
+                0x00002e3c       0x16 services/pumpservice/pumpservice.o
+                0x00002e3c                voSetPumpState
  .text.u32PSE_GetCurrentRuntimeMS
-                0x00002df6       0x16 services/pumpservice/pumpservice.o
-                0x00002df6                u32PSE_GetCurrentRuntimeMS
+                0x00002e52       0x16 services/pumpservice/pumpservice.o
+                0x00002e52                u32PSE_GetCurrentRuntimeMS
  .text.voTMS_InitTask
-                0x00002e0c       0x1e services/TimerService/TimerService.o
-                0x00002e0c                voTMS_InitTask
+                0x00002e68       0x1e services/TimerService/TimerService.o
+                0x00002e68                voTMS_InitTask
  .text.voTMS_Task
-                0x00002e2a       0x50 services/TimerService/TimerService.o
-                0x00002e2a                voTMS_Task
+                0x00002e86       0x50 services/TimerService/TimerService.o
+                0x00002e86                voTMS_Task
  .text.voSetTimeOut
-                0x00002e7a       0x1e services/TimerService/TimerService.o
-                0x00002e7a                voSetTimeOut
+                0x00002ed6       0x1e services/TimerService/TimerService.o
+                0x00002ed6                voSetTimeOut
  .text.u8GetTimeElapsed
-                0x00002e98       0x2e services/TimerService/TimerService.o
-                0x00002e98                u8GetTimeElapsed
+                0x00002ef4       0x2e services/TimerService/TimerService.o
+                0x00002ef4                u8GetTimeElapsed
  .text.WLM_voTask
-                0x00002ec6       0xba services/waterlevelmessurment/waterlevelmessurment.o
-                0x00002ec6                WLM_voTask
+                0x00002f22       0xba services/waterlevelmessurment/waterlevelmessurment.o
+                0x00002f22                WLM_voTask
  .text.WLM_emGetLevel
-                0x00002f80        0x6 services/waterlevelmessurment/waterlevelmessurment.o
-                0x00002f80                WLM_emGetLevel
+                0x00002fdc        0x6 services/waterlevelmessurment/waterlevelmessurment.o
+                0x00002fdc                WLM_emGetLevel
  .text.CDC_Device_ConfigureEndpoints
-                0x00002f86       0x4a src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
-                0x00002f86                CDC_Device_ConfigureEndpoints
+                0x00002fe2       0x4a src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
+                0x00002fe2                CDC_Device_ConfigureEndpoints
  .text.CDC_Device_SendByte
-                0x00002fd0       0x56 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
-                0x00002fd0                CDC_Device_SendByte
+                0x0000302c       0x56 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
+                0x0000302c                CDC_Device_SendByte
  .text.CDC_Device_putchar
-                0x00003026       0x20 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
+                0x00003082       0x20 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
  .text.CDC_Device_Flush
-                0x00003046       0x54 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
-                0x00003046                CDC_Device_Flush
+                0x000030a2       0x54 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
+                0x000030a2                CDC_Device_Flush
  .text.CDC_Device_USBTask
-                0x0000309a       0x2c src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
-                0x0000309a                CDC_Device_USBTask
+                0x000030f6       0x2c src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
+                0x000030f6                CDC_Device_USBTask
  .text.CDC_Device_ReceiveByte
-                0x000030c6       0x5a src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
-                0x000030c6                CDC_Device_ReceiveByte
+                0x00003122       0x5a src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
+                0x00003122                CDC_Device_ReceiveByte
  .text.CDC_Device_getchar
-                0x00003120       0x12 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
+                0x0000317c       0x12 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
  .text.CDC_Device_CreateStream
-                0x00003132       0x26 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
-                0x00003132                CDC_Device_CreateStream
+                0x0000318e       0x26 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
+                0x0000318e                CDC_Device_CreateStream
  .text.CDC_Device_Event_Stub
-                0x00003158        0x2 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
-                0x00003158                EVENT_CDC_Device_BreakSent
-                0x00003158                CDC_Device_Event_Stub
-                0x00003158                EVENT_CDC_Device_LineEncodingChanged
+                0x000031b4        0x2 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
+                0x000031b4                EVENT_CDC_Device_BreakSent
+                0x000031b4                CDC_Device_Event_Stub
+                0x000031b4                EVENT_CDC_Device_LineEncodingChanged
  .text.CDC_Device_ProcessControlRequest
-                0x0000315a      0x160 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
-                0x0000315a                CDC_Device_ProcessControlRequest
+                0x000031b6      0x160 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
+                0x000031b6                CDC_Device_ProcessControlRequest
  .text.Endpoint_Write_Control_Stream_LE
-                0x000032ba       0xb6 src/LUFA/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
-                0x000032ba                Endpoint_Write_Control_Stream_LE
+                0x00003316       0xb6 src/LUFA/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+                0x00003316                Endpoint_Write_Control_Stream_LE
  .text.Endpoint_Write_Control_PStream_LE
-                0x00003370       0xbc src/LUFA/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
-                0x00003370                Endpoint_Write_Control_PStream_LE
+                0x000033cc       0xbc src/LUFA/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+                0x000033cc                Endpoint_Write_Control_PStream_LE
  .text.Endpoint_ConfigureEndpoint_Prv
-                0x0000342c       0x6a src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
-                0x0000342c                Endpoint_ConfigureEndpoint_Prv
+                0x00003488       0x6a src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+                0x00003488                Endpoint_ConfigureEndpoint_Prv
  .text.Endpoint_ConfigureEndpointTable
-                0x00003496       0x7a src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
-                0x00003496                Endpoint_ConfigureEndpointTable
+                0x000034f2       0x7a src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+                0x000034f2                Endpoint_ConfigureEndpointTable
  .text.Endpoint_ClearStatusStage
-                0x00003510       0x3e src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
-                0x00003510                Endpoint_ClearStatusStage
+                0x0000356c       0x3e src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+                0x0000356c                Endpoint_ClearStatusStage
  .text.Endpoint_WaitUntilReady
-                0x0000354e       0x66 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
-                0x0000354e                Endpoint_WaitUntilReady
+                0x000035aa       0x66 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+                0x000035aa                Endpoint_WaitUntilReady
  .text.USB_ResetInterface
-                0x000035b4       0x72 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
-                0x000035b4                USB_ResetInterface
+                0x00003610       0x72 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+                0x00003610                USB_ResetInterface
  .text.USB_Init
-                0x00003626       0x12 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
-                0x00003626                USB_Init
+                0x00003682       0x12 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+                0x00003682                USB_Init
  .text.USB_INT_DisableAllInterrupts
-                0x00003638        0x6 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
-                0x00003638                USB_INT_DisableAllInterrupts
+                0x00003694        0x6 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+                0x00003694                USB_INT_DisableAllInterrupts
  .text.USB_INT_ClearAllInterrupts
-                0x0000363e        0x6 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
-                0x0000363e                USB_INT_ClearAllInterrupts
+                0x0000369a        0x6 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+                0x0000369a                USB_INT_ClearAllInterrupts
  .text.__vector_11
-                0x00003644      0x152 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
-                0x00003644                __vector_11
+                0x000036a0      0x152 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+                0x000036a0                __vector_11
  .text.__vector_12
-                0x00003796       0x86 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
-                0x00003796                __vector_12
+                0x000037f2       0x86 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+                0x000037f2                __vector_12
  .text.USB_Device_ProcessControlRequest
-                0x0000381c      0x2b0 src/LUFA/LUFA/Drivers/USB/Core/DeviceStandardReq.o
-                0x0000381c                USB_Device_ProcessControlRequest
+                0x00003878      0x2b0 src/LUFA/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+                0x00003878                USB_Device_ProcessControlRequest
  .text.USB_Event_Stub
-                0x00003acc        0x2 src/LUFA/LUFA/Drivers/USB/Core/Events.o
-                0x00003acc                USB_Event_Stub
-                0x00003acc                EVENT_USB_Device_Suspend
-                0x00003acc                EVENT_USB_Device_StartOfFrame
-                0x00003acc                EVENT_USB_Device_Reset
-                0x00003acc                EVENT_USB_Device_WakeUp
+                0x00003b28        0x2 src/LUFA/LUFA/Drivers/USB/Core/Events.o
+                0x00003b28                USB_Event_Stub
+                0x00003b28                EVENT_USB_Device_Suspend
+                0x00003b28                EVENT_USB_Device_StartOfFrame
+                0x00003b28                EVENT_USB_Device_Reset
+                0x00003b28                EVENT_USB_Device_WakeUp
  .text.USB_USBTask
-                0x00003ace       0x34 src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
-                0x00003ace                USB_USBTask
+                0x00003b2a       0x34 src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
+                0x00003b2a                USB_USBTask
  .text.voMS1000_Tasks
-                0x00003b02        0x2 CoffeeMaker.o
-                0x00003b02                voMS1000_Tasks
+                0x00003b5e        0x2 CoffeeMaker.o
+                0x00003b5e                voMS1000_Tasks
  .text.voMS10_Tasks
-                0x00003b04        0x4 CoffeeMaker.o
-                0x00003b04                voMS10_Tasks
+                0x00003b60        0x4 CoffeeMaker.o
+                0x00003b60                voMS10_Tasks
  .text.voMS100_Tasks
-                0x00003b08       0x18 CoffeeMaker.o
-                0x00003b08                voMS100_Tasks
+                0x00003b64       0x18 CoffeeMaker.o
+                0x00003b64                voMS100_Tasks
  .text.voMS50_Tasks
-                0x00003b20        0x6 CoffeeMaker.o
-                0x00003b20                voMS50_Tasks
+                0x00003b7c        0x6 CoffeeMaker.o
+                0x00003b7c                voMS50_Tasks
  .text.voMS1_Task
-                0x00003b26        0x2 CoffeeMaker.o
-                0x00003b26                voMS1_Task
+                0x00003b82        0x2 CoffeeMaker.o
+                0x00003b82                voMS1_Task
  .text.voUSB_Task
-                0x00003b28       0x14 CoffeeMaker.o
-                0x00003b28                voUSB_Task
+                0x00003b84       0x14 CoffeeMaker.o
+                0x00003b84                voUSB_Task
  .text.voProcessTimerOBJ
-                0x00003b3c       0x54 CoffeeMaker.o
-                0x00003b3c                voProcessTimerOBJ
+                0x00003b98       0x54 CoffeeMaker.o
+                0x00003b98                voProcessTimerOBJ
  .text.boGetConnected
-                0x00003b90        0xe CoffeeMaker.o
-                0x00003b90                boGetConnected
+                0x00003bec        0xe CoffeeMaker.o
+                0x00003bec                boGetConnected
  .text.GetUSBStream
-                0x00003b9e        0x6 CoffeeMaker.o
-                0x00003b9e                GetUSBStream
+                0x00003bfa        0x6 CoffeeMaker.o
+                0x00003bfa                GetUSBStream
  .text.voScheduler
-                0x00003ba4       0x5e CoffeeMaker.o
-                0x00003ba4                voScheduler
+                0x00003c00       0x5e CoffeeMaker.o
+                0x00003c00                voScheduler
  .text.SetupHardware
-                0x00003c02       0x5c CoffeeMaker.o
-                0x00003c02                SetupHardware
+                0x00003c5e       0x5c CoffeeMaker.o
+                0x00003c5e                SetupHardware
  .text.startup.main
-                0x00003c5e       0x58 CoffeeMaker.o
-                0x00003c5e                main
+                0x00003cba       0x58 CoffeeMaker.o
+                0x00003cba                main
  .text.EVENT_USB_Device_Connect
-                0x00003cb6        0x8 CoffeeMaker.o
-                0x00003cb6                EVENT_USB_Device_Connect
+                0x00003d12        0x8 CoffeeMaker.o
+                0x00003d12                EVENT_USB_Device_Connect
  .text.EVENT_USB_Device_Disconnect
-                0x00003cbe        0x6 CoffeeMaker.o
-                0x00003cbe                EVENT_USB_Device_Disconnect
+                0x00003d1a        0x6 CoffeeMaker.o
+                0x00003d1a                EVENT_USB_Device_Disconnect
  .text.EVENT_USB_Device_ConfigurationChanged
-                0x00003cc4        0x6 CoffeeMaker.o
-                0x00003cc4                EVENT_USB_Device_ConfigurationChanged
+                0x00003d20        0x6 CoffeeMaker.o
+                0x00003d20                EVENT_USB_Device_ConfigurationChanged
  .text.EVENT_USB_Device_ControlRequest
-                0x00003cca        0x6 CoffeeMaker.o
-                0x00003cca                EVENT_USB_Device_ControlRequest
+                0x00003d26        0x6 CoffeeMaker.o
+                0x00003d26                EVENT_USB_Device_ControlRequest
  .text.EVENT_CDC_Device_ControLineStateChanged
-                0x00003cd0        0x2 CoffeeMaker.o
-                0x00003cd0                EVENT_CDC_Device_ControLineStateChanged
+                0x00003d2c        0x2 CoffeeMaker.o
+                0x00003d2c                EVENT_CDC_Device_ControLineStateChanged
  .text.libgcc.mul
-                0x00003cd2       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_mulhi3.o)
-                0x00003cd2                __mulhi3
+                0x00003d2e       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_mulhi3.o)
+                0x00003d2e                __mulhi3
  .text.libgcc.mul
-                0x00003cf4       0x32 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_mulsi3.o)
-                0x00003cf4                __mulsi3
-                0x00003cf8                __mulsi3_helper
+                0x00003d50       0x32 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_mulsi3.o)
+                0x00003d50                __mulsi3
+                0x00003d54                __mulsi3_helper
  .text.libgcc.div
-                0x00003d26       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_udivmodhi4.o)
-                0x00003d26                __udivmodhi4
+                0x00003d82       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_udivmodhi4.o)
+                0x00003d82                __udivmodhi4
  .text.libgcc.div
-                0x00003d4e       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_udivmodsi4.o)
-                0x00003d4e                __udivmodsi4
+                0x00003daa       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_udivmodsi4.o)
+                0x00003daa                __udivmodsi4
  .text.libgcc.div
-                0x00003d92       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_divmodsi4.o)
-                0x00003d92                __divmodsi4
+                0x00003dee       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_divmodsi4.o)
+                0x00003dee                __divmodsi4
  .text.libgcc.div
-                0x00003dba       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_negsi2.o)
-                0x00003dba                __negsi2
+                0x00003e16       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_negsi2.o)
+                0x00003e16                __negsi2
  .text.avr-libc
-                0x00003dca       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(strcmp_P.o)
-                0x00003dca                strcmp_P
+                0x00003e26       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(strcmp_P.o)
+                0x00003e26                strcmp_P
  .text.avr-libc
-                0x00003ddc       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(fprintf.o)
-                0x00003ddc                fprintf
+                0x00003e38       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(fprintf.o)
+                0x00003e38                fprintf
  .text.avr-libc
-                0x00003dfa       0x30 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(fprintf_p.o)
-                0x00003dfa                fprintf_P
+                0x00003e56       0x30 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(fprintf_p.o)
+                0x00003e56                fprintf_P
  .text.avr-libc
-                0x00003e2a       0x52 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(fputs.o)
-                0x00003e2a                fputs
+                0x00003e86       0x52 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(fputs.o)
+                0x00003e86                fputs
  .text.avr-libc
-                0x00003e7c      0x3a6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(vfprintf_std.o)
-                0x00003e7c                vfprintf
+                0x00003ed8      0x3a6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(vfprintf_std.o)
+                0x00003ed8                vfprintf
  .text.avr-libc
-                0x00004222       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(strnlen_P.o)
-                0x00004222                strnlen_P
+                0x0000427e       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(strnlen_P.o)
+                0x0000427e                strnlen_P
  .text.avr-libc
-                0x00004238       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(strnlen.o)
-                0x00004238                strnlen
+                0x00004294       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(strnlen.o)
+                0x00004294                strnlen
  .text.avr-libc
-                0x0000424e       0x78 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(fputc.o)
-                0x0000424e                fputc
+                0x000042aa       0x78 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(fputc.o)
+                0x000042aa                fputc
  .text.avr-libc
-                0x000042c6       0xc0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(ultoa_invert.o)
-                0x000042c6                __ultoa_invert
+                0x00004322       0xc0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr35\libc.a(ultoa_invert.o)
+                0x00004322                __ultoa_invert
  .text.avr-libc
-                0x00004386       0x10 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.106/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eerd_byte.o)
-                0x00004386                eeprom_read_byte
+                0x000043e2       0x10 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.106/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eerd_byte.o)
+                0x000043e2                eeprom_read_byte
  .text.avr-libc
-                0x00004396       0x24 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.106/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eeupd_byte.o)
-                0x00004396                eeprom_update_byte
-                0x00004398                eeprom_update_r18
+                0x000043f2       0x24 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.106/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eeupd_byte.o)
+                0x000043f2                eeprom_update_byte
+                0x000043f4                eeprom_update_r18
  .text.avr-libc
-                0x000043ba        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.106/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eeupd_word.o)
-                0x000043ba                eeprom_update_word
+                0x00004416        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.106/gcc/dev/atmega32u2/avr35\libatmega32u2.a(eeupd_word.o)
+                0x00004416                eeprom_update_word
  .text.libgcc.mul
-                0x000043c2       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_mulqi3.o)
-                0x000043c2                __mulqi3
+                0x0000441e       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_mulqi3.o)
+                0x0000441e                __mulqi3
  .text.libgcc.prologue
-                0x000043d4       0x38 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_prologue.o)
-                0x000043d4                __prologue_saves__
+                0x00004430       0x38 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_prologue.o)
+                0x00004430                __prologue_saves__
  .text.libgcc.prologue
-                0x0000440c       0x36 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_epilogue.o)
-                0x0000440c                __epilogue_restores__
-                0x00004442                . = ALIGN (0x2)
+                0x00004468       0x36 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_epilogue.o)
+                0x00004468                __epilogue_restores__
+                0x0000449e                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00004442        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
-                0x00004442                _exit
-                0x00004442                exit
+ .fini9         0x0000449e        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
+                0x0000449e                _exit
+                0x0000449e                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -5478,11 +5478,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00004442        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
+ .fini0         0x0000449e        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr35\libgcc.a(_exit.o)
  *(.fini0)
-                0x00004446                _etext = .
+                0x000044a2                _etext = .
 
-.data           0x00800100       0xd0 load address 0x00004446
+.data           0x00800100       0xd0 load address 0x000044a2
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -5514,7 +5514,7 @@ END GROUP
                 0x008001d0                _edata = .
                 0x008001d0                PROVIDE (__data_end, .)
 
-.bss            0x008001d0       0xf1
+.bss            0x008001d0       0xfd
                 0x008001d0                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
@@ -5528,96 +5528,96 @@ END GROUP
  .bss.s16BoilerSetpoint
                 0x008001d9        0x2 services/boilertempcontroller/boilertempcontroller.o
  .bss.astrKeyEventRegister
-                0x008001db       0x14 services/buttondriver/buttondriver.o
+                0x008001db       0x20 services/buttondriver/buttondriver.o
  .bss.tStatusBits
-                0x008001ef        0x1 services/coffee_fsm/coffee_fsm.o
+                0x008001fb        0x1 services/coffee_fsm/coffee_fsm.o
  .bss.u8ProgrammLoaded
-                0x008001f0        0x1 services/coffee_fsm/coffee_fsm.o
+                0x008001fc        0x1 services/coffee_fsm/coffee_fsm.o
  .bss.u32FillTime
-                0x008001f1        0x4 services/coffee_fsm/coffee_fsm.o
+                0x008001fd        0x4 services/coffee_fsm/coffee_fsm.o
  .bss.tFSMCoffeProg
-                0x008001f5       0x10 services/coffee_fsm/coffee_fsm.o
+                0x00800201       0x10 services/coffee_fsm/coffee_fsm.o
  .bss.tFSMSettings
-                0x00800205        0xa services/coffee_fsm/coffee_fsm.o
+                0x00800211        0xa services/coffee_fsm/coffee_fsm.o
  .bss.emFSMState
-                0x0080020f        0x1 services/coffee_fsm/coffee_fsm.o
+                0x0080021b        0x1 services/coffee_fsm/coffee_fsm.o
  .bss.u8_1Hz_Cnt
-                0x00800210        0x1 services/displayservice/displayservice.o
+                0x0080021c        0x1 services/displayservice/displayservice.o
  .bss.u8_2Hz_Cnt
-                0x00800211        0x1 services/displayservice/displayservice.o
+                0x0080021d        0x1 services/displayservice/displayservice.o
  .bss.u8_5Hz_Cnt
-                0x00800212        0x1 services/displayservice/displayservice.o
+                0x0080021e        0x1 services/displayservice/displayservice.o
  .bss.u8_10Hz_Cnt
-                0x00800213        0x1 services/displayservice/displayservice.o
+                0x0080021f        0x1 services/displayservice/displayservice.o
  .bss.emIconInitialVisibiliyNow
-                0x00800214        0x9 services/displayservice/displayservice.o
+                0x00800220        0x9 services/displayservice/displayservice.o
  .bss.emIconBlinkFreqPrevious
-                0x0080021d        0x9 services/displayservice/displayservice.o
+                0x00800229        0x9 services/displayservice/displayservice.o
  .bss.emIconBlinkFreq
-                0x00800226        0x9 services/displayservice/displayservice.o
+                0x00800232        0x9 services/displayservice/displayservice.o
  .bss.u8CycleCounter
-                0x0080022f        0x1 services/heaterpowercontroller/heaterpowercontroller.o
+                0x0080023b        0x1 services/heaterpowercontroller/heaterpowercontroller.o
  .bss.u8PowerLimit
-                0x00800230        0x1 services/heaterpowercontroller/heaterpowercontroller.o
+                0x0080023c        0x1 services/heaterpowercontroller/heaterpowercontroller.o
  .bss.u8PowerSourced
-                0x00800231        0x1 services/heaterpowercontroller/heaterpowercontroller.o
+                0x0080023d        0x1 services/heaterpowercontroller/heaterpowercontroller.o
  .bss.u8MessurmentCounter
-                0x00800232        0x2 services/powermeter/powermeter.o
+                0x0080023e        0x2 services/powermeter/powermeter.o
  .bss.u32RawValue
-                0x00800234        0x4 services/powermeter/powermeter.o
+                0x00800240        0x4 services/powermeter/powermeter.o
  .bss.u16AvgPower
-                0x00800238        0x2 services/powermeter/powermeter.o
+                0x00800244        0x2 services/powermeter/powermeter.o
  .bss.emPumpState
-                0x0080023a        0x1 services/pumpservice/pumpservice.o
+                0x00800246        0x1 services/pumpservice/pumpservice.o
  .bss.u16PumpRuntime
-                0x0080023b        0x2 services/pumpservice/pumpservice.o
+                0x00800247        0x2 services/pumpservice/pumpservice.o
  .bss.u8switch_low_debounce
-                0x0080023d        0x1 services/waterlevelmessurment/waterlevelmessurment.o
-                0x0080023d                u8switch_low_debounce
+                0x00800249        0x1 services/waterlevelmessurment/waterlevelmessurment.o
+                0x00800249                u8switch_low_debounce
  .bss.u8switch_high_debounce
-                0x0080023e        0x1 services/waterlevelmessurment/waterlevelmessurment.o
-                0x0080023e                u8switch_high_debounce
+                0x0080024a        0x1 services/waterlevelmessurment/waterlevelmessurment.o
+                0x0080024a                u8switch_high_debounce
  .bss.connected
-                0x0080023f        0x1 CoffeeMaker.o
-                0x0080023f                connected
+                0x0080024b        0x1 CoffeeMaker.o
+                0x0080024b                connected
  *(COMMON)
- COMMON         0x00800240        0x4 services/boilertemp/boilertemp.o
-                0x00800240                BoilerRawValue
-                0x00800242                BoilerTemp
- COMMON         0x00800244       0x44 services/CommandInterpreter/CommandInterpreter.o
-                0x00800244                CmdConfig
-                0x00800245                u8ProgToChange
-                0x00800246                chInputBuffer
-                0x00800287                u8InputBufferWriteIdx
- COMMON         0x00800288        0x5 services/healthmonitor/healthmonitor.o
-                0x00800288                tCollectedFaults
- COMMON         0x0080028d        0xd services/lightningservice/ledlightningservice.o
-                0x0080028d                u8_1Hz_Counter
-                0x0080028e                u8_10Hz_Counter
-                0x0080028f                u8_5Hz_Counter
-                0x00800290                Led_State
-                0x00800299                u8_2Hz_Counter
- COMMON         0x0080029a        0xc services/TimerService/TimerService.o
-                0x0080029a                TimoutMsCounter
- COMMON         0x008002a6        0x3 src/LUFA/LUFA/Drivers/USB/Core/DeviceStandardReq.o
-                0x008002a6                USB_Device_ConfigurationNumber
-                0x008002a7                USB_Device_CurrentlySelfPowered
-                0x008002a8                USB_Device_RemoteWakeupEnabled
- COMMON         0x008002a9        0xa src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
-                0x008002a9                USB_IsInitialized
-                0x008002aa                USB_DeviceState
-                0x008002ab                USB_ControlRequest
- COMMON         0x008002b3        0xe CoffeeMaker.o
-                0x008002b3                USBSerialStream
-                0x008002c1                PROVIDE (__bss_end, .)
-                0x00004446                __data_load_start = LOADADDR (.data)
-                0x00004516                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x0080024c        0x4 services/boilertemp/boilertemp.o
+                0x0080024c                BoilerRawValue
+                0x0080024e                BoilerTemp
+ COMMON         0x00800250       0x44 services/CommandInterpreter/CommandInterpreter.o
+                0x00800250                CmdConfig
+                0x00800251                u8ProgToChange
+                0x00800252                chInputBuffer
+                0x00800293                u8InputBufferWriteIdx
+ COMMON         0x00800294        0x5 services/healthmonitor/healthmonitor.o
+                0x00800294                tCollectedFaults
+ COMMON         0x00800299        0xd services/lightningservice/ledlightningservice.o
+                0x00800299                u8_1Hz_Counter
+                0x0080029a                u8_10Hz_Counter
+                0x0080029b                u8_5Hz_Counter
+                0x0080029c                Led_State
+                0x008002a5                u8_2Hz_Counter
+ COMMON         0x008002a6        0xc services/TimerService/TimerService.o
+                0x008002a6                TimoutMsCounter
+ COMMON         0x008002b2        0x3 src/LUFA/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+                0x008002b2                USB_Device_ConfigurationNumber
+                0x008002b3                USB_Device_CurrentlySelfPowered
+                0x008002b4                USB_Device_RemoteWakeupEnabled
+ COMMON         0x008002b5        0xa src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
+                0x008002b5                USB_IsInitialized
+                0x008002b6                USB_DeviceState
+                0x008002b7                USB_ControlRequest
+ COMMON         0x008002bf        0xe CoffeeMaker.o
+                0x008002bf                USBSerialStream
+                0x008002cd                PROVIDE (__bss_end, .)
+                0x000044a2                __data_load_start = LOADADDR (.data)
+                0x00004572                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008002c1        0x0
+.noinit         0x008002cd        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x008002c1                _end = .
+                0x008002cd                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -5787,7 +5787,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0xb02f
+.debug_info     0x00000000     0xb0b4
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x799 Descriptors.o
  .debug_info    0x00000799      0x26c driver/gpio/gpio.o
@@ -5799,29 +5799,29 @@ END GROUP
  .debug_info    0x00001252      0x1e4 driver/USART_SPI_Master/HW_USART_SPI.o
  .debug_info    0x00001436      0x289 services/boilertempcontroller/boilertempcontroller.o
  .debug_info    0x000016bf      0x135 services/boilertemp/boilertemp.o
- .debug_info    0x000017f4      0x2b4 services/buttondriver/buttondriver.o
- .debug_info    0x00001aa8     0x110e services/coffee_fsm/coffee_fsm.o
- .debug_info    0x00002bb6     0x149f services/CommandInterpreter/CommandInterpreter.o
- .debug_info    0x00004055      0x38a services/displayservice/displayservice.o
- .debug_info    0x000043df      0xbbb services/eepromFileSystem/eepromFileSystem.o
- .debug_info    0x00004f9a      0x1a3 services/healthmonitor/healthmonitor.o
- .debug_info    0x0000513d      0x17b services/heaterpowercontroller/heaterpowercontroller.o
- .debug_info    0x000052b8      0x32c services/lightningservice/ledlightningservice.o
- .debug_info    0x000055e4      0x175 services/powermeter/powermeter.o
- .debug_info    0x00005759      0x1a3 services/pumpservice/pumpservice.o
- .debug_info    0x000058fc      0x183 services/TimerService/TimerService.o
- .debug_info    0x00005a7f      0x1b0 services/waterlevelmessurment/waterlevelmessurment.o
- .debug_info    0x00005c2f     0x10a3 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
- .debug_info    0x00006cd2     0x17cc src/LUFA/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
- .debug_info    0x0000849e      0x624 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
- .debug_info    0x00008ac2      0x487 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
- .debug_info    0x00008f49      0x726 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
- .debug_info    0x0000966f      0xa2f src/LUFA/LUFA/Drivers/USB/Core/DeviceStandardReq.o
- .debug_info    0x0000a09e       0x7c src/LUFA/LUFA/Drivers/USB/Core/Events.o
- .debug_info    0x0000a11a      0x276 src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
- .debug_info    0x0000a390      0xc9f CoffeeMaker.o
+ .debug_info    0x000017f4      0x305 services/buttondriver/buttondriver.o
+ .debug_info    0x00001af9     0x1142 services/coffee_fsm/coffee_fsm.o
+ .debug_info    0x00002c3b     0x149f services/CommandInterpreter/CommandInterpreter.o
+ .debug_info    0x000040da      0x38a services/displayservice/displayservice.o
+ .debug_info    0x00004464      0xbbb services/eepromFileSystem/eepromFileSystem.o
+ .debug_info    0x0000501f      0x1a3 services/healthmonitor/healthmonitor.o
+ .debug_info    0x000051c2      0x17b services/heaterpowercontroller/heaterpowercontroller.o
+ .debug_info    0x0000533d      0x32c services/lightningservice/ledlightningservice.o
+ .debug_info    0x00005669      0x175 services/powermeter/powermeter.o
+ .debug_info    0x000057de      0x1a3 services/pumpservice/pumpservice.o
+ .debug_info    0x00005981      0x183 services/TimerService/TimerService.o
+ .debug_info    0x00005b04      0x1b0 services/waterlevelmessurment/waterlevelmessurment.o
+ .debug_info    0x00005cb4     0x10a3 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
+ .debug_info    0x00006d57     0x17cc src/LUFA/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+ .debug_info    0x00008523      0x624 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+ .debug_info    0x00008b47      0x487 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+ .debug_info    0x00008fce      0x726 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+ .debug_info    0x000096f4      0xa2f src/LUFA/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+ .debug_info    0x0000a123       0x7c src/LUFA/LUFA/Drivers/USB/Core/Events.o
+ .debug_info    0x0000a19f      0x276 src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
+ .debug_info    0x0000a415      0xc9f CoffeeMaker.o
 
-.debug_abbrev   0x00000000     0x2f87
+.debug_abbrev   0x00000000     0x2f7e
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x15c Descriptors.o
  .debug_abbrev  0x0000015c      0x103 driver/gpio/gpio.o
@@ -5834,62 +5834,62 @@ END GROUP
  .debug_abbrev  0x000007d2      0x14c services/boilertempcontroller/boilertempcontroller.o
  .debug_abbrev  0x0000091e       0xba services/boilertemp/boilertemp.o
  .debug_abbrev  0x000009d8      0x164 services/buttondriver/buttondriver.o
- .debug_abbrev  0x00000b3c      0x291 services/coffee_fsm/coffee_fsm.o
- .debug_abbrev  0x00000dcd      0x2e5 services/CommandInterpreter/CommandInterpreter.o
- .debug_abbrev  0x000010b2      0x15e services/displayservice/displayservice.o
- .debug_abbrev  0x00001210      0x2aa services/eepromFileSystem/eepromFileSystem.o
- .debug_abbrev  0x000014ba      0x100 services/healthmonitor/healthmonitor.o
- .debug_abbrev  0x000015ba       0xf1 services/heaterpowercontroller/heaterpowercontroller.o
- .debug_abbrev  0x000016ab      0x174 services/lightningservice/ledlightningservice.o
- .debug_abbrev  0x0000181f       0xa9 services/powermeter/powermeter.o
- .debug_abbrev  0x000018c8       0xe9 services/pumpservice/pumpservice.o
- .debug_abbrev  0x000019b1       0xd2 services/TimerService/TimerService.o
- .debug_abbrev  0x00001a83       0xe5 services/waterlevelmessurment/waterlevelmessurment.o
- .debug_abbrev  0x00001b68      0x466 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
- .debug_abbrev  0x00001fce      0x1ed src/LUFA/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
- .debug_abbrev  0x000021bb      0x229 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
- .debug_abbrev  0x000023e4      0x18b src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
- .debug_abbrev  0x0000256f      0x216 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
- .debug_abbrev  0x00002785      0x29f src/LUFA/LUFA/Drivers/USB/Core/DeviceStandardReq.o
- .debug_abbrev  0x00002a24       0x47 src/LUFA/LUFA/Drivers/USB/Core/Events.o
- .debug_abbrev  0x00002a6b      0x16e src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
- .debug_abbrev  0x00002bd9      0x3ae CoffeeMaker.o
+ .debug_abbrev  0x00000b3c      0x288 services/coffee_fsm/coffee_fsm.o
+ .debug_abbrev  0x00000dc4      0x2e5 services/CommandInterpreter/CommandInterpreter.o
+ .debug_abbrev  0x000010a9      0x15e services/displayservice/displayservice.o
+ .debug_abbrev  0x00001207      0x2aa services/eepromFileSystem/eepromFileSystem.o
+ .debug_abbrev  0x000014b1      0x100 services/healthmonitor/healthmonitor.o
+ .debug_abbrev  0x000015b1       0xf1 services/heaterpowercontroller/heaterpowercontroller.o
+ .debug_abbrev  0x000016a2      0x174 services/lightningservice/ledlightningservice.o
+ .debug_abbrev  0x00001816       0xa9 services/powermeter/powermeter.o
+ .debug_abbrev  0x000018bf       0xe9 services/pumpservice/pumpservice.o
+ .debug_abbrev  0x000019a8       0xd2 services/TimerService/TimerService.o
+ .debug_abbrev  0x00001a7a       0xe5 services/waterlevelmessurment/waterlevelmessurment.o
+ .debug_abbrev  0x00001b5f      0x466 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
+ .debug_abbrev  0x00001fc5      0x1ed src/LUFA/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+ .debug_abbrev  0x000021b2      0x229 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+ .debug_abbrev  0x000023db      0x18b src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+ .debug_abbrev  0x00002566      0x216 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+ .debug_abbrev  0x0000277c      0x29f src/LUFA/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+ .debug_abbrev  0x00002a1b       0x47 src/LUFA/LUFA/Drivers/USB/Core/Events.o
+ .debug_abbrev  0x00002a62      0x16e src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
+ .debug_abbrev  0x00002bd0      0x3ae CoffeeMaker.o
 
-.debug_line     0x00000000     0xe65c
+.debug_line     0x00000000     0xe7ed
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0xca7 Descriptors.o
- .debug_line    0x00000ca7      0x496 driver/gpio/gpio.o
- .debug_line    0x0000113d      0x2ec driver/MCP3202/MCP3202.o
- .debug_line    0x00001429      0x2c3 driver/senseo_button/senseo_button.o
- .debug_line    0x000016ec      0x5a1 driver/senseo_display/senseodisplay.o
- .debug_line    0x00001c8d      0x2a2 driver/SWI2C_special/i2cmaster_senseomod.o
- .debug_line    0x00001f2f      0x3e3 driver/Timer/Timer.o
- .debug_line    0x00002312      0x3b3 driver/USART_SPI_Master/HW_USART_SPI.o
- .debug_line    0x000026c5      0x40e services/boilertempcontroller/boilertempcontroller.o
- .debug_line    0x00002ad3      0x2c4 services/boilertemp/boilertemp.o
- .debug_line    0x00002d97      0x456 services/buttondriver/buttondriver.o
- .debug_line    0x000031ed      0xce4 services/coffee_fsm/coffee_fsm.o
- .debug_line    0x00003ed1      0xc4c services/CommandInterpreter/CommandInterpreter.o
- .debug_line    0x00004b1d      0x33b services/displayservice/displayservice.o
- .debug_line    0x00004e58      0x7aa services/eepromFileSystem/eepromFileSystem.o
- .debug_line    0x00005602      0x3d9 services/healthmonitor/healthmonitor.o
- .debug_line    0x000059db      0x371 services/heaterpowercontroller/heaterpowercontroller.o
- .debug_line    0x00005d4c      0x46a services/lightningservice/ledlightningservice.o
- .debug_line    0x000061b6      0x345 services/powermeter/powermeter.o
- .debug_line    0x000064fb      0x329 services/pumpservice/pumpservice.o
- .debug_line    0x00006824      0x1d9 services/TimerService/TimerService.o
- .debug_line    0x000069fd      0x38a services/waterlevelmessurment/waterlevelmessurment.o
- .debug_line    0x00006d87     0x1359 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
- .debug_line    0x000080e0     0x1a88 src/LUFA/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
- .debug_line    0x00009b68      0xb67 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
- .debug_line    0x0000a6cf      0x8aa src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
- .debug_line    0x0000af79      0xa8c src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
- .debug_line    0x0000ba05      0xa5d src/LUFA/LUFA/Drivers/USB/Core/DeviceStandardReq.o
- .debug_line    0x0000c462      0x47a src/LUFA/LUFA/Drivers/USB/Core/Events.o
- .debug_line    0x0000c8dc      0x7fa src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
- .debug_line    0x0000d0d6     0x1586 CoffeeMaker.o
+ .debug_line    0x00000000      0xca8 Descriptors.o
+ .debug_line    0x00000ca8      0x496 driver/gpio/gpio.o
+ .debug_line    0x0000113e      0x2ec driver/MCP3202/MCP3202.o
+ .debug_line    0x0000142a      0x2c3 driver/senseo_button/senseo_button.o
+ .debug_line    0x000016ed      0x5a1 driver/senseo_display/senseodisplay.o
+ .debug_line    0x00001c8e      0x2a2 driver/SWI2C_special/i2cmaster_senseomod.o
+ .debug_line    0x00001f30      0x3e3 driver/Timer/Timer.o
+ .debug_line    0x00002313      0x3b3 driver/USART_SPI_Master/HW_USART_SPI.o
+ .debug_line    0x000026c6      0x40e services/boilertempcontroller/boilertempcontroller.o
+ .debug_line    0x00002ad4      0x2c4 services/boilertemp/boilertemp.o
+ .debug_line    0x00002d98      0x4aa services/buttondriver/buttondriver.o
+ .debug_line    0x00003242      0xcf5 services/coffee_fsm/coffee_fsm.o
+ .debug_line    0x00003f37      0xc4c services/CommandInterpreter/CommandInterpreter.o
+ .debug_line    0x00004b83      0x33b services/displayservice/displayservice.o
+ .debug_line    0x00004ebe      0x7aa services/eepromFileSystem/eepromFileSystem.o
+ .debug_line    0x00005668      0x3d9 services/healthmonitor/healthmonitor.o
+ .debug_line    0x00005a41      0x371 services/heaterpowercontroller/heaterpowercontroller.o
+ .debug_line    0x00005db2      0x46a services/lightningservice/ledlightningservice.o
+ .debug_line    0x0000621c      0x345 services/powermeter/powermeter.o
+ .debug_line    0x00006561      0x329 services/pumpservice/pumpservice.o
+ .debug_line    0x0000688a      0x1d9 services/TimerService/TimerService.o
+ .debug_line    0x00006a63      0x38a services/waterlevelmessurment/waterlevelmessurment.o
+ .debug_line    0x00006ded     0x13bd src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
+ .debug_line    0x000081aa     0x1a8c src/LUFA/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+ .debug_line    0x00009c36      0xbc6 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+ .debug_line    0x0000a7fc      0x8ae src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+ .debug_line    0x0000b0aa      0xaeb src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+ .debug_line    0x0000bb95      0xa5d src/LUFA/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+ .debug_line    0x0000c5f2      0x47a src/LUFA/LUFA/Drivers/USB/Core/Events.o
+ .debug_line    0x0000ca6c      0x7fa src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
+ .debug_line    0x0000d266     0x1587 CoffeeMaker.o
 
-.debug_frame    0x00000000     0x1694
+.debug_frame    0x00000000     0x1698
  *(.debug_frame)
  .debug_frame   0x00000000       0x24 Descriptors.o
  .debug_frame   0x00000024       0xa4 driver/gpio/gpio.o
@@ -5900,92 +5900,92 @@ END GROUP
  .debug_frame   0x000002f0       0xf4 driver/USART_SPI_Master/HW_USART_SPI.o
  .debug_frame   0x000003e4       0x74 services/boilertempcontroller/boilertempcontroller.o
  .debug_frame   0x00000458       0x54 services/boilertemp/boilertemp.o
- .debug_frame   0x000004ac       0x64 services/buttondriver/buttondriver.o
- .debug_frame   0x00000510      0x1b0 services/coffee_fsm/coffee_fsm.o
- .debug_frame   0x000006c0      0x194 services/CommandInterpreter/CommandInterpreter.o
- .debug_frame   0x00000854       0xb4 services/displayservice/displayservice.o
- .debug_frame   0x00000908      0x230 services/eepromFileSystem/eepromFileSystem.o
- .debug_frame   0x00000b38       0x54 services/healthmonitor/healthmonitor.o
- .debug_frame   0x00000b8c       0x54 services/heaterpowercontroller/heaterpowercontroller.o
- .debug_frame   0x00000be0       0x64 services/lightningservice/ledlightningservice.o
- .debug_frame   0x00000c44       0x90 services/powermeter/powermeter.o
- .debug_frame   0x00000cd4       0x64 services/pumpservice/pumpservice.o
- .debug_frame   0x00000d38       0x54 services/TimerService/TimerService.o
- .debug_frame   0x00000d8c       0x3c services/waterlevelmessurment/waterlevelmessurment.o
- .debug_frame   0x00000dc8      0x198 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
- .debug_frame   0x00000f60      0x3bc src/LUFA/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
- .debug_frame   0x0000131c       0x78 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
- .debug_frame   0x00001394       0x44 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
- .debug_frame   0x000013d8       0xec src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
- .debug_frame   0x000014c4       0x3c src/LUFA/LUFA/Drivers/USB/Core/DeviceStandardReq.o
- .debug_frame   0x00001500       0x24 src/LUFA/LUFA/Drivers/USB/Core/Events.o
- .debug_frame   0x00001524       0x2c src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
- .debug_frame   0x00001550      0x144 CoffeeMaker.o
+ .debug_frame   0x000004ac       0x68 services/buttondriver/buttondriver.o
+ .debug_frame   0x00000514      0x1b0 services/coffee_fsm/coffee_fsm.o
+ .debug_frame   0x000006c4      0x194 services/CommandInterpreter/CommandInterpreter.o
+ .debug_frame   0x00000858       0xb4 services/displayservice/displayservice.o
+ .debug_frame   0x0000090c      0x230 services/eepromFileSystem/eepromFileSystem.o
+ .debug_frame   0x00000b3c       0x54 services/healthmonitor/healthmonitor.o
+ .debug_frame   0x00000b90       0x54 services/heaterpowercontroller/heaterpowercontroller.o
+ .debug_frame   0x00000be4       0x64 services/lightningservice/ledlightningservice.o
+ .debug_frame   0x00000c48       0x90 services/powermeter/powermeter.o
+ .debug_frame   0x00000cd8       0x64 services/pumpservice/pumpservice.o
+ .debug_frame   0x00000d3c       0x54 services/TimerService/TimerService.o
+ .debug_frame   0x00000d90       0x3c services/waterlevelmessurment/waterlevelmessurment.o
+ .debug_frame   0x00000dcc      0x198 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
+ .debug_frame   0x00000f64      0x3bc src/LUFA/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+ .debug_frame   0x00001320       0x78 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+ .debug_frame   0x00001398       0x44 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+ .debug_frame   0x000013dc       0xec src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+ .debug_frame   0x000014c8       0x3c src/LUFA/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+ .debug_frame   0x00001504       0x24 src/LUFA/LUFA/Drivers/USB/Core/Events.o
+ .debug_frame   0x00001528       0x2c src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
+ .debug_frame   0x00001554      0x144 CoffeeMaker.o
 
-.debug_str      0x00000000    0x17632
+.debug_str      0x00000000    0x176cc
  *(.debug_str)
- .debug_str     0x00000000    0x12a0c Descriptors.o
-                              0x12ce8 (size before relaxing)
- .debug_str     0x00012a0c      0x485 driver/gpio/gpio.o
+ .debug_str     0x00000000    0x12a15 Descriptors.o
+                              0x12cf1 (size before relaxing)
+ .debug_str     0x00012a15      0x4bc driver/gpio/gpio.o
                                0x70b6 (size before relaxing)
- .debug_str     0x00012e91      0x264 driver/MCP3202/MCP3202.o
+ .debug_str     0x00012ed1      0x264 driver/MCP3202/MCP3202.o
                                0x7100 (size before relaxing)
- .debug_str     0x000130f5       0xb7 driver/senseo_button/senseo_button.o
+ .debug_str     0x00013135       0xb7 driver/senseo_button/senseo_button.o
                                0x6d11 (size before relaxing)
- .debug_str     0x000131ac      0x432 driver/senseo_display/senseodisplay.o
+ .debug_str     0x000131ec      0x432 driver/senseo_display/senseodisplay.o
                                0x70ba (size before relaxing)
- .debug_str     0x000135de       0xf7 driver/Timer/Timer.o
+ .debug_str     0x0001361e       0xf7 driver/Timer/Timer.o
                                0x74a8 (size before relaxing)
- .debug_str     0x000136d5      0x110 driver/USART_SPI_Master/HW_USART_SPI.o
+ .debug_str     0x00013715      0x110 driver/USART_SPI_Master/HW_USART_SPI.o
                                0x74f8 (size before relaxing)
- .debug_str     0x000137e5      0x1f1 services/boilertempcontroller/boilertempcontroller.o
+ .debug_str     0x00013825      0x1f1 services/boilertempcontroller/boilertempcontroller.o
                                0x72be (size before relaxing)
- .debug_str     0x000139d6       0x56 services/boilertemp/boilertemp.o
+ .debug_str     0x00013a16       0x56 services/boilertemp/boilertemp.o
                                0x70de (size before relaxing)
- .debug_str     0x00013a2c      0x1cb services/buttondriver/buttondriver.o
-                               0x6e8b (size before relaxing)
- .debug_str     0x00013bf7      0x8f0 services/coffee_fsm/coffee_fsm.o
-                               0x825e (size before relaxing)
- .debug_str     0x000144e7      0x49c services/CommandInterpreter/CommandInterpreter.o
+ .debug_str     0x00013a6c      0x225 services/buttondriver/buttondriver.o
+                               0x6ef7 (size before relaxing)
+ .debug_str     0x00013c91      0x8f0 services/coffee_fsm/coffee_fsm.o
+                               0x82b0 (size before relaxing)
+ .debug_str     0x00014581      0x49c services/CommandInterpreter/CommandInterpreter.o
                                0x8f26 (size before relaxing)
- .debug_str     0x00014983       0xdc services/displayservice/displayservice.o
+ .debug_str     0x00014a1d       0xdc services/displayservice/displayservice.o
                                0x412c (size before relaxing)
- .debug_str     0x00014a5f      0x36b services/eepromFileSystem/eepromFileSystem.o
+ .debug_str     0x00014af9      0x36b services/eepromFileSystem/eepromFileSystem.o
                                0x90c5 (size before relaxing)
- .debug_str     0x00014dca       0xba services/healthmonitor/healthmonitor.o
+ .debug_str     0x00014e64       0xba services/healthmonitor/healthmonitor.o
                                0x718d (size before relaxing)
- .debug_str     0x00014e84       0x9c services/heaterpowercontroller/heaterpowercontroller.o
+ .debug_str     0x00014f1e       0x9c services/heaterpowercontroller/heaterpowercontroller.o
                                0x7117 (size before relaxing)
- .debug_str     0x00014f20      0x104 services/lightningservice/ledlightningservice.o
+ .debug_str     0x00014fba      0x104 services/lightningservice/ledlightningservice.o
                                0x6e88 (size before relaxing)
- .debug_str     0x00015024       0xb7 services/powermeter/powermeter.o
+ .debug_str     0x000150be       0xb7 services/powermeter/powermeter.o
                                0x710e (size before relaxing)
- .debug_str     0x000150db       0x76 services/pumpservice/pumpservice.o
+ .debug_str     0x00015175       0x76 services/pumpservice/pumpservice.o
                                0x6d69 (size before relaxing)
- .debug_str     0x00015151       0x81 services/TimerService/TimerService.o
+ .debug_str     0x000151eb       0x81 services/TimerService/TimerService.o
                                0x37d5 (size before relaxing)
- .debug_str     0x000151d2      0x12b services/waterlevelmessurment/waterlevelmessurment.o
+ .debug_str     0x0001526c      0x12b services/waterlevelmessurment/waterlevelmessurment.o
                                0x6e0a (size before relaxing)
- .debug_str     0x000152fd      0x836 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
-                              0x12ba0 (size before relaxing)
- .debug_str     0x00015b33      0x888 src/LUFA/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
-                               0xcee9 (size before relaxing)
- .debug_str     0x000163bb      0x1c6 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
-                               0xc598 (size before relaxing)
- .debug_str     0x00016581      0x284 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
-                               0xc4cf (size before relaxing)
- .debug_str     0x00016805      0x182 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
-                               0xc503 (size before relaxing)
- .debug_str     0x00016987      0x475 src/LUFA/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+ .debug_str     0x00015397      0x836 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
+                              0x12ba9 (size before relaxing)
+ .debug_str     0x00015bcd      0x888 src/LUFA/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+                               0xcef2 (size before relaxing)
+ .debug_str     0x00016455      0x1c6 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+                               0xc5a1 (size before relaxing)
+ .debug_str     0x0001661b      0x284 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+                               0xc4d8 (size before relaxing)
+ .debug_str     0x0001689f      0x182 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+                               0xc50c (size before relaxing)
+ .debug_str     0x00016a21      0x475 src/LUFA/LUFA/Drivers/USB/Core/DeviceStandardReq.o
                                0xc969 (size before relaxing)
- .debug_str     0x00016dfc       0x53 src/LUFA/LUFA/Drivers/USB/Core/Events.o
+ .debug_str     0x00016e96       0x53 src/LUFA/LUFA/Drivers/USB/Core/Events.o
                                0xb75c (size before relaxing)
- .debug_str     0x00016e4f       0x62 src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
+ .debug_str     0x00016ee9       0x62 src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
                                0xc317 (size before relaxing)
- .debug_str     0x00016eb1      0x781 CoffeeMaker.o
-                              0x134d7 (size before relaxing)
+ .debug_str     0x00016f4b      0x781 CoffeeMaker.o
+                              0x134e0 (size before relaxing)
 
-.debug_loc      0x00000000     0x668f
+.debug_loc      0x00000000     0x665c
  *(.debug_loc)
  .debug_loc     0x00000000      0x186 Descriptors.o
  .debug_loc     0x00000186      0x1db driver/gpio/gpio.o
@@ -5996,26 +5996,26 @@ END GROUP
  .debug_loc     0x0000078a      0x18d driver/USART_SPI_Master/HW_USART_SPI.o
  .debug_loc     0x00000917       0x28 services/boilertempcontroller/boilertempcontroller.o
  .debug_loc     0x0000093f       0x77 services/boilertemp/boilertemp.o
- .debug_loc     0x000009b6      0x161 services/buttondriver/buttondriver.o
- .debug_loc     0x00000b17      0x6fe services/coffee_fsm/coffee_fsm.o
- .debug_loc     0x00001215      0x9e5 services/CommandInterpreter/CommandInterpreter.o
- .debug_loc     0x00001bfa      0x1a4 services/displayservice/displayservice.o
- .debug_loc     0x00001d9e      0xd91 services/eepromFileSystem/eepromFileSystem.o
- .debug_loc     0x00002b2f       0x5b services/healthmonitor/healthmonitor.o
- .debug_loc     0x00002b8a       0x21 services/heaterpowercontroller/heaterpowercontroller.o
- .debug_loc     0x00002bab      0x1b6 services/lightningservice/ledlightningservice.o
- .debug_loc     0x00002d61       0x73 services/powermeter/powermeter.o
- .debug_loc     0x00002dd4       0x2c services/pumpservice/pumpservice.o
- .debug_loc     0x00002e00       0xca services/TimerService/TimerService.o
- .debug_loc     0x00002eca       0x81 services/waterlevelmessurment/waterlevelmessurment.o
- .debug_loc     0x00002f4b      0xb5a src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
- .debug_loc     0x00003aa5     0x1f6f src/LUFA/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
- .debug_loc     0x00005a14      0x399 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
- .debug_loc     0x00005dad       0x78 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
- .debug_loc     0x00005e25      0x3b8 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
- .debug_loc     0x000061dd      0x2d7 src/LUFA/LUFA/Drivers/USB/Core/DeviceStandardReq.o
- .debug_loc     0x000064b4       0x49 src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
- .debug_loc     0x000064fd      0x192 CoffeeMaker.o
+ .debug_loc     0x000009b6      0x160 services/buttondriver/buttondriver.o
+ .debug_loc     0x00000b16      0x6cc services/coffee_fsm/coffee_fsm.o
+ .debug_loc     0x000011e2      0x9e5 services/CommandInterpreter/CommandInterpreter.o
+ .debug_loc     0x00001bc7      0x1a4 services/displayservice/displayservice.o
+ .debug_loc     0x00001d6b      0xd91 services/eepromFileSystem/eepromFileSystem.o
+ .debug_loc     0x00002afc       0x5b services/healthmonitor/healthmonitor.o
+ .debug_loc     0x00002b57       0x21 services/heaterpowercontroller/heaterpowercontroller.o
+ .debug_loc     0x00002b78      0x1b6 services/lightningservice/ledlightningservice.o
+ .debug_loc     0x00002d2e       0x73 services/powermeter/powermeter.o
+ .debug_loc     0x00002da1       0x2c services/pumpservice/pumpservice.o
+ .debug_loc     0x00002dcd       0xca services/TimerService/TimerService.o
+ .debug_loc     0x00002e97       0x81 services/waterlevelmessurment/waterlevelmessurment.o
+ .debug_loc     0x00002f18      0xb5a src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o
+ .debug_loc     0x00003a72     0x1f6f src/LUFA/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+ .debug_loc     0x000059e1      0x399 src/LUFA/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+ .debug_loc     0x00005d7a       0x78 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+ .debug_loc     0x00005df2      0x3b8 src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+ .debug_loc     0x000061aa      0x2d7 src/LUFA/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+ .debug_loc     0x00006481       0x49 src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
+ .debug_loc     0x000064ca      0x192 CoffeeMaker.o
 
 .debug_macinfo
  *(.debug_macinfo)
