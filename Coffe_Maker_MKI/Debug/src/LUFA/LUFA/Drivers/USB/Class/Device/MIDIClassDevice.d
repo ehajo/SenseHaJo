@@ -40,15 +40,15 @@ src/LUFA/LUFA/Drivers/USB/Class/Device/MIDIClassDevice.d \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/USBMode.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/USBController.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/USBController_AVR8.h \
- d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h \
+ ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../../../../Common/Common.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../USBMode.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../Events.h \
- d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h \
+ ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../../../../Common/Common.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../USBMode.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../USBTask.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../USBInterrupt.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../AVR8/USBInterrupt_AVR8.h \
- d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h \
+ c:\users\ms_ac\documents\github\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../AVR8/../USBMode.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../AVR8/../Events.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../AVR8/../USBController.h \
@@ -90,7 +90,7 @@ src/LUFA/LUFA/Drivers/USB/Class/Device/MIDIClassDevice.d \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/Device/AudioClassDevice.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/Device/../../USB.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/Device/../Common/AudioClassCommon.h \
- d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\drivers\usb\core\stddescriptors.h \
+ ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/Device/../Common/../../Core/StdDescriptors.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/CDCClass.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/Device/CDCClassDevice.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/Device/../Common/CDCClassCommon.h \
@@ -100,7 +100,7 @@ src/LUFA/LUFA/Drivers/USB/Class/Device/MIDIClassDevice.d \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/Device/HIDClassDevice.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/Device/../Common/HIDClassCommon.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/Device/../Common/HIDParser.h \
- d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h \
+ c:\users\ms_ac\documents\github\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/Device/../Common/HIDReportData.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/Device/../Common/HIDClassCommon.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/MassStorageClass.h \
@@ -198,13 +198,13 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/USBController_AVR8.h:
 
-d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h:
+../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../../../../Common/Common.h:
 
 ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../USBMode.h:
 
 ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../Events.h:
 
-d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h:
+../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../../../../Common/Common.h:
 
 ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../USBMode.h:
 
@@ -214,7 +214,7 @@ d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h:
 
 ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../AVR8/USBInterrupt_AVR8.h:
 
-d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h:
+c:\users\ms_ac\documents\github\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h:
 
 ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Core/AVR8/../AVR8/../USBMode.h:
 
@@ -298,7 +298,7 @@ d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h:
 
 ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/Device/../Common/AudioClassCommon.h:
 
-d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\drivers\usb\core\stddescriptors.h:
+../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/Device/../Common/../../Core/StdDescriptors.h:
 
 ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/CDCClass.h:
 
@@ -318,7 +318,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/Device/../Common/HIDParser.h:
 
-d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h:
+c:\users\ms_ac\documents\github\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h:
 
 ../src/LUFA/LUFA/Drivers/USB/Class/Device/../../Class/Device/../Common/HIDReportData.h:
 

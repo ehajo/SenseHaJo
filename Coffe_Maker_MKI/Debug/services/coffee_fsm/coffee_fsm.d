@@ -1,7 +1,7 @@
 services/coffee_fsm/coffee_fsm.d services/coffee_fsm/coffee_fsm.o: \
  ../services/coffee_fsm/coffee_fsm.c \
  ../services/coffee_fsm/../../services/buttondriver/buttondriver.h \
- d:\github\sensehajoavr\sensehajo\coffe_maker_mki\driver\gpio\gpio.h \
+ ../services/coffee_fsm/../../services/buttondriver/../../driver/gpio/gpio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -13,7 +13,7 @@ services/coffee_fsm/coffee_fsm.d services/coffee_fsm/coffee_fsm.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- d:\github\sensehajoavr\sensehajo\coffe_maker_mki\driver\gpio\gpio_typedef.h \
+ ../services/coffee_fsm/../../services/buttondriver/../../driver/gpio/gpio_typedef.h \
  ../services/coffee_fsm/../../services/boilertemp/boilertemp.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
@@ -24,7 +24,7 @@ services/coffee_fsm/coffee_fsm.d services/coffee_fsm/coffee_fsm.o: \
  ../services/coffee_fsm/../../services/displayservice/displayservice.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- d:\github\sensehajoavr\sensehajo\coffe_maker_mki\driver\senseo_display\senseodisplay_enum.h \
+ c:\users\ms_ac\documents\github\sensehajo\coffe_maker_mki\driver\senseo_display\senseodisplay_enum.h \
  ../services/coffee_fsm/../../driver/ramfs/ramfs.h \
  ../src/../services/eepromFileSystem/eepromFilesSystemTypes.h \
  ../services/coffee_fsm/../../services/healthmonitor/healthmonitor.h \
@@ -37,7 +37,7 @@ services/coffee_fsm/coffee_fsm.d services/coffee_fsm/coffee_fsm.o: \
 
 ../services/coffee_fsm/../../services/buttondriver/buttondriver.h:
 
-d:\github\sensehajoavr\sensehajo\coffe_maker_mki\driver\gpio\gpio.h:
+../services/coffee_fsm/../../services/buttondriver/../../driver/gpio/gpio.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -61,7 +61,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-d:\github\sensehajoavr\sensehajo\coffe_maker_mki\driver\gpio\gpio_typedef.h:
+../services/coffee_fsm/../../services/buttondriver/../../driver/gpio/gpio_typedef.h:
 
 ../services/coffee_fsm/../../services/boilertemp/boilertemp.h:
 
@@ -83,7 +83,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
 
-d:\github\sensehajoavr\sensehajo\coffe_maker_mki\driver\senseo_display\senseodisplay_enum.h:
+c:\users\ms_ac\documents\github\sensehajo\coffe_maker_mki\driver\senseo_display\senseodisplay_enum.h:
 
 ../services/coffee_fsm/../../driver/ramfs/ramfs.h:
 

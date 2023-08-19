@@ -24,6 +24,12 @@
 #define LID_KEY ( 3 )
 
 typedef enum {
+	KeyNotPressed,
+	KeyShortPressed,
+	KeyLongPressed,
+} KeyPressType_t;
+
+typedef enum {
 	KeyUnchanged,
 	KeyChanged,
 	KeyInvalide
@@ -32,6 +38,7 @@ typedef enum {
 typedef struct {
 	KeyChangeState_t KeyChangeState;
 	emSWITCHSTATE	SwitchState;
+	KeyPressType_t KeyPressType;	
 } KeyEvent_t;
 
 void voKeyEvent_TaskInit( void );
