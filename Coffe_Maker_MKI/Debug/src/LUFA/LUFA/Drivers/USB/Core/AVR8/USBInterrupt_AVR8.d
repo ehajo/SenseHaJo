@@ -42,11 +42,11 @@ src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.d \
  ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../USBMode.h \
  ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../USBController.h \
  ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h \
- ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../../../../Common/Common.h \
+ d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h \
  ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../USBMode.h \
  ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../Events.h \
  ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../USBTask.h \
- ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../../../../Common/Common.h \
+ d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h \
  ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../USBMode.h \
  ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../USBController.h \
  ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../Events.h \
@@ -59,7 +59,7 @@ src/LUFA/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.d \
  ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../USBInterrupt.h \
  ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../Endpoint.h \
  ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/Endpoint_AVR8.h \
- c:\users\ms_ac\documents\github\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h \
+ d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h \
  ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/../USBTask.h \
  ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/../USBInterrupt.h \
  ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/Device_AVR8.h \
@@ -154,7 +154,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h:
 
-../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../../../../Common/Common.h:
+d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h:
 
 ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../USBMode.h:
 
@@ -162,7 +162,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../USBTask.h:
 
-../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../../../../Common/Common.h:
+d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h:
 
 ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../USBMode.h:
 
@@ -188,7 +188,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/Endpoint_AVR8.h:
 
-c:\users\ms_ac\documents\github\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h:
+d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h:
 
 ../src/LUFA/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/../USBTask.h:
 

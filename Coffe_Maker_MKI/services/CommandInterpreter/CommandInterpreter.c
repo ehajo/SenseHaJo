@@ -19,6 +19,7 @@
 #include "../eepromFileSystem/eepromFileSystem.h"
 #include "../powermeter/powermeter.h"
 #include "../boilertempcontroller/boilertempcontroller.h"
+#include "../../driver/gpio/gpio_typedef.h"
 
 #define INPUTBUFFERSIZE ( 64 )
 #define LINE_END '\r'
@@ -813,7 +814,7 @@ void voProcessData(){
 							case 3:{
 								if(boGetConnected()==true){
 									emSWITCHSTATE emReturnValue=SWITCH_RELEASED;
-									emReturnValue = emSWITCHSTATE SBNT_emGetState( void );
+									emReturnValue = SBNT_emGetState();
 									FILE* USBSTREAM = GetUSBStream();
 									if(SWITCH_RELEASED == emReturnValue){
 										fprintf(USBSTREAM,"DISPLAY BTN RELEASED\n\r");
@@ -858,7 +859,7 @@ void voProcessData(){
 									"------------------------------------------------------------------------------------------\n\r"
 									"GPIO index out of range, see HELP GPIO for more info"
 									"-------------------------------------------------------------------------------------------\n\r"
-									);
+									));
 								}
 							}
 						}
@@ -870,7 +871,7 @@ void voProcessData(){
 							"------------------------------------------------------------------------------------------\n\r"
 							"Only GET is supported for GPIO , see HELP GPIO for more info"
 							"-------------------------------------------------------------------------------------------\n\r"
-							);
+							));
 						}
 					} else if (COMMAND.DIR==CMDI_HELP) {
 						if(boGetConnected()==true){
@@ -887,7 +888,7 @@ void voProcessData(){
 							"5 = Water sensor high level"
 							"Example: 'GET GPIO 0' will return the current level of SWITCH 0"
 							"-------------------------------------------------------------------------------------------\n\r"
-							);
+							));
 						}	
 					} else {
 						voResponseParamErr();

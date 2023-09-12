@@ -24,7 +24,8 @@ services/CommandInterpreter/CommandInterpreter.d \
  ../services/CommandInterpreter/../eepromFileSystem/eepromFilesSystemTypes.h \
  ../services/CommandInterpreter/../powermeter/powermeter.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
- ../services/CommandInterpreter/../boilertempcontroller/boilertempcontroller.h
+ ../services/CommandInterpreter/../boilertempcontroller/boilertempcontroller.h \
+ ../services/CommandInterpreter/../../driver/gpio/gpio_typedef.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
@@ -73,3 +74,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
 
 ../services/CommandInterpreter/../boilertempcontroller/boilertempcontroller.h:
+
+../services/CommandInterpreter/../../driver/gpio/gpio_typedef.h:
