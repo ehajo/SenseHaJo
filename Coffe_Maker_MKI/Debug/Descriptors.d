@@ -96,7 +96,7 @@ Descriptors.d Descriptors.o: .././Descriptors.c .././Descriptors.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/HIDClassDevice.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/HIDClassCommon.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/HIDParser.h \
- ../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/../../../../Common/Common.h \
+ d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/HIDReportData.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/HIDClassCommon.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/MassStorageClass.h \
@@ -311,7 +311,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 ../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/HIDParser.h:
 
-../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/../../../../Common/Common.h:
+d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h:
 
 ../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/HIDReportData.h:
 
