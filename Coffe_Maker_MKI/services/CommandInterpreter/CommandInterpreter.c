@@ -327,8 +327,16 @@ void voProcessData(){
 							}
 						
 						} else {
-							/* We don't know the command and need to prepare an error */
-							COMMAND.CMD=CMDI_NONE;
+							if( (CMDI_GET==COMMAND.DIR) && ( CMDI_GPIO == COMMAND.CMD) ){
+								if(StringToUint(cpreptr,&COMMAND.u32CmdValue)==false){
+									//All good here
+								} else {
+									COMMAND.CMD=CMDI_NONE; //Parser Error
+								}		
+							} else {
+								/* We don't know the command and need to prepare an error */
+								COMMAND.CMD=CMDI_NONE;
+							}
 						
 						}
 					}
@@ -387,6 +395,7 @@ void voProcessData(){
 												"------------------------------------------------------------------------------------------\n\r"
 												"Use SET, GET, CMD and HELP\n\r"
 												"Commands are:\n\r"
+												"GPIO - Get GPIO State	(Can only use GET)\n\r"
 												"TEMP - Set or Get Prog. Temp.\n\r"
 												"PRG - Set or Get current Prog.\n\r"
 												"CHPRG - Set or Get the current Prog. to modify\n\r"
