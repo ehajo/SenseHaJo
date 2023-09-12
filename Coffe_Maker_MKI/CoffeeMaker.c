@@ -1,38 +1,15 @@
 /*
-             LUFA Library
-     Copyright (C) Dean Camera, 2015.
-
-  dean [at] fourwalledcubicle [dot] com
-           www.lufa-lib.org
-*/
+ * main.c
+ *
+ * Created: 24.03.2017 19:08:59
+ * Author: Mathias Claußen aka calm
+ */ 
 
 /*
-  Copyright 2015  Dean Camera (dean [at] fourwalledcubicle [dot] com)
-
-  Permission to use, copy, modify, distribute, and sell this
-  software and its documentation for any purpose is hereby granted
-  without fee, provided that the above copyright notice appear in
-  all copies and that both that the copyright notice and this
-  permission notice and warranty disclaimer appear in supporting
-  documentation, and that the name of the author not be used in
-  advertising or publicity pertaining to distribution of the
-  software without specific, written prior permission.
-
-  The author disclaims all warranties with regard to this
-  software, including all implied warranties of merchantability
-  and fitness.  In no event shall the author be liable for any
-  special, indirect or consequential damages or any damages
-  whatsoever resulting from loss of use, data or profits, whether
-  in an action of contract, negligence or other tortious action,
-  arising out of or in connection with the use or performance of
-  this software.
+* www.eHaJo.de
+* All rights reserved
+* (C) 2016-2017
 */
-
-/** \file
- *
- *  Main source file for the VirtualSerial demo. This file contains the main tasks of
- *  the demo and is responsible for the initial application hardware configuration.
- */
 
 #include "CoffeeMaker.h"
 
@@ -117,9 +94,25 @@ FILE USBSerialStream;
 volatile uint8_t connected=0;
 
 
-/** Main program entry point. This routine contains the overall program flow, including initial
- *  setup of all components and the main program loop.
- */
+/* Main entry point, this also start the scheduler for some tasks
+
+While we have no RTOS on this MCU, we still need to execute some
+task in an organized fashion. This is done by the "scheduler" but
+not one you would find in an RTOS. This one is very simple and
+will require things to be handled in the super loop. 
+
+What it is doing is calling a set of functions at a given point
+in time to produce some cooperative tasking. 
+
+TIMEROBJ_t Timer_OBJ[] holds an array of functions to be called at
+certain intervals (in ms). In these functions all tasks that need
+to be run in certain intervals will be called.
+
+All is organized by voScheduler() that uses a timer to keep track
+which task needs to be run next
+ 
+*/
+
 int main(void)
 {
 	SetupHardware();
@@ -191,7 +184,7 @@ uint16_t u16intervall = ptrTimerOBJ->u16_intervall;
 	if(ptrTimerOBJ->u16_intervall>0){
 		/* Everything here is run at XXXms Slots */
 		if(ptrTimerOBJ->u16_lastrun > u16_current_time ){
-			/* our timedelta is now  ( UINT16_MAX - u16_lastrun ) + u16_current_time */
+			/* our time delta is now  ( UINT16_MAX - u16_lastrun ) + u16_current_time */
 			u16Delta = ( ( UINT16_MAX - ptrTimerOBJ->u16_lastrun) +u16_current_time  );
 			if( u16Delta > u16intervall){
 				ptrTimerOBJ->RunRequiered=1;
@@ -212,9 +205,9 @@ uint16_t u16intervall = ptrTimerOBJ->u16_intervall;
 	}
 }
 
-/* Littel dity define for Timer */
+/* Little dirty define for Timer */
 #define TIMER( Period , CallBack) {0, Period , 0 , CallBack }
-/*  */
+/* The Table needs to be placed in RAM as we store some additional information during runtime in it */
 volatile TIMEROBJ_t Timer_OBJ[] = {
 	
 	TIMER(1,   voMS1_Task),
@@ -298,7 +291,7 @@ void voMS1000_Tasks(){
 }
 
 
-/** Configures the board hardware and chip peripherals for the demo's functionality. */
+/* Configuration for the MkI Hardware */
 void SetupHardware(void)
 {
 #if (ARCH == ARCH_AVR8)
