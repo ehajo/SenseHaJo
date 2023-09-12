@@ -67,6 +67,7 @@ typedef enum {
 	CMDI_STBY_TEMP,
 	CMDI_SYS_HELP,
 	CMDI_ECHO,
+	CMDI_GPIO,
 	/* Commands for CMD */
 	CMDI_MAKE,
 	CMDI_POWER,
@@ -289,6 +290,8 @@ void voProcessData(){
 							COMMAND.CMD=CMDI_STBY_TEMP;	
 						}else if(strcmp_P(cpreptr,PSTR("ECHO"))==0){
 							COMMAND.CMD=CMDI_ECHO;	
+						} else if (strcmp_P(cpreptr,PSTR("GPIO"))==0){
+							COMMAND.CMD=CMDI_GPIO;	
 						} else {
 							/* We don't know the command and need to prepare an error */
 							COMMAND.CMD=CMDI_NONE;
@@ -392,13 +395,13 @@ void voProcessData(){
 												"CURPWR - Get the current power used\n\r"
 												"BOILERTMP - Get the current boiler temp.\n\r"
 												"LEVEL - Set or Get the current fill level of the Cup\n\r"
-												"AUTOOF - Set or Get the Time in Minutes untill Auto Off\n\r"
+												"AUTOOF - Set or Get the Time in Minutes until Auto Off\n\r"
 												"STBYTEMP - Set or Get the standby temp.\n\r"
 												"MAKE (ONECUP , TWOCUP) used to make coffee\n\r"
 												"ECHO - enable or disable serial ECHO\n\r"
 												"For more Help type HELP <COMMAND>\n\r"
 												"-------------------------------------------------------------------------------------------\n\r"
-					 ),boEEFS_ReadUserProgrammParam(u8ProgToChange,USRPRG_HEATERTEMP));
+					 ));
 				}
 			} else if(COMMAND.DIR==CMDI_BEER){
 				if(u8BottelsOfBeer>0){
@@ -788,6 +791,108 @@ void voProcessData(){
 						}
 					}
 				} break;
+				
+				case CMDI_GPIO:{
+					if(COMMAND.DIR==CMDI_GET){
+						switch(COMMAND.u32CmdValue){
+							case 0:
+							case 1:
+							case 2:{
+								if(boGetConnected()==true){
+									emSWITCHSTATE emReturnValue=SWITCH_RELEASED;
+									emReturnValue = emGetSwitchState( COMMAND.u32CmdValue );
+									FILE* USBSTREAM = GetUSBStream();
+									if(SWITCH_RELEASED == emReturnValue){
+										fprintf(USBSTREAM,"SWITCH %i RELEASED\n\r",COMMAND.u32CmdValue);
+									} else {
+										fprintf(USBSTREAM,"SWITCH %i PRESSED\n\r",COMMAND.u32CmdValue);
+									}
+								}								
+							}break;
+							
+							case 3:{
+								if(boGetConnected()==true){
+									emSWITCHSTATE emReturnValue=SWITCH_RELEASED;
+									emReturnValue = emSWITCHSTATE SBNT_emGetState( void );
+									FILE* USBSTREAM = GetUSBStream();
+									if(SWITCH_RELEASED == emReturnValue){
+										fprintf(USBSTREAM,"DISPLAY BTN RELEASED\n\r");
+										} else {
+										fprintf(USBSTREAM,"DISPLAY BTN PRESSED\n\r");
+									}
+								}
+							}break;
+							
+							case 4:{
+								if(boGetConnected()==true){
+									emSWITCHSTATE SwitchState=SWITCH_RELEASED;
+									SwitchState = emGetHallSwitchState( 0 );
+									FILE* USBSTREAM = GetUSBStream();
+									if(SWITCH_RELEASED == SwitchState){
+										fprintf(USBSTREAM,"WATER LOW LEVEL LOW \n\r");
+										} else {
+										fprintf(USBSTREAM,"WATER LOW LEVEL HIGH\n\r");
+									}
+								}
+								
+									
+							}break;
+							
+							case 5:{
+									if(boGetConnected()==true){
+										emSWITCHSTATE SwitchState=SWITCH_RELEASED;
+										SwitchState = emGetHallSwitchState( 1 );
+										FILE* USBSTREAM = GetUSBStream();
+										if(SWITCH_RELEASED == SwitchState){
+											fprintf(USBSTREAM,"WATER HIGH LEVEL LOW\n\r");
+											} else {
+											fprintf(USBSTREAM,"WATER HIGH LEVEL HIGH\n\r");
+										}
+									}
+							}break;
+							
+							default:{
+								if(boGetConnected()==true){
+									FILE* USBSTREAM = GetUSBStream();
+									fprintf_P(USBSTREAM,PSTR(	"GPIO - Help\n\r"
+									"------------------------------------------------------------------------------------------\n\r"
+									"GPIO index out of range, see HELP GPIO for more info"
+									"-------------------------------------------------------------------------------------------\n\r"
+									);
+								}
+							}
+						}
+					
+					} else if(COMMAND.DIR==CMDI_SET){
+						if(boGetConnected()==true){
+							FILE* USBSTREAM = GetUSBStream();
+							fprintf_P(USBSTREAM,PSTR(	"GPIO - Help\n\r"
+							"------------------------------------------------------------------------------------------\n\r"
+							"Only GET is supported for GPIO , see HELP GPIO for more info"
+							"-------------------------------------------------------------------------------------------\n\r"
+							);
+						}
+					} else if (COMMAND.DIR==CMDI_HELP) {
+						if(boGetConnected()==true){
+							FILE* USBSTREAM = GetUSBStream();
+							fprintf_P(USBSTREAM,PSTR(	"GPIO - Help\n\r"
+							"------------------------------------------------------------------------------------------\n\r"
+							"Use GET to read or set the status of GPIOs\n\r"
+							"The IO maps as follows:"
+							"0 = SWITCH 0"
+							"1 = SWITCH 1"
+							"2 = SWITCH 2"
+							"3 = Display button"
+							"4 = Water sensor low level"
+							"5 = Water sensor high level"
+							"Example: 'GET GPIO 0' will return the current level of SWITCH 0"
+							"-------------------------------------------------------------------------------------------\n\r"
+							);
+						}	
+					} else {
+						voResponseParamErr();
+					}
+				}
 				
 				default:{
 					voResponseParamErr();
