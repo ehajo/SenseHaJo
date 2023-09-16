@@ -145,7 +145,8 @@ CoffeeMaker.d CoffeeMaker.o: .././CoffeeMaker.c .././CoffeeMaker.h \
  ../src/LUFA/../../services/lightningservice/ledlightnoingservice_enum.h \
  ../src/LUFA/../../services/healthmonitor/healthmonitor.h \
  ../src/LUFA/../../services/CommandInterpreter/CommandInterpreter.h \
- ../src/LUFA/../../services/waterlevelmessurment/waterlevelmessurment.h
+ ../src/LUFA/../../services/waterlevelmessurment/waterlevelmessurment.h \
+ ../src/LUFA/../../services/usb_cdc_helper/usb_cdc_helper.h
 
 .././CoffeeMaker.h:
 
@@ -446,3 +447,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../src/LUFA/../../services/CommandInterpreter/CommandInterpreter.h:
 
 ../src/LUFA/../../services/waterlevelmessurment/waterlevelmessurment.h:
+
+../src/LUFA/../../services/usb_cdc_helper/usb_cdc_helper.h:

@@ -16,6 +16,7 @@
 #define COFFEE_FSM_H_
 
 #include <stdbool.h>
+#include "stdint.h"
 
 void voCoffeeFSM_TaskInit( void );
 void voCoffeeFSM_Task( void );

@@ -46,6 +46,7 @@ SUBDIRS :=  \
 ../services/boilertemp/ \
 ../services/coffee_fsm \
 ../services/buttondriver \
+../services/CommandInterpreter/Commands \
 ../services/eepromFileSystem/ \
 ../services/heaterpowercontroller \
 ../services/boilertempcontroller \
@@ -53,6 +54,7 @@ SUBDIRS :=  \
 ../services/lightningservice \
 ../services/healthmonitor \
 ../services/CommandInterpreter \
+../services/usb_cdc_helper \
 ../services/TimeDateService \
 ../services/TimerService \
 ../services/pumpservice \
@@ -92,6 +94,24 @@ C_SRCS +=  \
 ../services/buttondriver/buttondriver.c \
 ../services/coffee_fsm/coffee_fsm.c \
 ../services/CommandInterpreter/CommandInterpreter.c \
+../services/CommandInterpreter/Commands/CMDI_AUTOPOWER.c \
+../services/CommandInterpreter/Commands/CMDI_BOILERTEMP.c \
+../services/CommandInterpreter/Commands/CMDI_CHPRG.c \
+../services/CommandInterpreter/Commands/CMDI_CUP_LEVEL.c \
+../services/CommandInterpreter/Commands/CMDI_ECHO.c \
+../services/CommandInterpreter/Commands/CMDI_GPIO.c \
+../services/CommandInterpreter/Commands/CMDI_MAEK.c \
+../services/CommandInterpreter/Commands/CMDI_MES_POWER.c \
+../services/CommandInterpreter/Commands/CMDI_POWER.c \
+../services/CommandInterpreter/Commands/CMDI_PREWATER.c \
+../services/CommandInterpreter/Commands/CMDI_PRG.c \
+../services/CommandInterpreter/Commands/CMDI_STBY_TEMP.c \
+../services/CommandInterpreter/Commands/CMDI_SYS_HELP.c \
+../services/CommandInterpreter/Commands/CMDI_TEMP.c \
+../services/CommandInterpreter/Commands/CMDI_WAIT.c \
+../services/CommandInterpreter/Commands/CMDI_WATER.c \
+../services/CommandInterpreter/Commands/COMMON_VALUE_STORE.c \
+../services/CommandInterpreter/Commands/PARSE_RESPONSE.c \
 ../services/displayservice/displayservice.c \
 ../services/eepromFileSystem/eepromFileSystem.c \
 ../services/healthmonitor/healthmonitor.c \
@@ -101,6 +121,7 @@ C_SRCS +=  \
 ../services/pumpservice/pumpservice.c \
 ../services/TimeDateService/TimeDateService.c \
 ../services/TimerService/TimerService.c \
+../services/usb_cdc_helper/usb_cdc_helper.c \
 ../services/waterlevelmessurment/waterlevelmessurment.c \
 ../src/LUFA/LUFA/Drivers/USB/Class/Common/HIDParser.c \
 ../src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.c \
@@ -161,6 +182,24 @@ services/boilertemp/boilertemp.o \
 services/buttondriver/buttondriver.o \
 services/coffee_fsm/coffee_fsm.o \
 services/CommandInterpreter/CommandInterpreter.o \
+services/CommandInterpreter/Commands/CMDI_AUTOPOWER.o \
+services/CommandInterpreter/Commands/CMDI_BOILERTEMP.o \
+services/CommandInterpreter/Commands/CMDI_CHPRG.o \
+services/CommandInterpreter/Commands/CMDI_CUP_LEVEL.o \
+services/CommandInterpreter/Commands/CMDI_ECHO.o \
+services/CommandInterpreter/Commands/CMDI_GPIO.o \
+services/CommandInterpreter/Commands/CMDI_MAEK.o \
+services/CommandInterpreter/Commands/CMDI_MES_POWER.o \
+services/CommandInterpreter/Commands/CMDI_POWER.o \
+services/CommandInterpreter/Commands/CMDI_PREWATER.o \
+services/CommandInterpreter/Commands/CMDI_PRG.o \
+services/CommandInterpreter/Commands/CMDI_STBY_TEMP.o \
+services/CommandInterpreter/Commands/CMDI_SYS_HELP.o \
+services/CommandInterpreter/Commands/CMDI_TEMP.o \
+services/CommandInterpreter/Commands/CMDI_WAIT.o \
+services/CommandInterpreter/Commands/CMDI_WATER.o \
+services/CommandInterpreter/Commands/COMMON_VALUE_STORE.o \
+services/CommandInterpreter/Commands/PARSE_RESPONSE.o \
 services/displayservice/displayservice.o \
 services/eepromFileSystem/eepromFileSystem.o \
 services/healthmonitor/healthmonitor.o \
@@ -170,6 +209,7 @@ services/powermeter/powermeter.o \
 services/pumpservice/pumpservice.o \
 services/TimeDateService/TimeDateService.o \
 services/TimerService/TimerService.o \
+services/usb_cdc_helper/usb_cdc_helper.o \
 services/waterlevelmessurment/waterlevelmessurment.o \
 src/LUFA/LUFA/Drivers/USB/Class/Common/HIDParser.o \
 src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.o \
@@ -222,6 +262,24 @@ services/boilertemp/boilertemp.o \
 services/buttondriver/buttondriver.o \
 services/coffee_fsm/coffee_fsm.o \
 services/CommandInterpreter/CommandInterpreter.o \
+services/CommandInterpreter/Commands/CMDI_AUTOPOWER.o \
+services/CommandInterpreter/Commands/CMDI_BOILERTEMP.o \
+services/CommandInterpreter/Commands/CMDI_CHPRG.o \
+services/CommandInterpreter/Commands/CMDI_CUP_LEVEL.o \
+services/CommandInterpreter/Commands/CMDI_ECHO.o \
+services/CommandInterpreter/Commands/CMDI_GPIO.o \
+services/CommandInterpreter/Commands/CMDI_MAEK.o \
+services/CommandInterpreter/Commands/CMDI_MES_POWER.o \
+services/CommandInterpreter/Commands/CMDI_POWER.o \
+services/CommandInterpreter/Commands/CMDI_PREWATER.o \
+services/CommandInterpreter/Commands/CMDI_PRG.o \
+services/CommandInterpreter/Commands/CMDI_STBY_TEMP.o \
+services/CommandInterpreter/Commands/CMDI_SYS_HELP.o \
+services/CommandInterpreter/Commands/CMDI_TEMP.o \
+services/CommandInterpreter/Commands/CMDI_WAIT.o \
+services/CommandInterpreter/Commands/CMDI_WATER.o \
+services/CommandInterpreter/Commands/COMMON_VALUE_STORE.o \
+services/CommandInterpreter/Commands/PARSE_RESPONSE.o \
 services/displayservice/displayservice.o \
 services/eepromFileSystem/eepromFileSystem.o \
 services/healthmonitor/healthmonitor.o \
@@ -231,6 +289,7 @@ services/powermeter/powermeter.o \
 services/pumpservice/pumpservice.o \
 services/TimeDateService/TimeDateService.o \
 services/TimerService/TimerService.o \
+services/usb_cdc_helper/usb_cdc_helper.o \
 services/waterlevelmessurment/waterlevelmessurment.o \
 src/LUFA/LUFA/Drivers/USB/Class/Common/HIDParser.o \
 src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.o \
@@ -283,6 +342,24 @@ services/boilertemp/boilertemp.d \
 services/buttondriver/buttondriver.d \
 services/coffee_fsm/coffee_fsm.d \
 services/CommandInterpreter/CommandInterpreter.d \
+services/CommandInterpreter/Commands/CMDI_AUTOPOWER.d \
+services/CommandInterpreter/Commands/CMDI_BOILERTEMP.d \
+services/CommandInterpreter/Commands/CMDI_CHPRG.d \
+services/CommandInterpreter/Commands/CMDI_CUP_LEVEL.d \
+services/CommandInterpreter/Commands/CMDI_ECHO.d \
+services/CommandInterpreter/Commands/CMDI_GPIO.d \
+services/CommandInterpreter/Commands/CMDI_MAEK.d \
+services/CommandInterpreter/Commands/CMDI_MES_POWER.d \
+services/CommandInterpreter/Commands/CMDI_POWER.d \
+services/CommandInterpreter/Commands/CMDI_PREWATER.d \
+services/CommandInterpreter/Commands/CMDI_PRG.d \
+services/CommandInterpreter/Commands/CMDI_STBY_TEMP.d \
+services/CommandInterpreter/Commands/CMDI_SYS_HELP.d \
+services/CommandInterpreter/Commands/CMDI_TEMP.d \
+services/CommandInterpreter/Commands/CMDI_WAIT.d \
+services/CommandInterpreter/Commands/CMDI_WATER.d \
+services/CommandInterpreter/Commands/COMMON_VALUE_STORE.d \
+services/CommandInterpreter/Commands/PARSE_RESPONSE.d \
 services/displayservice/displayservice.d \
 services/eepromFileSystem/eepromFileSystem.d \
 services/healthmonitor/healthmonitor.d \
@@ -292,6 +369,7 @@ services/powermeter/powermeter.d \
 services/pumpservice/pumpservice.d \
 services/TimeDateService/TimeDateService.d \
 services/TimerService/TimerService.d \
+services/usb_cdc_helper/usb_cdc_helper.d \
 services/waterlevelmessurment/waterlevelmessurment.d \
 src/LUFA/LUFA/Drivers/USB/Class/Common/HIDParser.d \
 src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.d \
@@ -344,6 +422,24 @@ services/boilertemp/boilertemp.d \
 services/buttondriver/buttondriver.d \
 services/coffee_fsm/coffee_fsm.d \
 services/CommandInterpreter/CommandInterpreter.d \
+services/CommandInterpreter/Commands/CMDI_AUTOPOWER.d \
+services/CommandInterpreter/Commands/CMDI_BOILERTEMP.d \
+services/CommandInterpreter/Commands/CMDI_CHPRG.d \
+services/CommandInterpreter/Commands/CMDI_CUP_LEVEL.d \
+services/CommandInterpreter/Commands/CMDI_ECHO.d \
+services/CommandInterpreter/Commands/CMDI_GPIO.d \
+services/CommandInterpreter/Commands/CMDI_MAEK.d \
+services/CommandInterpreter/Commands/CMDI_MES_POWER.d \
+services/CommandInterpreter/Commands/CMDI_POWER.d \
+services/CommandInterpreter/Commands/CMDI_PREWATER.d \
+services/CommandInterpreter/Commands/CMDI_PRG.d \
+services/CommandInterpreter/Commands/CMDI_STBY_TEMP.d \
+services/CommandInterpreter/Commands/CMDI_SYS_HELP.d \
+services/CommandInterpreter/Commands/CMDI_TEMP.d \
+services/CommandInterpreter/Commands/CMDI_WAIT.d \
+services/CommandInterpreter/Commands/CMDI_WATER.d \
+services/CommandInterpreter/Commands/COMMON_VALUE_STORE.d \
+services/CommandInterpreter/Commands/PARSE_RESPONSE.d \
 services/displayservice/displayservice.d \
 services/eepromFileSystem/eepromFileSystem.d \
 services/healthmonitor/healthmonitor.d \
@@ -353,6 +449,7 @@ services/powermeter/powermeter.d \
 services/pumpservice/pumpservice.d \
 services/TimeDateService/TimeDateService.d \
 services/TimerService/TimerService.d \
+services/usb_cdc_helper/usb_cdc_helper.d \
 services/waterlevelmessurment/waterlevelmessurment.d \
 src/LUFA/LUFA/Drivers/USB/Class/Common/HIDParser.d \
 src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.d \
@@ -495,6 +592,132 @@ services/CommandInterpreter/CommandInterpreter.o: ../services/CommandInterpreter
 	@echo Finished building: $<
 	
 
+services/CommandInterpreter/Commands/CMDI_AUTOPOWER.o: ../services/CommandInterpreter/Commands/CMDI_AUTOPOWER.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/CommandInterpreter/Commands/CMDI_BOILERTEMP.o: ../services/CommandInterpreter/Commands/CMDI_BOILERTEMP.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/CommandInterpreter/Commands/CMDI_CHPRG.o: ../services/CommandInterpreter/Commands/CMDI_CHPRG.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/CommandInterpreter/Commands/CMDI_CUP_LEVEL.o: ../services/CommandInterpreter/Commands/CMDI_CUP_LEVEL.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/CommandInterpreter/Commands/CMDI_ECHO.o: ../services/CommandInterpreter/Commands/CMDI_ECHO.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/CommandInterpreter/Commands/CMDI_GPIO.o: ../services/CommandInterpreter/Commands/CMDI_GPIO.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/CommandInterpreter/Commands/CMDI_MAEK.o: ../services/CommandInterpreter/Commands/CMDI_MAEK.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/CommandInterpreter/Commands/CMDI_MES_POWER.o: ../services/CommandInterpreter/Commands/CMDI_MES_POWER.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/CommandInterpreter/Commands/CMDI_POWER.o: ../services/CommandInterpreter/Commands/CMDI_POWER.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/CommandInterpreter/Commands/CMDI_PREWATER.o: ../services/CommandInterpreter/Commands/CMDI_PREWATER.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/CommandInterpreter/Commands/CMDI_PRG.o: ../services/CommandInterpreter/Commands/CMDI_PRG.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/CommandInterpreter/Commands/CMDI_STBY_TEMP.o: ../services/CommandInterpreter/Commands/CMDI_STBY_TEMP.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/CommandInterpreter/Commands/CMDI_SYS_HELP.o: ../services/CommandInterpreter/Commands/CMDI_SYS_HELP.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/CommandInterpreter/Commands/CMDI_TEMP.o: ../services/CommandInterpreter/Commands/CMDI_TEMP.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/CommandInterpreter/Commands/CMDI_WAIT.o: ../services/CommandInterpreter/Commands/CMDI_WAIT.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/CommandInterpreter/Commands/CMDI_WATER.o: ../services/CommandInterpreter/Commands/CMDI_WATER.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/CommandInterpreter/Commands/COMMON_VALUE_STORE.o: ../services/CommandInterpreter/Commands/COMMON_VALUE_STORE.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/CommandInterpreter/Commands/PARSE_RESPONSE.o: ../services/CommandInterpreter/Commands/PARSE_RESPONSE.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 services/displayservice/displayservice.o: ../services/displayservice/displayservice.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -552,6 +775,13 @@ services/TimeDateService/TimeDateService.o: ../services/TimeDateService/TimeDate
 	
 
 services/TimerService/TimerService.o: ../services/TimerService/TimerService.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+services/usb_cdc_helper/usb_cdc_helper.o: ../services/usb_cdc_helper/usb_cdc_helper.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DARCH=ARCH_AVR8 -DBOARD=BOARD_NONE -DF_CPU=16000000UL -DUSE_LUFA_CONFIG_HEADER -DF_USB=16000000UL  -I"../src" -I"../src/LUFA" -I"../src/config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega32u2 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32u2" -c -mrelax -std=gnu99 -fno-strict-aliasing -fno-jump-tables -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

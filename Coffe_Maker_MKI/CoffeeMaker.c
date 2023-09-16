@@ -36,6 +36,7 @@
 #include "../../services/healthmonitor/healthmonitor.h"
 #include "../../services/CommandInterpreter/CommandInterpreter.h"
 #include "../../services/waterlevelmessurment/waterlevelmessurment.h"
+#include "../../services/usb_cdc_helper/usb_cdc_helper.h"
 
 /** LUFA CDC Class driver interface configuration and state information. This structure is
  *  passed to all CDC Class driver functions, so that multiple instances of the same class
@@ -90,8 +91,6 @@ void voMS50_Tasks ( void );
 void voMS1_Task ( void );
 void voMS1000_Tasks ( void );
 
-FILE USBSerialStream;
-volatile uint8_t connected=0;
 
 
 /* Main entry point, this also start the scheduler for some tasks
@@ -118,7 +117,9 @@ int main(void)
 	SetupHardware();
 	voEEFS_Init();
 	/* Create a regular character stream for the interface so that it can be used with the stdio.h functions */
+	FILE USBSerialStream;
 	CDC_Device_CreateStream(&VirtualSerial_CDC_Interface, &USBSerialStream);
+	voSetUSBStream(USBSerialStream);
 	GlobalInterruptEnable();
 	voInit_HwTimer();
 	
@@ -218,20 +219,6 @@ volatile TIMEROBJ_t Timer_OBJ[] = {
 
 };
 
-bool boGetConnected( void ){
-	return connected; 
-}
-
-FILE* GetUSBStream( void ){
-	return &USBSerialStream;
-}
-
-/* 
-if(connected!=0){
-		fprintf(&USBSerialStream,"%i\t%i\n\r",s16BLTMP_GetBoilerTemp(),u16GetStandbyTemp());
-	}
-	
-*/
 
 void voScheduler( ) {
 
@@ -273,9 +260,6 @@ void voMS100_Tasks(void){
 	voHMon_Task();
 	voCoffeeFSM_Task();
 	
-	if(connected!=0){
-	
-	}
 }
 
 void voMS50_Tasks(void){
@@ -324,13 +308,14 @@ void SetupHardware(void)
 /** Event handler for the library USB Connection event. */
 void EVENT_USB_Device_Connect(void)
 {
-	connected=1;
+	voSetConnected(true);
+	
 }
 
 /** Event handler for the library USB Disconnection event. */
 void EVENT_USB_Device_Disconnect(void)
 {
-	connected=0;
+	voSetConnected(false);
 }
 
 /** Event handler for the library USB Configuration Changed event. */

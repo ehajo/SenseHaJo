@@ -30,6 +30,42 @@ services\coffee_fsm\coffee_fsm.c
 
 services\CommandInterpreter\CommandInterpreter.c
 
+services\CommandInterpreter\Commands\CMDI_AUTOPOWER.c
+
+services\CommandInterpreter\Commands\CMDI_BOILERTEMP.c
+
+services\CommandInterpreter\Commands\CMDI_CHPRG.c
+
+services\CommandInterpreter\Commands\CMDI_CUP_LEVEL.c
+
+services\CommandInterpreter\Commands\CMDI_ECHO.c
+
+services\CommandInterpreter\Commands\CMDI_GPIO.c
+
+services\CommandInterpreter\Commands\CMDI_MAEK.c
+
+services\CommandInterpreter\Commands\CMDI_MES_POWER.c
+
+services\CommandInterpreter\Commands\CMDI_POWER.c
+
+services\CommandInterpreter\Commands\CMDI_PREWATER.c
+
+services\CommandInterpreter\Commands\CMDI_PRG.c
+
+services\CommandInterpreter\Commands\CMDI_STBY_TEMP.c
+
+services\CommandInterpreter\Commands\CMDI_SYS_HELP.c
+
+services\CommandInterpreter\Commands\CMDI_TEMP.c
+
+services\CommandInterpreter\Commands\CMDI_WAIT.c
+
+services\CommandInterpreter\Commands\CMDI_WATER.c
+
+services\CommandInterpreter\Commands\COMMON_VALUE_STORE.c
+
+services\CommandInterpreter\Commands\PARSE_RESPONSE.c
+
 services\displayservice\displayservice.c
 
 services\eepromFileSystem\eepromFileSystem.c
@@ -47,6 +83,8 @@ services\pumpservice\pumpservice.c
 services\TimeDateService\TimeDateService.c
 
 services\TimerService\TimerService.c
+
+services\usb_cdc_helper\usb_cdc_helper.c
 
 services\waterlevelmessurment\waterlevelmessurment.c
 
