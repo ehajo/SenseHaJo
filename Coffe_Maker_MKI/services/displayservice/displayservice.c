@@ -36,6 +36,17 @@ void DPS_Init( void) {
 	SDP_voRefreshDisplay();
 }
 
+void DPS_SetDisplayOff( void ){
+	/* Set ALL variables to a default state */
+	for(uint8_t i=0;i<NO_OF_ICONS;i++){
+		emIconBlinkFreq[i]=BLINK_OFF;
+		emIconBlinkFreqPrevious[i]=BLINK_OFF;
+		SDP_voSetIconVisibility(i,INVISIBLE);
+	}
+	/* Write to Display */
+	SDP_voRefreshDisplay();
+}
+
 /* This needs to be called every 10ms -> 100 Times a Second */
 void DPS_voTask( void ){
 	/* Blink and Refesh */
