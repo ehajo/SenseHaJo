@@ -19,7 +19,28 @@
 #include "../eepromFileSystem/eepromFileSystem.h"
 #include "../powermeter/powermeter.h"
 #include "../boilertempcontroller/boilertempcontroller.h"
-#include "../../driver/gpio/gpio_typedef.h"
+#include "CommandInterpreterTypes.h"
+#include "CommandInterpreterInternalVars.h"
+
+#include "Commands/CMDI_CHPRG.h"
+#include "Commands/CMDI_PREWATER.h"
+#include "Commands/CMDI_PRG.h"
+#include "Commands/CMDI_SYS_HELP.h"
+#include "Commands/CMDI_TEMP.h"
+#include "Commands/CMDI_WAIT.h"
+#include "Commands/CMDI_WATER.h"
+#include "Commands/CMDI_MES_POWER.h"
+#include "Commands/CMDI_CUP_LEVEL.h"
+#include "Commands/CMDI_AUTOPOWER.h"
+#include "Commands/CMDI_STBY_TEMP.h"
+#include "Commands/CMDI_POWER.h"
+#include "Commands/CMDI_ECHO.h"
+#include "Commands/CMDI_GPIO.h"
+#include "Commands/CMDI_BOILERTEMP.h"
+#include "Commands/CMDI_MAKE.h"
+
+#include "Commands/COMMON_VALUE_STORE.h"
+
 
 #define INPUTBUFFERSIZE ( 64 )
 #define LINE_END '\r'
@@ -27,71 +48,14 @@
 volatile char chInputBuffer[INPUTBUFFERSIZE+1];
 volatile uint8_t u8InputBufferWriteIdx;
 
-volatile uint8_t u8ProgToChange;
-
-typedef struct {
-	uint8_t bfEcho: 1;
-	uint8_t bfReserved0: 1;
-	uint8_t bfReserved1: 1;
-	uint8_t bfReserved2: 1;
-	uint8_t bfReserved3: 1;
-	uint8_t bfReserved4: 1;
-	uint8_t bfReserved5: 1;
-	uint8_t bfReserved6: 1;
-} CmdConfigBit_t;
-
-volatile CmdConfigBit_t CmdConfig;
-volatile uint8_t u8BottelsOfBeer=99;
-
-typedef enum {
-	CMDI_SET,
-	CMDI_GET,
-	CMDI_CMD,
-	CMDI_HELP,
-	CMDI_BEER, /* For 99 Bottels of beer */
-	CMDI_DIR_CNT,
-	CMDI_EOF_DIR,
-} CMDI_CMD_DIR_t;
-
-typedef enum {
-	CMDI_TEMP,
-	CMDI_PREWATER,
-	CMDI_WATER,
-	CMDI_WAIT,
-	CMDI_PRG,
-	CMDI_CHPRG,
-	CMDI_NONE,
-	CMDI_MES_POWER,
-	CMDI_BOILERTEMP,
-	CMDI_CUP_LEVEL,
-	CMDI_AUTOPOWER,
-	CMDI_STBY_TEMP,
-	CMDI_SYS_HELP,
-	CMDI_ECHO,
-	CMDI_GPIO,
-	/* Commands for CMD */
-	CMDI_MAKE,
-	CMDI_POWER,
-
-}CMDI_CMD_t;
-
-
-typedef struct{
-	CMDI_CMD_DIR_t DIR;
-	CMDI_CMD_t CMD;
-	uint32_t u32CmdValue;
-} CMDI_CMD_DATA_t;
-
-
-
-
 
 void voProcessData( void );
 void voResponseParamErr( void );
 void voResponseOk( void );
 void voResponseParserErr( void );
 
-extern bool boCoffeeFSM_LoadProgramm(uint8_t idx);
+/* This functions are currently integrated into main 
+need to be moved */
 extern bool boGetConnected( void );
 extern FILE* GetUSBStream( void );
 
@@ -106,7 +70,7 @@ void voCleanBuffer( void ){
 void CMDI_voInit(){
 
 	CmdConfig.bfEcho=0;
-	u8ProgToChange=0;
+	voSetProgToChange(0);
 	voCleanBuffer();
 	
 	
@@ -369,7 +333,7 @@ void voProcessData(){
 				}break;
 				
 				default:{
-					/* Wir sollten hier nur ankommen wenn es einen Fehler gibt */
+					/*This will present an internal error */
 					
 				} break;
 				
@@ -386,540 +350,78 @@ void voProcessData(){
 	switch(COMMAND.CMD){
 		
 		case CMDI_SYS_HELP:{
-			
-			if(COMMAND.DIR==CMDI_HELP){
-				/* We print Out the Help here */
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR(	"SenseHaJo - Help\n\r"
-					"------------------------------------------------------------------------------------------\n\r"
-					"Use SET, GET, CMD and HELP\n\r"
-					"Commands are:\n\r"
-					"GPIO - Get GPIO State	(Can only use GET)\n\r"
-					"TEMP - Set or Get Prog. Temp.\n\r"
-					"PRG - Set or Get current Prog.\n\r"
-					"CHPRG - Set or Get the current Prog. to modify\n\r"
-					"PRWA - Set or Get the amount of water used to wet the pad\n\r"
-					"WATER - Set or Get the amount of water used to brew the coffee\n\r"
-					"WAIT - Set or Get the amount of time to wait between wet the pad and make the coffee\n\r"
-					"CURPWR - Get the current power used\n\r"
-					"BOILERTMP - Get the current boiler temp.\n\r"
-					"LEVEL - Set or Get the current fill level of the Cup\n\r"
-					"AUTOOF - Set or Get the Time in Minutes until Auto Off\n\r"
-					"STBYTEMP - Set or Get the standby temp.\n\r"
-					"MAKE (ONECUP , TWOCUP) used to make coffee\n\r"
-					"ECHO - enable or disable serial ECHO\n\r"
-					"For more Help type HELP <COMMAND>\n\r"
-					"-------------------------------------------------------------------------------------------\n\r"
-					));
-				}
-				} else if(COMMAND.DIR==CMDI_BEER){
-				if(u8BottelsOfBeer>0){
-					if(boGetConnected()==true){
-						FILE* USBSTREAM = GetUSBStream();
-						fprintf_P(USBSTREAM,PSTR("%i Bottle(s) of beer on the wall, %i bottle(s) of beer\n\r"
-						"Take one down and pass it around,\n\r"
-						"%i bottle(s) of beer on the wall\n\r"),u8BottelsOfBeer,u8BottelsOfBeer,u8BottelsOfBeer-1);
-						u8BottelsOfBeer--;
-						
-					}
-					
-					} else { /* Bottels are empty */
-					if(boGetConnected()==true){
-						FILE* USBSTREAM = GetUSBStream();
-						fprintf_P(USBSTREAM,PSTR("No (more) bottles of beer on the wall,\n\r"
-						"No (more) bottles of beer.\n\r"
-						"Go to the store and buy some more,\n\r"
-						"Ninety-nine bottles of beer on the wall.\n\r")
-						);
-						u8BottelsOfBeer=99;
-						
-					}
-				}
-				} else {
-				voResponseParserErr();
-			}
-			
+			voCMDI_SYS_HELP(COMMAND);
 		} break;
 		
 		case CMDI_TEMP:{
-			/* Change Temp */
-			if(COMMAND.DIR==CMDI_SET){
-				boEEFS_UpdateUserProgramm(u8ProgToChange,USRPRG_HEATERTEMP,COMMAND.u32CmdValue);
-				voResponseOk();
-				} else if(COMMAND.DIR==CMDI_GET) {
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR("OK:%i\n\r"),boEEFS_ReadUserProgrammParam(u8ProgToChange,USRPRG_HEATERTEMP));
-				}
-				} else if(COMMAND.DIR == CMDI_HELP){
-				/* Print Help Text here */
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR("USAGE: 'GET TEMP' or 'SET TEMP XXXX' with range of 0 to 9999\n\r"));
-				}
-				
-				
-				} else {
-				voResponseParserErr();
-			}
-			
-			
+			voCMDI_TEMP(COMMAND);
 		} break;
 		
 		case CMDI_PREWATER:{
-			/* Change PreWater Time */
-			if(COMMAND.DIR==CMDI_SET){
-				boEEFS_UpdateUserProgramm(u8ProgToChange,USRPRG_PREWATERLEVEL,COMMAND.u32CmdValue);
-				voResponseOk();
-				} else if(COMMAND.DIR==CMDI_GET) {
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf(USBSTREAM,"OK:%ld\n\r",boEEFS_ReadUserProgrammParam(u8ProgToChange,USRPRG_PREWATERLEVEL));
-				}
-				} else if(COMMAND.DIR == CMDI_HELP){
-				/* Print Help Text here */
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR("USAGE: 'GET PRWA' or 'SET PRWA XXXX' with range of 0 to 65535\n\r"));
-				}
-				} else {
-				voResponseParserErr();
-			}
+			voCMDI_PREWATER(COMMAND);
 		} break;
 		
 		case CMDI_WATER:{
-			/* Change Water time */
-			if(COMMAND.DIR==CMDI_SET){
-				boEEFS_UpdateUserProgramm(u8ProgToChange,USRPRG_WATERLEVELFULL,COMMAND.u32CmdValue);
-				voResponseOk();
-				} else if(COMMAND.DIR==CMDI_GET) {
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR("OK:%i\n\r"),boEEFS_ReadUserProgrammParam(u8ProgToChange,USRPRG_WATERLEVELFULL));
-					
-				}
-				} else if(COMMAND.DIR == CMDI_HELP){
-				/* Print Help Text here */
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR("USAGE: 'GET WATER' or 'SET WATER XXXX' with range of 0 to 65535\n\r"));
-				}
-				} else {
-				voResponseParserErr();
-			}
-			
+			voCMDI_WATRER(COMMAND);
 		} break;
 		
 		case CMDI_WAIT:{
-			/* Change Wait time */
-			if(COMMAND.DIR==CMDI_SET){
-				boEEFS_UpdateUserProgramm(u8ProgToChange,USRPRG_PREWATERWAIT,COMMAND.u32CmdValue);
-				voResponseOk();
-				} else if(COMMAND.DIR==CMDI_GET) {
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR("OK:%i\n\r"),boEEFS_ReadUserProgrammParam(u8ProgToChange,USRPRG_PREWATERWAIT));
-				}
-				} else if(COMMAND.DIR == CMDI_HELP){
-				/* Print Help Text here */
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR("USAGE: 'GET WAIT' or 'SET WAIT XXXX' with range of 0 to 65535\n\r"));
-				}
-				} else {
-				voResponseParserErr();
-			}
-			
-			
+			voCMDI_WAIT(COMMAND);
 		} break;
 		
 		case CMDI_PRG:{
-			/* Change PRG to Load */
-			if(COMMAND.DIR==CMDI_SET){
-				
-				if(boCoffeeFSM_LoadProgramm(COMMAND.u32CmdValue)==true){
-					voResponseOk();
-					} else {
-					voResponseParamErr();
-				}
-				} else if (COMMAND.DIR==CMDI_GET){
-				/* We shall return the curren Programm */
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR("OK:%i\n\r"),u8GetCurrenProgrammIdx());
-				}
-				
-				} else if(COMMAND.DIR == CMDI_HELP){
-				/* Print Help Text here */
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR("USAGE: 'GET PRG' or 'SET PRG XXXX' with range of 0 to 7\n\r"));
-				}
-				} else {
-				voResponseParserErr();
-			}
-			
+			voCMDI_PRG(COMMAND);
 		}break;
 		
 		case CMDI_CHPRG:{
-			/* Set the PRG to Change */
-			if(COMMAND.DIR==CMDI_SET){
-				if(COMMAND.u32CmdValue<8){
-					u8ProgToChange=COMMAND.u32CmdValue;
-					voResponseOk();
-					} else {
-					voResponseParamErr();
-				}
-				} else if(COMMAND.DIR==CMDI_GET) {
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR("OK:%i\n\r"),u8ProgToChange);
-				}
-				
-				} else if(COMMAND.DIR == CMDI_HELP){
-				/* Print Help Text here */
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR("USAGE: 'GET CHPRG' or 'SET CHPRG XXXX' with range of 0 to 7\n\r"));
-				}
-				} else {
-				voResponseParserErr();
-			}
-			
-			
+			voCMDI_CHPRG(COMMAND);
 		}break;
 		
 		case CMDI_MES_POWER:{
-			if(COMMAND.DIR==CMDI_GET){
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR("OK:%i\n\r"), u32PWRMTR_GetmAmp());
-				}
-				
-				} else if(COMMAND.DIR==CMDI_SET) {
-				voResponseParserErr();
-				} else if(COMMAND.DIR == CMDI_HELP){
-				/* Print Help Text here */
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR("USAGE: 'GET CURPWR' to read the current power used in mA\n\r"));
-				}
-				} else {
-				voResponseParserErr();
-			}
-			
+			voCMDI_MES_POWER(COMMAND);
 		} break;
 		
 		case CMDI_BOILERTEMP:{
-			if(COMMAND.DIR==CMDI_GET){
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR("OK:%i\n\r"), s16BTC_GetCurrentBoilerTemp());
-				}
-				
-				} else if(COMMAND.DIR==CMDI_SET) {
-				voResponseParserErr();
-				} else if(COMMAND.DIR == CMDI_HELP){
-				/* Print Help Text here */
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR("USAGE: 'GET BOILERTMP' to read the current boiler temp in 1/100 degree C.\n\r"));
-				}
-				} else {
-				voResponseParserErr();
-			}
-			
-			
+			voCMDI_BOILERTEMP(COMMAND);
 		} break;
 		
 		case CMDI_CUP_LEVEL:{
-			if(COMMAND.DIR==CMDI_GET){
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf(USBSTREAM,"OK:%i\n\r", u8GetCupLevel());
-				}
-				
-				} else if(COMMAND.DIR==CMDI_SET) {
-				voSetCupLevel((uint8_t)COMMAND.u32CmdValue);
-				voResponseOk();
-				
-				} else if(COMMAND.DIR == CMDI_HELP){
-				/* Print Help Text here */
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR("USAGE: 'GET LEVLE' or 'SET LEVEL XXXX' with range of 0 to 2\n\r"));
-				}
-				} else {
-				voResponseParserErr();
-			}
-			
-			
-			
-			
+			voCMDI_CUP_LEVEL(COMMAND);
 		} break;
 		
 		case CMDI_AUTOPOWER:{
-			if(COMMAND.DIR==CMDI_GET){
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					
-
-					fprintf(USBSTREAM,"OK:%i\n\r", u8GetAutoPowerOff());
-				}
-				
-				} else if(COMMAND.DIR==CMDI_SET) {
-				voSetAutoPowerOff((uint8_t)COMMAND.u32CmdValue);
-				voResponseOk();
-				
-				} else if(COMMAND.DIR == CMDI_HELP){
-				/* Print Help Text here */
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR("USAGE: 'SET AUTOOFF ON', 'SET AUTOOFF OFF' or 'SET AUTOOFF OFF' \n\r"));
-				}
-				} else {
-				voResponseParserErr();
-			}
-			
-			
+			voCMDI_AUTOPOWER(COMMAND);
 		} break;
 		
 		case CMDI_STBY_TEMP:{
-			if(COMMAND.DIR==CMDI_GET){
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf(USBSTREAM,"OK:%i\n\r", u16GetStandbyTemp());
-				}
+			voCMDI_STBY_TEMP(COMMAND);
 				
-				else if(COMMAND.DIR==CMDI_SET) {
-					voSetStandbyTemp((uint16_t)COMMAND.u32CmdValue);
-					voResponseOk();
-					} else if(COMMAND.DIR == CMDI_HELP){
-					/* Print Help Text here */
-					if(boGetConnected()==true){
-						FILE* USBSTREAM = GetUSBStream();
-						fprintf_P(USBSTREAM,PSTR("USAGE: 'GET STBYTMP', 'SET STBYTMP XXXX\n\r"));
-					}
-					} else {
-					voResponseParserErr();
-				}
-				
-			} break;
+		} break;
 			
-			case CMDI_ECHO:{
-				if(COMMAND.DIR==CMDI_GET){
-					if(boGetConnected()==true){
-						FILE* USBSTREAM = GetUSBStream();
-						fprintf(USBSTREAM,"OK:%i\n\r", CmdConfig.bfEcho);
-					}
-					
-					} else if(COMMAND.DIR==CMDI_SET) {
-					if(COMMAND.u32CmdValue>0){
-						CmdConfig.bfEcho=1;
-						} else {
-						CmdConfig.bfEcho=0;
-					}
-					voResponseOk();
-					} else if(COMMAND.DIR == CMDI_HELP){
-					/* Print Help Text here */
-					if(boGetConnected()==true){
-						FILE* USBSTREAM = GetUSBStream();
-						fprintf_P(USBSTREAM,PSTR("USAGE: 'GET ECHO', 'SET ECHO XXXX' with 0 = OFF and else ON\n\r"));
-					}
-					} else {
-					voResponseParserErr();
-				}
-				
-			} break;
+		case CMDI_ECHO:{
+			voCMDI_ECHO(COMMAND);
+		} break;
 			
-			case CMDI_NONE:{
-				voResponseParserErr();
-			} break;
+		case CMDI_NONE:{
+			voResponseParserErr();
+		} break;
 			
-			case CMDI_POWER:{
-				if(COMMAND.DIR==CMDI_CMD) {
-					switch(COMMAND.u32CmdValue){
-						case 0:{
-							/* Power Off */
-							if(boGetConnected()==true){
-								FILE* USBSTREAM = GetUSBStream();
-								fprintf(USBSTREAM,"OK:POWERDOWN\n\r");
-								voCoffeeFSM_SetPower(false);
-							}
-						} break;
-						
-						case 1:{
-							/* Power On */
-							if(boGetConnected()==true){
-								FILE* USBSTREAM = GetUSBStream();
-								fprintf(USBSTREAM,"OK:POWERON\n\r");
-								voCoffeeFSM_SetPower(true);
-							}
-						} break;
-						
-						default:{
-							voResponseParamErr();
-						} break;
-					}//End Switch
-					} else if(COMMAND.DIR==CMDI_HELP) {
-					voResponseParamErr();
-				}
-				
-			}
+		case CMDI_POWER:{
+			voCMDI_POWER(COMMAND);
 		} break;
 		
 		case CMDI_GPIO:{
-			if(COMMAND.DIR==CMDI_GET){
-				switch(COMMAND.u32CmdValue){
-					case 0:
-					case 1:
-					case 2:{
-						if(boGetConnected()==true){
-							emSWITCHSTATE emReturnValue=SWITCH_RELEASED;
-							emReturnValue = emGetSwitchState( COMMAND.u32CmdValue );
-							FILE* USBSTREAM = GetUSBStream();
-							if(SWITCH_RELEASED == emReturnValue){
-								fprintf(USBSTREAM,"SWITCH %i RELEASED\n\r",COMMAND.u32CmdValue);
-								} else {
-								fprintf(USBSTREAM,"SWITCH %i PRESSED\n\r",COMMAND.u32CmdValue);
-							}
-						}
-					}break;
-					
-					case 3:{
-						if(boGetConnected()==true){
-							emSWITCHSTATE emReturnValue=SWITCH_RELEASED;
-							emReturnValue = SBNT_emGetState();
-							FILE* USBSTREAM = GetUSBStream();
-							if(SWITCH_RELEASED == emReturnValue){
-								fprintf(USBSTREAM,"DISPLAY BTN RELEASED\n\r");
-								} else {
-								fprintf(USBSTREAM,"DISPLAY BTN PRESSED\n\r");
-							}
-						}
-					}break;
-					
-					case 4:{
-						if(boGetConnected()==true){
-							emSWITCHSTATE SwitchState=SWITCH_RELEASED;
-							SwitchState = emGetHallSwitchState( 0 );
-							FILE* USBSTREAM = GetUSBStream();
-							if(SWITCH_RELEASED == SwitchState){
-								fprintf(USBSTREAM,"WATER LOW LEVEL LOW \n\r");
-								} else {
-								fprintf(USBSTREAM,"WATER LOW LEVEL HIGH\n\r");
-							}
-						}
-						
-						
-					}break;
-					
-					case 5:{
-						if(boGetConnected()==true){
-							emSWITCHSTATE SwitchState=SWITCH_RELEASED;
-							SwitchState = emGetHallSwitchState( 1 );
-							FILE* USBSTREAM = GetUSBStream();
-							if(SWITCH_RELEASED == SwitchState){
-								fprintf(USBSTREAM,"WATER HIGH LEVEL LOW\n\r");
-								} else {
-								fprintf(USBSTREAM,"WATER HIGH LEVEL HIGH\n\r");
-							}
-						}
-					}break;
-					
-					default:{
-						if(boGetConnected()==true){
-							FILE* USBSTREAM = GetUSBStream();
-							fprintf_P(USBSTREAM,PSTR(	"GPIO - Help\n\r"
-							"------------------------------------------------------------------------------------------\n\r"
-							"GPIO index out of range, see HELP GPIO for more info"
-							"-------------------------------------------------------------------------------------------\n\r"
-							));
-						}
-					} break;
-				}
-				
-				
-				} else if(COMMAND.DIR==CMDI_SET){
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR(	"GPIO - Help\n\r"
-					"------------------------------------------------------------------------------------------\n\r"
-					"Only GET is supported for GPIO , see HELP GPIO for more info"
-					"-------------------------------------------------------------------------------------------\n\r"
-					));
-				}
-				} else if (COMMAND.DIR==CMDI_HELP) {
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf_P(USBSTREAM,PSTR(	"GPIO - Help\n\r"
-					"------------------------------------------------------------------------------------------\n\r"
-					"Use GET to read or set the status of GPIOs\n\r"
-					"The IO maps as follows:"
-					"0 = SWITCH 0"
-					"1 = SWITCH 1"
-					"2 = SWITCH 2"
-					"3 = Display button"
-					"4 = Water sensor low level"
-					"5 = Water sensor high level"
-					"Example: 'GET GPIO 0' will return the current level of SWITCH 0"
-					"-------------------------------------------------------------------------------------------\n\r"
-					));
-				}
-				} else {
-				voResponseParamErr();
-			}
+			voCMDI_GPIO(COMMAND);
 		} break;//End of case
 		
 		
 
 		case CMDI_MAKE:{
-			if(COMMAND.DIR==CMDI_CMD) {
-				
-				switch(COMMAND.u32CmdValue){
-					case 0:{
-						if(boCoffeeFSM_MakeCoffee(1)==true){
-							if(boGetConnected()==true){
-								FILE* USBSTREAM = GetUSBStream();
-								fprintf(USBSTREAM,"OK:BREWONE\n\r");
-							}
-							} else {
-							if(boGetConnected()==true){
-								FILE* USBSTREAM = GetUSBStream();
-								fprintf(USBSTREAM,"ERR:BREWERR\n\r");
-							}
-						}
-					} break;
-					
-					case 1:{
-						/* Power On */
-						if(boCoffeeFSM_MakeCoffee(1)==true){
-							if(boGetConnected()==true){
-								FILE* USBSTREAM = GetUSBStream();
-								fprintf(USBSTREAM,"OK:BRETWO\n\r");
-							}
-							} else {
-							if(boGetConnected()==true){
-								FILE* USBSTREAM = GetUSBStream();
-								fprintf(USBSTREAM,"ERR:BREWERR\n\r");
-							}
-						}
-					} break;
-				}
-				
-				} else if(COMMAND.DIR==CMDI_HELP){
-				if(boGetConnected()==true){
-					FILE* USBSTREAM = GetUSBStream();
-					fprintf(USBSTREAM,"USAGE: 'MAKE ONECUP', 'MAKE TWOCUP' for one or two cups\n\r");
-				}
-				
-			}
-			
+			voCMDI_MAKE(COMMAND);
 		} break;
 		
 		default:{
-			
+			/* This will be an internal error */
 		} break;
 	}
 	
@@ -928,23 +430,3 @@ void voProcessData(){
 	
 }
 
-void voResponseParamErr(){
-	if(boGetConnected()==true){
-		FILE* USBSTREAM = GetUSBStream();
-		fprintf_P(USBSTREAM,PSTR("ERR:PARAM\n\r"));
-	}
-}
-
-void voResponseParserErr(){
-	if(boGetConnected()==true){
-		FILE* USBSTREAM = GetUSBStream();
-		fprintf_P(USBSTREAM,PSTR("ERR:PARSER\n\r"));
-	}
-}
-
-void voResponseOk( ){
-	if(boGetConnected()==true){
-		FILE* USBSTREAM = GetUSBStream();
-		fprintf_P(USBSTREAM,PSTR("OK\n\r"));
-	}
-}

@@ -43,13 +43,13 @@ void WLM_voTask(){
 			if(u8switch_low_debounce < DEBOUNCE_HIGH){
 				u8switch_low_debounce++;
 			} else {
-				emSwitchDebouncedLow==emLowLevelSensor; /* SW will detect a transition if */
+				emSwitchDebouncedLow=emLowLevelSensor; /* SW will detect a transition if */
 			}
 		} else {
 			if(u8switch_low_debounce < DEBOUNCE_LOW){
 				u8switch_low_debounce++;
 				} else {
-				emSwitchDebouncedLow==emLowLevelSensor; /* SW will detect a transition if */
+				emSwitchDebouncedLow=emLowLevelSensor; /* SW will detect a transition if */
 			}
 		}
 	} else {
@@ -61,13 +61,13 @@ void WLM_voTask(){
 			if(u8switch_high_debounce < DEBOUNCE_HIGH){
 				u8switch_high_debounce++;
 				} else {
-				emHighLevelSensor==emHighLevelSensor; /* SW will detect a transition if */
+				emHighLevelSensor=emHighLevelSensor; /* SW will detect a transition if */
 				}
 			} else {
 				if(u8switch_low_debounce < DEBOUNCE_LOW){
 					u8switch_high_debounce++;
 				} else {
-					emHighLevelSensor==emHighLevelSensor; /* SW will detect a transition if */
+					emHighLevelSensor=emHighLevelSensor; /* SW will detect a transition if */
 				}
 			}
 		} else {
@@ -76,7 +76,7 @@ void WLM_voTask(){
 	
 	/* This may save some RAM but is hard to read */
 	
-	/* If we have onyl one sernsor inside we will only use one sensor */
+	/* If we have only one sensor inside we will only use one sensor */
 	emSwitchDebouncedHigh = emSwitchDebouncedLow ;
 	
 	if( ( emSwitchDebouncedHigh == SWITCH_PRESSED )  && ( emSwitchDebouncedLow == SWITCH_PRESSED) ) {
