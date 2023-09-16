@@ -38,6 +38,7 @@ void DPS_voTask( void );
 void DPS_SetBlinkFreq(ICON_BLINK_FREQ_t Frq, SENSEOICON_t Icon);
 void DPS_SetIconVisibility(ICONVISIBLITY_t Visibility, SENSEOICON_t Icon);
 ICONVISIBLITY_t DPS_GetIconVisibility( SENSEOICON_t Icon);
+void DPS_SetDisplayOff( void );
 
 
 #endif /* DISPLAYSERVICE_H_ */

@@ -228,7 +228,7 @@ void voCoffeeFSM_Task( void ){
 	if( (HealthState.OverTemperaturFault!=0) || (HealthState.WaterLevelLowFault!=0)){
 		/* We need to stop what ever we are doing and return to off or idle */
 		if(emFSMState!=coffeemaker_idle){
-			emFSMState=coffeemaker_preheat;
+			emFSMState=coffeemaker_preheat; //Is this really the best idea?
 		} else {
 			emFSMState=coffeemaker_idle;
 		}
@@ -524,7 +524,10 @@ void voCoffeeFSM_Task( void ){
 			if( ( 1 == htl.WaterLevelLowFault  ) || ( 1 == htl.WaterLevelLowWarning) ){
 				emFSMState = coffeemaker_idle; //Back to idle....
 			} else {
-				asm("nop");
+				//If we have a powerbtn press we will go to IDLE
+				if( (KeyChanged == PowerButtonKeyevent.KeyChangeState) & ( SWITCH_RELEASED == PowerButtonKeyevent.SwitchState ) ){
+					emFSMState = coffeemaker_idle; //Back to idle....
+				}
 			}
 		}break;
 		
@@ -533,12 +536,16 @@ void voCoffeeFSM_Task( void ){
 		}
 	}
 	
-	
-	voProcessLidKey(emFSMState);
-	voCoffeeFSM_DrawArrows(tStatusBits.bIsBrewing);
-	voCoffeeFSM_DrawCup(tFSMSettings.u8coffeelevel);
-	voCoffeeFSM_DrawWaterEmpty(HealthState.WaterLevelLowFault);
-	voCoffeeFSM_DrawThermometer(boBTC_GetIsHeating(),HealthState.OverTemperaturFault);
+	if(emFSMState != coffeemaker_idle){
+		voProcessLidKey(emFSMState);
+		voCoffeeFSM_DrawArrows(tStatusBits.bIsBrewing);
+		voCoffeeFSM_DrawCup(tFSMSettings.u8coffeelevel);
+		voCoffeeFSM_DrawWaterEmpty(HealthState.WaterLevelLowFault);
+		voCoffeeFSM_DrawThermometer(boBTC_GetIsHeating(),HealthState.OverTemperaturFault);
+	} else {
+		voProcessLidKey(emFSMState);
+		DPS_SetDisplayOff();
+	}
 }
 
 /* The following functions will set and handle different parts of the screen */
