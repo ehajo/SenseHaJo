@@ -222,16 +222,32 @@ void voCoffeeFSM_Task( void ){
 	
 	FaultAndWarning_t HealthState = HMon_tGetFaultAndWarning();
 	
-	/* What ever happens if we have a fault we go to off or idle depening on the current state */
+	/* What ever happens if we have a fault we go to off or idle deepening on the current state */
 	
-	/* Check for HW faults an react */
+	/* Check for HW faults and react */
 	if( (HealthState.OverTemperaturFault!=0) || (HealthState.WaterLevelLowFault!=0)){
 		/* We need to stop what ever we are doing and return to off or idle */
-		if(emFSMState!=coffeemaker_idle){
-			emFSMState=coffeemaker_preheat; //Is this really the best idea?
-		} else {
-			emFSMState=coffeemaker_idle;
+		switch( emFSMState){
+			case coffeemaker_idle:{
+				emFSMState=coffeemaker_idle;	
+			}break;
+			
+			case coffeemaker_pump_till_empty:{
+				emFSMState = coffeemaker_idle; //We trun off if water is empty
+			} break;
+			
+			case coffeemaker_preheat:{
+				emFSMState = coffeemaker_preheat; //We stay in preheat state as this will disable heating if water is empty
+			}
+			
+			default:{
+				emFSMState = coffeemaker_preheat; //We stay in preheat state as this will disable heating if water is empty
+			}break;
+			
+			
+			
 		}
+		
 		
 	}
 	
@@ -308,8 +324,8 @@ void voCoffeeFSM_Task( void ){
 			tStatusBits.bFillTwoCups=0;
 			//voBTC_SetBoilerSetTemp(7500); /* PowerDown */
 			/* We read the Preheat Temp form the Programm */
-			if(HealthState.WaterLevelLowFault!=false){
-				/* Water is empty we stop heating here */
+			if( (HealthState.OverTemperaturFault!=0) || (HealthState.WaterLevelLowFault!=0) ){
+				/* Water is empty we stop heating here or we have a temp fault */
 				voBTC_SetBoilerSetTemp(INT16_MIN); /* 0°C */
 				LLS_voSetLedLightning(LED_POWER,LED_BLINK_10Hz);
 			} else {
@@ -522,6 +538,7 @@ void voCoffeeFSM_Task( void ){
 		case coffeemaker_pump_till_empty:{
 			FaultAndWarning_t htl = HMon_tGetFaultAndWarning();
 			if( ( 1 == htl.WaterLevelLowFault  ) || ( 1 == htl.WaterLevelLowWarning) ){
+				//Usually not requiered to do so as the health monitring at the beginning will send us now to idle
 				emFSMState = coffeemaker_idle; //Back to idle....
 			} else {
 				//If we have a powerbtn press we will go to IDLE
