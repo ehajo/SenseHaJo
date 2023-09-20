@@ -4331,66 +4331,66 @@ void voProcessData(){
 	uint8_t u8TokenNo=0;
     1f54:	f1 2c       	mov	r15, r1
 							COMMAND.CMD=CMDI_ECHO;
-							} else if (strcmp_P(cpreptr,PSTR("GPIO"))==0){
+						} else if (strcmp_P(cpreptr,PSTR("GPIO"))==0){
 							COMMAND.CMD=CMDI_GPIO;
-							} else {
+						} else {
 							/* We don't know the command and need to prepare an error */
-							COMMAND.CMD=CMDI_NONE;
+							COMMAND.CMD=CMDI_NONE;							
     1f56:	86 e0       	ldi	r24, 0x06	; 6
     1f58:	e8 2e       	mov	r14, r24
 							COMMAND.CMD=CMDI_BOILERTEMP;
-							} else if(strcmp_P(cpreptr,PSTR("LEVEL"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("LEVEL"))==0){
 							/* CUP Level */
 							COMMAND.CMD=CMDI_CUP_LEVEL;
-							} else if(strcmp_P(cpreptr,PSTR("AUTOOFF"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("AUTOOFF"))==0){
 							COMMAND.CMD=CMDI_AUTOPOWER;
     1f5a:	9a e0       	ldi	r25, 0x0A	; 10
     1f5c:	a9 2e       	mov	r10, r25
-							} else if(strcmp_P(cpreptr,PSTR("BOILERTMP"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("BOILERTMP"))==0){
 							/* Ausgabe Boiler Temp */
 							COMMAND.CMD=CMDI_BOILERTEMP;
-							} else if(strcmp_P(cpreptr,PSTR("LEVEL"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("LEVEL"))==0){
 							/* CUP Level */
 							COMMAND.CMD=CMDI_CUP_LEVEL;
     1f5e:	29 e0       	ldi	r18, 0x09	; 9
     1f60:	92 2e       	mov	r9, r18
-							} else if(strcmp_P(cpreptr,PSTR("CURPWR"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("CURPWR"))==0){
 							/* Ausgabe Leistungsmessung */
 							COMMAND.CMD=CMDI_MES_POWER;
-							} else if(strcmp_P(cpreptr,PSTR("BOILERTMP"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("BOILERTMP"))==0){
 							/* Ausgabe Boiler Temp */
 							COMMAND.CMD=CMDI_BOILERTEMP;
     1f62:	38 e0       	ldi	r19, 0x08	; 8
     1f64:	83 2e       	mov	r8, r19
-							} else if(strcmp_P(cpreptr,PSTR("CHPRG"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("CHPRG"))==0){
 							/* SET Prog to Change */
 							COMMAND.CMD=CMDI_CHPRG;
-							} else if(strcmp_P(cpreptr,PSTR("CURPWR"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("CURPWR"))==0){
 							/* Ausgabe Leistungsmessung */
 							COMMAND.CMD=CMDI_MES_POWER;
     1f66:	47 e0       	ldi	r20, 0x07	; 7
     1f68:	34 2e       	mov	r3, r20
-							} else if(strcmp_P(cpreptr,PSTR("PRG"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("PRG"))==0){
 							/* PRG */
 							COMMAND.CMD=CMDI_PRG;
-							} else if(strcmp_P(cpreptr,PSTR("CHPRG"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("CHPRG"))==0){
 							/* SET Prog to Change */
 							COMMAND.CMD=CMDI_CHPRG;
     1f6a:	55 e0       	ldi	r21, 0x05	; 5
     1f6c:	25 2e       	mov	r2, r21
+						} else if(strcmp_P(cpreptr,PSTR("WAIT"))==0){
 							/* WAIT */
 							COMMAND.CMD=CMDI_WAIT;
-							
-							} else if(strcmp_P(cpreptr,PSTR("PRG"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("PRG"))==0){
 							/* PRG */
 							COMMAND.CMD=CMDI_PRG;
     1f6e:	64 e0       	ldi	r22, 0x04	; 4
     1f70:	d6 2e       	mov	r13, r22
-						if(COMMAND.CMD==CMDI_MAKE){
-							if(strcmp_P(cpreptr,PSTR("ONECUP"))==0){
+						if(COMMAND.CMD==CMDI_MAKE){ //If we need to make coffe 
+							if(strcmp_P(cpreptr,PSTR("ONECUP"))==0){ 
 								COMMAND.u32CmdValue=0;
 								
-								} else if(strcmp_P(cpreptr,PSTR("TWOCUP"))==0){
+							} else if(strcmp_P(cpreptr,PSTR("TWOCUP"))==0){
 								COMMAND.u32CmdValue=1;
     1f72:	41 2c       	mov	r4, r1
     1f74:	51 2c       	mov	r5, r1
@@ -4427,7 +4427,9 @@ void voProcessData(){
     1fa0:	09 f4       	brne	.+2      	; 0x1fa4 <voProcessData+0x9c>
     1fa2:	c5 c0       	rjmp	.+394    	; 0x212e <voProcessData+0x226>
     1fa4:	06 c1       	rjmp	.+524    	; 0x21b2 <voProcessData+0x2aa>
-				
+					Checks for first token and can be SET GET CMD HELP or BEER
+					This sets the direction the command is intended to operate
+				 */
 				case 0:{
 					
 					if(strcmp_P(cpreptr,PSTR("SET"))==0){
@@ -4438,11 +4440,10 @@ void voProcessData(){
     1fb0:	89 2b       	or	r24, r25
     1fb2:	11 f4       	brne	.+4      	; 0x1fb8 <voProcessData+0xb0>
 						/* This is a SET */
-						COMMAND.DIR=CMDI_SET;
+						COMMAND.DIR=CMDI_SET;				
     1fb4:	19 82       	std	Y+1, r1	; 0x01
     1fb6:	fd c0       	rjmp	.+506    	; 0x21b2 <voProcessData+0x2aa>
-						
-						} else if(strcmp_P(cpreptr,PSTR("GET"))==0){
+					} else if(strcmp_P(cpreptr,PSTR("GET"))==0){
     1fb8:	6f e7       	ldi	r22, 0x7F	; 127
     1fba:	71 e0       	ldi	r23, 0x01	; 1
     1fbc:	c8 01       	movw	r24, r16
@@ -4453,8 +4454,7 @@ void voProcessData(){
 						COMMAND.DIR=CMDI_GET;
     1fc6:	81 e0       	ldi	r24, 0x01	; 1
     1fc8:	08 c0       	rjmp	.+16     	; 0x1fda <voProcessData+0xd2>
-						
-						} else if(strcmp_P(cpreptr,PSTR("CMD"))==0){
+					} else if(strcmp_P(cpreptr,PSTR("CMD"))==0){
     1fca:	6b e7       	ldi	r22, 0x7B	; 123
     1fcc:	71 e0       	ldi	r23, 0x01	; 1
     1fce:	c8 01       	movw	r24, r16
@@ -4466,7 +4466,7 @@ void voProcessData(){
     1fd8:	82 e0       	ldi	r24, 0x02	; 2
     1fda:	89 83       	std	Y+1, r24	; 0x01
     1fdc:	ea c0       	rjmp	.+468    	; 0x21b2 <voProcessData+0x2aa>
-						} else if(strcmp_P(cpreptr,PSTR("HELP"))==0){
+					} else if(strcmp_P(cpreptr,PSTR("HELP"))==0){
     1fde:	66 e7       	ldi	r22, 0x76	; 118
     1fe0:	71 e0       	ldi	r23, 0x01	; 1
     1fe2:	c8 01       	movw	r24, r16
@@ -4479,7 +4479,7 @@ void voProcessData(){
     1fee:	89 83       	std	Y+1, r24	; 0x01
     1ff0:	08 c0       	rjmp	.+16     	; 0x2002 <voProcessData+0xfa>
 						COMMAND.CMD=CMDI_SYS_HELP;
-						} else if (strcmp_P(cpreptr,PSTR("BEER"))==0){
+					} else if (strcmp_P(cpreptr,PSTR("BEER"))==0){
     1ff2:	61 e7       	ldi	r22, 0x71	; 113
     1ff4:	71 e0       	ldi	r23, 0x01	; 1
     1ff6:	c8 01       	movw	r24, r16
@@ -4491,16 +4491,16 @@ void voProcessData(){
 						COMMAND.CMD=CMDI_SYS_HELP;
     2002:	8c e0       	ldi	r24, 0x0C	; 12
     2004:	19 c0       	rjmp	.+50     	; 0x2038 <voProcessData+0x130>
-						} else {
+					} else {
 						/* We don't know the command and need to prepare an error */
 						COMMAND.DIR=CMDI_NONE;
     2006:	e9 82       	std	Y+1, r14	; 0x01
     2008:	d4 c0       	rjmp	.+424    	; 0x21b2 <voProcessData+0x2aa>
-					}
-					
 				} break;
 				
+				/* Second Token actually decodes what to do  */
 				case 1:{
+					/* This is for HELP SET and GET */
 					if( (COMMAND.DIR==CMDI_HELP) ||(COMMAND.DIR==CMDI_SET) || ( COMMAND.DIR==CMDI_GET) ) {
     200a:	89 81       	ldd	r24, Y+1	; 0x01
     200c:	83 30       	cpi	r24, 0x03	; 3
@@ -4520,8 +4520,7 @@ void voProcessData(){
 							COMMAND.CMD=CMDI_TEMP;
     2024:	1a 82       	std	Y+2, r1	; 0x02
     2026:	c5 c0       	rjmp	.+394    	; 0x21b2 <voProcessData+0x2aa>
-							
-							} else if(strcmp_P(cpreptr,PSTR("PRWA"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("PRWA"))==0){
     2028:	67 e6       	ldi	r22, 0x67	; 103
     202a:	71 e0       	ldi	r23, 0x01	; 1
     202c:	c8 01       	movw	r24, r16
@@ -4529,12 +4528,11 @@ void voProcessData(){
     2032:	89 2b       	or	r24, r25
     2034:	19 f4       	brne	.+6      	; 0x203c <voProcessData+0x134>
 							/* PRWA */
-							COMMAND.CMD=CMDI_PREWATER;
+							COMMAND.CMD=CMDI_PREWATER;							
     2036:	81 e0       	ldi	r24, 0x01	; 1
     2038:	8a 83       	std	Y+2, r24	; 0x02
     203a:	bb c0       	rjmp	.+374    	; 0x21b2 <voProcessData+0x2aa>
-							
-							} else if(strcmp_P(cpreptr,PSTR("WATER"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("WATER"))==0){
     203c:	61 e6       	ldi	r22, 0x61	; 97
     203e:	71 e0       	ldi	r23, 0x01	; 1
     2040:	c8 01       	movw	r24, r16
@@ -4542,11 +4540,10 @@ void voProcessData(){
     2046:	89 2b       	or	r24, r25
     2048:	11 f4       	brne	.+4      	; 0x204e <voProcessData+0x146>
 							/* WATER */
-							COMMAND.CMD=CMDI_WATER;
+							COMMAND.CMD=CMDI_WATER;						
     204a:	82 e0       	ldi	r24, 0x02	; 2
     204c:	f5 cf       	rjmp	.-22     	; 0x2038 <voProcessData+0x130>
-							
-							} else if(strcmp_P(cpreptr,PSTR("WAIT"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("WAIT"))==0){
     204e:	6c e5       	ldi	r22, 0x5C	; 92
     2050:	71 e0       	ldi	r23, 0x01	; 1
     2052:	c8 01       	movw	r24, r16
@@ -4557,8 +4554,7 @@ void voProcessData(){
 							COMMAND.CMD=CMDI_WAIT;
     205c:	83 e0       	ldi	r24, 0x03	; 3
     205e:	ec cf       	rjmp	.-40     	; 0x2038 <voProcessData+0x130>
-							
-							} else if(strcmp_P(cpreptr,PSTR("PRG"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("PRG"))==0){
     2060:	68 e5       	ldi	r22, 0x58	; 88
     2062:	71 e0       	ldi	r23, 0x01	; 1
     2064:	c8 01       	movw	r24, r16
@@ -4569,7 +4565,7 @@ void voProcessData(){
 							COMMAND.CMD=CMDI_PRG;
     206e:	da 82       	std	Y+2, r13	; 0x02
     2070:	a0 c0       	rjmp	.+320    	; 0x21b2 <voProcessData+0x2aa>
-							} else if(strcmp_P(cpreptr,PSTR("CHPRG"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("CHPRG"))==0){
     2072:	62 e5       	ldi	r22, 0x52	; 82
     2074:	71 e0       	ldi	r23, 0x01	; 1
     2076:	c8 01       	movw	r24, r16
@@ -4580,7 +4576,7 @@ void voProcessData(){
 							COMMAND.CMD=CMDI_CHPRG;
     2080:	2a 82       	std	Y+2, r2	; 0x02
     2082:	97 c0       	rjmp	.+302    	; 0x21b2 <voProcessData+0x2aa>
-							} else if(strcmp_P(cpreptr,PSTR("CURPWR"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("CURPWR"))==0){
     2084:	6b e4       	ldi	r22, 0x4B	; 75
     2086:	71 e0       	ldi	r23, 0x01	; 1
     2088:	c8 01       	movw	r24, r16
@@ -4591,7 +4587,7 @@ void voProcessData(){
 							COMMAND.CMD=CMDI_MES_POWER;
     2092:	3a 82       	std	Y+2, r3	; 0x02
     2094:	8e c0       	rjmp	.+284    	; 0x21b2 <voProcessData+0x2aa>
-							} else if(strcmp_P(cpreptr,PSTR("BOILERTMP"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("BOILERTMP"))==0){
     2096:	61 e4       	ldi	r22, 0x41	; 65
     2098:	71 e0       	ldi	r23, 0x01	; 1
     209a:	c8 01       	movw	r24, r16
@@ -4602,7 +4598,7 @@ void voProcessData(){
 							COMMAND.CMD=CMDI_BOILERTEMP;
     20a4:	8a 82       	std	Y+2, r8	; 0x02
     20a6:	85 c0       	rjmp	.+266    	; 0x21b2 <voProcessData+0x2aa>
-							} else if(strcmp_P(cpreptr,PSTR("LEVEL"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("LEVEL"))==0){
     20a8:	6b e3       	ldi	r22, 0x3B	; 59
     20aa:	71 e0       	ldi	r23, 0x01	; 1
     20ac:	c8 01       	movw	r24, r16
@@ -4613,7 +4609,7 @@ void voProcessData(){
 							COMMAND.CMD=CMDI_CUP_LEVEL;
     20b6:	9a 82       	std	Y+2, r9	; 0x02
     20b8:	7c c0       	rjmp	.+248    	; 0x21b2 <voProcessData+0x2aa>
-							} else if(strcmp_P(cpreptr,PSTR("AUTOOFF"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("AUTOOFF"))==0){
     20ba:	63 e3       	ldi	r22, 0x33	; 51
     20bc:	71 e0       	ldi	r23, 0x01	; 1
     20be:	c8 01       	movw	r24, r16
@@ -4623,7 +4619,7 @@ void voProcessData(){
 							COMMAND.CMD=CMDI_AUTOPOWER;
     20c8:	aa 82       	std	Y+2, r10	; 0x02
     20ca:	73 c0       	rjmp	.+230    	; 0x21b2 <voProcessData+0x2aa>
-							}else if(strcmp_P(cpreptr,PSTR("STBYTEMP"))==0){
+						}else if(strcmp_P(cpreptr,PSTR("STBYTEMP"))==0){
     20cc:	6a e2       	ldi	r22, 0x2A	; 42
     20ce:	71 e0       	ldi	r23, 0x01	; 1
     20d0:	c8 01       	movw	r24, r16
@@ -4633,7 +4629,7 @@ void voProcessData(){
 							COMMAND.CMD=CMDI_STBY_TEMP;
     20da:	8b e0       	ldi	r24, 0x0B	; 11
     20dc:	ad cf       	rjmp	.-166    	; 0x2038 <voProcessData+0x130>
-							}else if(strcmp_P(cpreptr,PSTR("ECHO"))==0){
+						}else if(strcmp_P(cpreptr,PSTR("ECHO"))==0){
     20de:	65 e2       	ldi	r22, 0x25	; 37
     20e0:	71 e0       	ldi	r23, 0x01	; 1
     20e2:	c8 01       	movw	r24, r16
@@ -4643,7 +4639,7 @@ void voProcessData(){
 							COMMAND.CMD=CMDI_ECHO;
     20ec:	8d e0       	ldi	r24, 0x0D	; 13
     20ee:	a4 cf       	rjmp	.-184    	; 0x2038 <voProcessData+0x130>
-							} else if (strcmp_P(cpreptr,PSTR("GPIO"))==0){
+						} else if (strcmp_P(cpreptr,PSTR("GPIO"))==0){
     20f0:	60 e2       	ldi	r22, 0x20	; 32
     20f2:	71 e0       	ldi	r23, 0x01	; 1
     20f4:	c8 01       	movw	r24, r16
@@ -4653,27 +4649,25 @@ void voProcessData(){
 							COMMAND.CMD=CMDI_GPIO;
     20fe:	8e e0       	ldi	r24, 0x0E	; 14
     2100:	9b cf       	rjmp	.-202    	; 0x2038 <voProcessData+0x130>
-							COMMAND.CMD=CMDI_NONE;
-							
+						} else {
+							/* We don't know the command and need to prepare an error */
+							COMMAND.CMD=CMDI_NONE;							
 						}
-					}
 					
-					else if (COMMAND.DIR==CMDI_CMD){
+					} else if (COMMAND.DIR==CMDI_CMD){ /* Specal commands that need to be called with CMD in front */
     2102:	82 30       	cpi	r24, 0x02	; 2
     2104:	11 f0       	breq	.+4      	; 0x210a <voProcessData+0x202>
 							COMMAND.CMD=CMDI_ECHO;
-							} else if (strcmp_P(cpreptr,PSTR("GPIO"))==0){
+						} else if (strcmp_P(cpreptr,PSTR("GPIO"))==0){
 							COMMAND.CMD=CMDI_GPIO;
-							} else {
+						} else {
 							/* We don't know the command and need to prepare an error */
-							COMMAND.CMD=CMDI_NONE;
+							COMMAND.CMD=CMDI_NONE;							
     2106:	ea 82       	std	Y+2, r14	; 0x02
     2108:	54 c0       	rjmp	.+168    	; 0x21b2 <voProcessData+0x2aa>
-							
 						}
-					}
 					
-					else if (COMMAND.DIR==CMDI_CMD){
+					} else if (COMMAND.DIR==CMDI_CMD){ /* Specal commands that need to be called with CMD in front */
 						if(strcmp_P(cpreptr,PSTR("MAKE"))==0){
     210a:	6b e1       	ldi	r22, 0x1B	; 27
     210c:	71 e0       	ldi	r23, 0x01	; 1
@@ -4700,7 +4694,7 @@ void voProcessData(){
 						COMMAND.CMD=CMDI_NONE;
 					}
 				} break;
-				
+				/* This is the third Token that some commands do expect */
 				case 2:{
 					if( (COMMAND.DIR==CMDI_SET) || (COMMAND.DIR == CMDI_GET) ){
     212e:	89 81       	ldd	r24, Y+1	; 0x01
@@ -4723,8 +4717,7 @@ void voProcessData(){
     2146:	ea 82       	std	Y+2, r14	; 0x02
     2148:	04 c0       	rjmp	.+8      	; 0x2152 <voProcessData+0x24a>
 							}
-							
-							} else {
+						} else {
 							if( (CMDI_GET==COMMAND.DIR) && ( CMDI_GPIO == COMMAND.CMD) ){
     214a:	8a 81       	ldd	r24, Y+2	; 0x02
     214c:	8e 30       	cpi	r24, 0x0E	; 14
@@ -4733,18 +4726,18 @@ void voProcessData(){
 							}
 							
 						}
-					}
+					} //End of IF SET ot GET
 					
-					if(COMMAND.DIR==CMDI_CMD){
+					if(COMMAND.DIR==CMDI_CMD){ //If we have a CMD we may need to parse the third token
     2152:	89 81       	ldd	r24, Y+1	; 0x01
     2154:	82 30       	cpi	r24, 0x02	; 2
     2156:	69 f5       	brne	.+90     	; 0x21b2 <voProcessData+0x2aa>
 						
-						if(COMMAND.CMD==CMDI_MAKE){
+						if(COMMAND.CMD==CMDI_MAKE){ //If we need to make coffe 
     2158:	8a 81       	ldd	r24, Y+2	; 0x02
     215a:	8f 30       	cpi	r24, 0x0F	; 15
     215c:	c9 f4       	brne	.+50     	; 0x2190 <voProcessData+0x288>
-							if(strcmp_P(cpreptr,PSTR("ONECUP"))==0){
+							if(strcmp_P(cpreptr,PSTR("ONECUP"))==0){ 
     215e:	6e e0       	ldi	r22, 0x0E	; 14
     2160:	71 e0       	ldi	r23, 0x01	; 1
     2162:	c8 01       	movw	r24, r16
@@ -4758,7 +4751,7 @@ void voProcessData(){
     2172:	1e 82       	std	Y+6, r1	; 0x06
     2174:	1e c0       	rjmp	.+60     	; 0x21b2 <voProcessData+0x2aa>
 								
-								} else if(strcmp_P(cpreptr,PSTR("TWOCUP"))==0){
+							} else if(strcmp_P(cpreptr,PSTR("TWOCUP"))==0){
     2176:	67 e0       	ldi	r22, 0x07	; 7
     2178:	71 e0       	ldi	r23, 0x01	; 1
     217a:	c8 01       	movw	r24, r16
@@ -4773,10 +4766,10 @@ void voProcessData(){
     218c:	7e 82       	std	Y+6, r7	; 0x06
     218e:	11 c0       	rjmp	.+34     	; 0x21b2 <voProcessData+0x2aa>
 								
-								} else {
+							} else {
 								COMMAND.CMD=CMDI_NONE;
 							}
-							} else if(COMMAND.CMD==CMDI_POWER){
+						} else if(COMMAND.CMD==CMDI_POWER){
     2190:	80 31       	cpi	r24, 0x10	; 16
     2192:	79 f4       	brne	.+30     	; 0x21b2 <voProcessData+0x2aa>
 							if(strcmp_P(cpreptr,PSTR("ON"))==0){
@@ -4786,9 +4779,8 @@ void voProcessData(){
     219a:	0e 94 ed 25 	call	0x4bda	; 0x4bda <strcmp_P>
     219e:	89 2b       	or	r24, r25
     21a0:	91 f3       	breq	.-28     	; 0x2186 <voProcessData+0x27e>
-								COMMAND.u32CmdValue=1;
-								
-								} else if(strcmp_P(cpreptr,PSTR("OFF"))==0){
+								COMMAND.u32CmdValue=1;		
+							} else if(strcmp_P(cpreptr,PSTR("OFF"))==0){
     21a2:	60 e0       	ldi	r22, 0x00	; 0
     21a4:	71 e0       	ldi	r23, 0x01	; 1
     21a6:	c8 01       	movw	r24, r16
@@ -4800,13 +4792,13 @@ void voProcessData(){
 				} break;
 				
 			}
-			/* cptr now contains our first token */
+			//We now increase the number of tokens we found
 			u8TokenNo++;
     21b2:	f3 94       	inc	r15
     21b4:	0b 2d       	mov	r16, r11
     21b6:	1c 2d       	mov	r17, r12
     21b8:	e0 ce       	rjmp	.-576    	; 0x1f7a <voProcessData+0x72>
-		}
+		/* we move it to the next token */
 		cpreptr=cptr;
 	}
 	
@@ -4830,7 +4822,7 @@ void voProcessData(){
     21cc:	2a d1       	rcall	.+596    	; 0x2422 <voCMDI_BOILERTEMP>
 		} break;
     21ce:	0c c0       	rjmp	.+24     	; 0x21e8 <voProcessData+0x2e0>
-		}
+		/* we move it to the next token */
 		cpreptr=cptr;
 	}
 	
@@ -4885,7 +4877,7 @@ void voProcessData(){
     2216:	3f 90       	pop	r3
     2218:	2f 90       	pop	r2
     221a:	08 95       	ret
-		}
+		/* we move it to the next token */
 		cpreptr=cptr;
 	}
 	
@@ -4908,7 +4900,7 @@ void voProcessData(){
     222c:	94 d6       	rcall	.+3368   	; 0x2f56 <voCMDI_WAIT>
 		} break;
     222e:	dc cf       	rjmp	.-72     	; 0x21e8 <voProcessData+0x2e0>
-		}
+		/* we move it to the next token */
 		cpreptr=cptr;
 	}
 	
@@ -4933,7 +4925,7 @@ void voProcessData(){
     2244:	6b d4       	rcall	.+2262   	; 0x2b1c <voCMDI_PREWATER>
 		} break;
     2246:	d0 cf       	rjmp	.-96     	; 0x21e8 <voProcessData+0x2e0>
-		}
+		/* we move it to the next token */
 		cpreptr=cptr;
 	}
 	
@@ -4967,7 +4959,7 @@ void voProcessData(){
     2260:	8d 81       	ldd	r24, Y+5	; 0x05
     2262:	9e 81       	ldd	r25, Y+6	; 0x06
     2264:	e6 d6       	rcall	.+3532   	; 0x3032 <voCMDI_WATRER>
-		}
+		/* we move it to the next token */
 		cpreptr=cptr;
 	}
 	
@@ -4990,7 +4982,7 @@ void voProcessData(){
     2276:	9e 81       	ldd	r25, Y+6	; 0x06
 		}break;
     2278:	24 d1       	rcall	.+584    	; 0x24c2 <voCMDI_CHPRG>
-		}
+		/* we move it to the next token */
 		cpreptr=cptr;
 	}
 	
@@ -5012,7 +5004,7 @@ void voProcessData(){
     2288:	9e 81       	ldd	r25, Y+6	; 0x06
 		}break;
     228a:	ba d4       	rcall	.+2420   	; 0x2c00 <voCMDI_PRG>
-		}
+		/* we move it to the next token */
 		cpreptr=cptr;
 	}
 	
@@ -5029,7 +5021,7 @@ void voProcessData(){
     2290:	11 f4       	brne	.+4      	; 0x2296 <voProcessData+0x38e>
 		} break;
     2292:	54 d7       	rcall	.+3752   	; 0x313c <voResponseParserErr>
-		}
+		/* we move it to the next token */
 		cpreptr=cptr;
 	}
 	
@@ -5053,7 +5045,7 @@ void voProcessData(){
     22a6:	9e 81       	ldd	r25, Y+6	; 0x06
 		} break;
     22a8:	96 d3       	rcall	.+1836   	; 0x29d6 <voCMDI_MES_POWER>
-		}
+		/* we move it to the next token */
 		cpreptr=cptr;
 	}
 	
@@ -5078,7 +5070,7 @@ void voProcessData(){
     22be:	9e 81       	ldd	r25, Y+6	; 0x06
 		} break;
     22c0:	4f d0       	rcall	.+158    	; 0x2360 <voCMDI_AUTOPOWER>
-		}
+		/* we move it to the next token */
 		cpreptr=cptr;
 	}
 	
@@ -5115,7 +5107,7 @@ void voProcessData(){
 				
 		} break;
     22e0:	fa d4       	rcall	.+2548   	; 0x2cd6 <voCMDI_STBY_TEMP>
-		}
+		/* we move it to the next token */
 		cpreptr=cptr;
 	}
 	
@@ -5138,7 +5130,7 @@ void voProcessData(){
     22f2:	9e 81       	ldd	r25, Y+6	; 0x06
 		} break;//End of case
     22f4:	24 d2       	rcall	.+1096   	; 0x273e <voCMDI_GPIO>
-		}
+		/* we move it to the next token */
 		cpreptr=cptr;
 	}
 	
@@ -5160,7 +5152,7 @@ void voProcessData(){
     2304:	9e 81       	ldd	r25, Y+6	; 0x06
 		} break;
     2306:	ae d1       	rcall	.+860    	; 0x2664 <voCMDI_ECHO>
-		}
+		/* we move it to the next token */
 		cpreptr=cptr;
 	}
 	
@@ -5183,7 +5175,7 @@ void voProcessData(){
     2318:	9e 81       	ldd	r25, Y+6	; 0x06
 		} break;
     231a:	f2 d2       	rcall	.+1508   	; 0x2900 <voCMDI_MAKE>
-		}
+		/* we move it to the next token */
 		cpreptr=cptr;
 	}
 	

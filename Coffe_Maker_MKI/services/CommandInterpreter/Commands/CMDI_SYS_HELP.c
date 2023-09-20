@@ -35,6 +35,7 @@ void voCMDI_SYS_HELP( CMDI_CMD_DATA_t COMMAND ){
 			"STBYTEMP - Set or Get the standby temp.\n\r"
 			"MAKE (ONECUP , TWOCUP) used to make coffee\n\r"
 			"ECHO - enable or disable serial ECHO\n\r"
+			"After changes to the Program reload with CHPRG"
 			"For more Help type HELP <COMMAND>\n\r"
 			"-------------------------------------------------------------------------------------------\n\r"
 			));
