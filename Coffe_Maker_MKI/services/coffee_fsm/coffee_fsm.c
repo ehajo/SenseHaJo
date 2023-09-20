@@ -216,6 +216,7 @@ void voCoffeeFSM_Task( void ){
 	KeyEvent_t PowerButtonKeyevent = strGetKeyEvent(POWER_KEY);
 	KeyEvent_t OneCupButtonKeyevent = strGetKeyEvent(ONECUP_KEY);
 	KeyEvent_t TwoCupButtonKeyevent = strGetKeyEvent(TWOCUP_KEY);	
+
 	
 	/* Set the internal Bits for processing to a known value  */
 	tStatusBits.bIsBrewing=false;
@@ -233,12 +234,12 @@ void voCoffeeFSM_Task( void ){
 			}break;
 			
 			case coffeemaker_pump_till_empty:{
-				emFSMState = coffeemaker_idle; //We trun off if water is empty
+				emFSMState = coffeemaker_idle; //We turn off if water is empty
 			} break;
 			
 			case coffeemaker_preheat:{
 				emFSMState = coffeemaker_preheat; //We stay in preheat state as this will disable heating if water is empty
-			}
+			} break;
 			
 			default:{
 				emFSMState = coffeemaker_preheat; //We stay in preheat state as this will disable heating if water is empty

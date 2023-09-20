@@ -99,7 +99,7 @@ CoffeeMaker.d CoffeeMaker.o: .././CoffeeMaker.c .././CoffeeMaker.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/HIDClassDevice.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/HIDClassCommon.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/HIDParser.h \
- d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h \
+ ../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/../../../../Common/Common.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/HIDReportData.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/HIDClassCommon.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/MassStorageClass.h \
@@ -350,7 +350,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/HIDParser.h:
 
-d:\github\sensehajoavr\sensehajo\coffe_maker_mki\src\lufa\lufa\common\common.h:
+../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/../../../../Common/Common.h:
 
 ../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/HIDReportData.h:
 

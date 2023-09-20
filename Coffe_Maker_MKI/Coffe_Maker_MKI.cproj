@@ -170,8 +170,8 @@
         <board id="lufa.boards.dummy.avr8" value="Add" config="" content-id="0e160d5c-e331-48d9-850b-e0387912171b" />
       </framework-data>
     </AsfFrameworkConfig>
-    <avrtool>com.atmel.avrdbg.tool.atmelice</avrtool>
-    <avrtoolserialnumber>J41800041437</avrtoolserialnumber>
+    <avrtool>com.atmel.avrdbg.tool.snap</avrtool>
+    <avrtoolserialnumber>BUR190119529</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x1E958A</avrdeviceexpectedsignature>
     <com_atmel_avrdbg_tool_atmelice>
       <ToolOptions>
@@ -210,6 +210,16 @@
     </custom>
     <ResetRule>0</ResetRule>
     <EraseKey />
+    <com_atmel_avrdbg_tool_snap>
+      <ToolOptions>
+        <InterfaceProperties>
+        </InterfaceProperties>
+        <InterfaceName>debugWIRE</InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.snap</ToolType>
+      <ToolNumber>BUR190119529</ToolNumber>
+      <ToolName>MPLAB® Snap</ToolName>
+    </com_atmel_avrdbg_tool_snap>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
