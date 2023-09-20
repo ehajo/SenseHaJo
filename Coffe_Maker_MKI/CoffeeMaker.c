@@ -115,6 +115,11 @@ which task needs to be run next
 int main(void)
 {
 	SetupHardware();
+	//We need to wait a few seconds until all pins are stable
+	for(uint8_t i=0; i<20;i++ ){
+		_delay_ms(100);
+	}
+	//Next is to power up the machine
 	voEEFS_Init();
 	/* Create a regular character stream for the interface so that it can be used with the stdio.h functions */
 	FILE USBSerialStream;

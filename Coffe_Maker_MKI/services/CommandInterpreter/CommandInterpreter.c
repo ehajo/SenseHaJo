@@ -187,84 +187,81 @@ void voProcessData(){
 		if(cpreptr!=NULL){
 			switch(u8TokenNo){
 				
+				/*	
+					Checks for first token and can be SET GET CMD HELP or BEER
+					This sets the direction the command is intended to operate
+				 */
 				case 0:{
 					
 					if(strcmp_P(cpreptr,PSTR("SET"))==0){
 						/* This is a SET */
-						COMMAND.DIR=CMDI_SET;
-						
-						} else if(strcmp_P(cpreptr,PSTR("GET"))==0){
+						COMMAND.DIR=CMDI_SET;				
+					} else if(strcmp_P(cpreptr,PSTR("GET"))==0){
 						/* This is a GET */
 						COMMAND.DIR=CMDI_GET;
-						
-						} else if(strcmp_P(cpreptr,PSTR("CMD"))==0){
+					} else if(strcmp_P(cpreptr,PSTR("CMD"))==0){
 						/* This is a GET */
 						COMMAND.DIR=CMDI_CMD;
-						} else if(strcmp_P(cpreptr,PSTR("HELP"))==0){
+					} else if(strcmp_P(cpreptr,PSTR("HELP"))==0){
 						/* This is a GET */
 						COMMAND.DIR=CMDI_HELP;
 						COMMAND.CMD=CMDI_SYS_HELP;
-						} else if (strcmp_P(cpreptr,PSTR("BEER"))==0){
+					} else if (strcmp_P(cpreptr,PSTR("BEER"))==0){
 						COMMAND.DIR=CMDI_BEER;
 						COMMAND.CMD=CMDI_SYS_HELP;
-						} else {
+					} else {
 						/* We don't know the command and need to prepare an error */
 						COMMAND.DIR=CMDI_NONE;
-						
 					}
 					
 				} break;
 				
+				/* Second Token actually decodes what to do  */
 				case 1:{
+					/* This is for HELP SET and GET */
 					if( (COMMAND.DIR==CMDI_HELP) ||(COMMAND.DIR==CMDI_SET) || ( COMMAND.DIR==CMDI_GET) ) {
 
 						if(strcmp_P(cpreptr,PSTR("TEMP"))==0){
 							/* TEMP */
 							COMMAND.CMD=CMDI_TEMP;
-							
-							} else if(strcmp_P(cpreptr,PSTR("PRWA"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("PRWA"))==0){
 							/* PRWA */
-							COMMAND.CMD=CMDI_PREWATER;
-							
-							} else if(strcmp_P(cpreptr,PSTR("WATER"))==0){
+							COMMAND.CMD=CMDI_PREWATER;							
+						} else if(strcmp_P(cpreptr,PSTR("WATER"))==0){
 							/* WATER */
-							COMMAND.CMD=CMDI_WATER;
-							
-							} else if(strcmp_P(cpreptr,PSTR("WAIT"))==0){
+							COMMAND.CMD=CMDI_WATER;						
+						} else if(strcmp_P(cpreptr,PSTR("WAIT"))==0){
 							/* WAIT */
 							COMMAND.CMD=CMDI_WAIT;
-							
-							} else if(strcmp_P(cpreptr,PSTR("PRG"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("PRG"))==0){
 							/* PRG */
 							COMMAND.CMD=CMDI_PRG;
-							} else if(strcmp_P(cpreptr,PSTR("CHPRG"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("CHPRG"))==0){
 							/* SET Prog to Change */
 							COMMAND.CMD=CMDI_CHPRG;
-							} else if(strcmp_P(cpreptr,PSTR("CURPWR"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("CURPWR"))==0){
 							/* Ausgabe Leistungsmessung */
 							COMMAND.CMD=CMDI_MES_POWER;
-							} else if(strcmp_P(cpreptr,PSTR("BOILERTMP"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("BOILERTMP"))==0){
 							/* Ausgabe Boiler Temp */
 							COMMAND.CMD=CMDI_BOILERTEMP;
-							} else if(strcmp_P(cpreptr,PSTR("LEVEL"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("LEVEL"))==0){
 							/* CUP Level */
 							COMMAND.CMD=CMDI_CUP_LEVEL;
-							} else if(strcmp_P(cpreptr,PSTR("AUTOOFF"))==0){
+						} else if(strcmp_P(cpreptr,PSTR("AUTOOFF"))==0){
 							COMMAND.CMD=CMDI_AUTOPOWER;
-							}else if(strcmp_P(cpreptr,PSTR("STBYTEMP"))==0){
+						}else if(strcmp_P(cpreptr,PSTR("STBYTEMP"))==0){
 							COMMAND.CMD=CMDI_STBY_TEMP;
-							}else if(strcmp_P(cpreptr,PSTR("ECHO"))==0){
+						}else if(strcmp_P(cpreptr,PSTR("ECHO"))==0){
 							COMMAND.CMD=CMDI_ECHO;
-							} else if (strcmp_P(cpreptr,PSTR("GPIO"))==0){
+						} else if (strcmp_P(cpreptr,PSTR("GPIO"))==0){
 							COMMAND.CMD=CMDI_GPIO;
-							} else {
+						} else {
 							/* We don't know the command and need to prepare an error */
-							COMMAND.CMD=CMDI_NONE;
-							
+							COMMAND.CMD=CMDI_NONE;							
 						}
-					}
 					
-					else if (COMMAND.DIR==CMDI_CMD){
+					} else if (COMMAND.DIR==CMDI_CMD){ /* Specal commands that need to be called with CMD in front */
 						if(strcmp_P(cpreptr,PSTR("MAKE"))==0){
 							/* TEMP */
 							COMMAND.CMD=CMDI_MAKE;
@@ -280,7 +277,7 @@ void voProcessData(){
 						COMMAND.CMD=CMDI_NONE;
 					}
 				} break;
-				
+				/* This is the third Token that some commands do expect */
 				case 2:{
 					if( (COMMAND.DIR==CMDI_SET) || (COMMAND.DIR == CMDI_GET) ){
 						if(COMMAND.DIR!=CMDI_GET){
@@ -289,42 +286,39 @@ void voProcessData(){
 								} else {
 								COMMAND.CMD=CMDI_NONE; //Parser Error
 							}
-							
-							} else {
+						} else {
 							if( (CMDI_GET==COMMAND.DIR) && ( CMDI_GPIO == COMMAND.CMD) ){
 								if(StringToUint(cpreptr,&COMMAND.u32CmdValue)==false){
 									//All good here
 									} else {
 									COMMAND.CMD=CMDI_NONE; //Parser Error
 								}
-								} else {
+							} else {
 								/* We don't know the command and need to prepare an error */
 								COMMAND.CMD=CMDI_NONE;
 							}
 							
 						}
-					}
+					} //End of IF SET ot GET
 					
-					if(COMMAND.DIR==CMDI_CMD){
+					if(COMMAND.DIR==CMDI_CMD){ //If we have a CMD we may need to parse the third token
 						
-						if(COMMAND.CMD==CMDI_MAKE){
-							if(strcmp_P(cpreptr,PSTR("ONECUP"))==0){
+						if(COMMAND.CMD==CMDI_MAKE){ //If we need to make coffe 
+							if(strcmp_P(cpreptr,PSTR("ONECUP"))==0){ 
 								COMMAND.u32CmdValue=0;
 								
-								} else if(strcmp_P(cpreptr,PSTR("TWOCUP"))==0){
+							} else if(strcmp_P(cpreptr,PSTR("TWOCUP"))==0){
 								COMMAND.u32CmdValue=1;
 								
-								} else {
+							} else {
 								COMMAND.CMD=CMDI_NONE;
 							}
-							} else if(COMMAND.CMD==CMDI_POWER){
+						} else if(COMMAND.CMD==CMDI_POWER){
 							if(strcmp_P(cpreptr,PSTR("ON"))==0){
-								COMMAND.u32CmdValue=1;
-								
-								} else if(strcmp_P(cpreptr,PSTR("OFF"))==0){
-								COMMAND.u32CmdValue=0;
-								
-								} else {
+								COMMAND.u32CmdValue=1;		
+							} else if(strcmp_P(cpreptr,PSTR("OFF"))==0){
+								COMMAND.u32CmdValue=0;	
+							} else {
 								COMMAND.CMD=CMDI_NONE;
 							}
 						}
@@ -338,11 +332,13 @@ void voProcessData(){
 				} break;
 				
 			}
-			/* cptr now contains our first token */
+			//We now increase the number of tokens we found
 			u8TokenNo++;
-			} else {
+		} else {
 			boStringEnd = true;
 		}
+		/* cpreptr hods the current start position in out array */
+		/* we move it to the next token */
 		cpreptr=cptr;
 	}
 	
