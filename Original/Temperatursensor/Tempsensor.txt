@@ -1,0 +1,5 @@
+Der Temperatursensor in dem Metallboiler ist zum Glück nur über eine Schelle verschraubt und konnte somit problemlos ausgebaut werden im Stream. (07.02.2024)
+
+Messungen des Widerstands unter verschiedenen Temperaturen ergaben, dass es sich um einen NTC 10k handelt.
+
+Die Widerstandswerte sind in der Tabelle ablesbar. Quelle: D-Sensors GmbH, Kennlinie NTC 10kOhm 
