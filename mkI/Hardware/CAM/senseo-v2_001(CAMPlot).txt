@@ -1,0 +1,98 @@
+CAMPlot
+-------
+
+Report Written : 29.01.2017 19:28:25
+Design Path    : C:\dev\schaltungen\LP\senseo-V2\senseo-v2_001.pcb
+Design Title   : 
+Created        : 29.11.2016 21:30:23
+Last Saved     : 25.01.2017 00:14:56
+Editing Time   : 2837 min
+
+Formatting Information
+----------------------
+
+    PDF Output
+    ----------
+
+    Pulsonix 8.5 Pulsonix.exe 5907
+
+Plot Details
+------------
+
+    PDF Output
+    ----------
+
+    Plot Name:       ass_top
+
+    Contains:        Top
+
+    Scale:           1.000
+    Mirrored:        No
+    Rotated:         No
+    Offset:          -468.68+    -503.74+mm
+    Step & Repeat:   Not used
+
+
+    PDF Output
+    ----------
+
+    Plot Name:       ass_bot
+
+    Contains:        Bottom
+
+    Scale:           1.000
+    Mirrored:        Yes
+    Rotated:         No
+    Offset:          612.26+    -503.74+mm
+    Step & Repeat:   Not used
+
+
+Summary Information
+-------------------
+
+    PDF Output
+    ----------
+
+    Scale:           1.000
+    Mirrored:        Yes
+    Rotated:         No
+    Offset:          612.26+    -503.74+mm
+    Step & Repeat:   Not used
+
+
+
+
+    Outputs covered by CAM Plots
+    ----------------------------
+
+    Top: Gerber, Artwork
+    Bottom: Gerber, Artwork
+    Silkscreen Top: Gerber, Artwork
+    Solder Mask Top: Gerber, Artwork
+    Paste Mask Top: Gerber, Artwork
+    Silkscreen Bottom: Gerber, Artwork
+    Solder Mask Bottom: Gerber, Artwork
+    Paste Mask Bottom: Gerber, Artwork
+    Documentation: Windows, Artwork
+    <Through Hole>: Excellon, Drill
+    Drill Drawing: Gerber, Drill Drawing
+    Ground: Gerber, Artwork
+    Power: Gerber, Artwork
+    ass_top: PDF, Artwork, Enabled
+    ass_bot: PDF, Artwork, Enabled
+
+    Outputs not covered by CAM Plots
+    --------------------------------
+
+    Layer Wires Top
+    Layer Pin Names
+    Layer Prepreg2_TL
+    Layer Prepreg1_TL
+    Layer PCB
+    Layer Prepreg1_BL
+    Layer Prepreg2_BL
+    Layer Pin Names (Bottom)
+    Layer Wires Bottom
+    Layer Construction Lines
+
+                ---------------- End Of Report ----------------
