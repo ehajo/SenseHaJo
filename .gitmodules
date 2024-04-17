@@ -1,0 +1,7 @@
+[submodule "mkII/full feature/SenseEHajo"]
+	path = mkII/full feature/SenseEHajo
+	url = https://github.com/calm4git/SenseEHajo.git
+[submodule "mkII/red pencil/SenseEHajo"]
+	path = mkII/red pencil/SenseEHajo
+	url = https://github.com/calm4git/SenseEHajo.git
+	branch = ESP32-S3_Rotstift_optimierung
