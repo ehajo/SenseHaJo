@@ -1,0 +1,6 @@
+(fp_lib_table
+  (lib (name "WS2812D")(type "KiCad")(uri "${KIPRJMOD}/WS2812D.pretty")(options "")(descr ""))
+  (lib (name "SC-74A_SOT753")(type "KiCad")(uri "D:/NextCloud/KiCad/User_Library/Footprints/SC-74A_SOT753.pretty")(options "")(descr ""))
+  (lib (name "ESP32_Handsolder")(type "KiCad")(uri "D:/NextCloud/KiCad/User_Library/Footprints/ESP32_Handsolder.pretty")(options "")(descr ""))
+  (lib (name "MCU_RaspberryPi_and_Boards")(type "KiCad")(uri "D:/NextCloud/KiCad/User_Library/RP2040/MCU_RaspberryPi_and_Boards.pretty")(options "")(descr ""))
+)

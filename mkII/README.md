@@ -1,7 +1,7 @@
 # SenseHaJo
 
-Mark II ist die aktuellste Version des SenseHaJo-Projekts. Mathias aka Calm aka "der andere" hat in KiCAD ein komplettes Projekt hochgezogen und programmiert die Software nun in C++ für die Maschine.
+Mark II ist die aktuellste Version des SenseHaJo-Projekts. Mathias aka Calm aka "der andere" hat in KiCAD ein komplettes Projekt hochgezogen.
 
-Alternativ programmiere ich die Software testhalber in ESPHome.
+Ich programmiere die Software mit ESPHome und mit Hilfe von ChatGPT.
 
 Die Platine besitzt nun einen leistungsstarken ESP32 Prozessor.

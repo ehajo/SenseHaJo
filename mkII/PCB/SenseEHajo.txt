@@ -1,0 +1,67 @@
+Ref	Qty	Value	Footprint	Datasheet	Order No. Farnell	Order No. Mouser
+C1 C6 	2	100nF / 25V	Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	710-885012207098
+C2 C5 	2	100nF / 10V	Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	710-885012207098 
+C3 	1	1uF / 10V	Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	80-C0805C105Z4V 
+C4 	1	10uF / 25V	Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	0805X106K250CT
+C7 C8 C14 C15 C16 C17 C19 	7	100nF	Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	710-885012207098
+C9 	1	10uF/10V	Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	710-885012107010
+C10 	1	 1uF/25V	Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	963-TMK212B7105KG-T
+C11 	1	47uF/10V	Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	LMK316BC6476ML-T
+C12 	1	1uF/25V	Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	963-TMK212B7105KG-T
+C13 	1	 10uF/25V	Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	TMK212BBJ106KG-T
+C18 	1	10uF	Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	0805X106K250CT
+D4 	1	1N4006	Diode_THT:D_DO-201AD_P15.24mm_Horizontal	http://www.vishay.com/docs/88503/1n4001.pdf	 	 
+D5 	1	PMEG4010EGWX	Diode_SMD:D_SOD-123	~	 	841-PMEG4010EGWX
+FB1 	1	Ferrite_Bead	Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	710-742792093
+IC1 	1	AP3012	Package_TO_SOT_SMD:SOT-23-5_HandSoldering		 	621-AP3012KTR-G1
+IC2 	1	MCP3221	Package_TO_SOT_SMD:SOT-23-5_HandSoldering		1332098	579-MCP3221A5T-E/OT 
+IC3 	1	SN74AUP1G08-Q1	Package_TO_SOT_SMD:SOT-23-5_HandSoldering		 	595-SN74AUP1G08DBVR 
+IC4 	1	K814P	Package_DIP:DIP-4_W7.62mm		 	782-K814P 
+J1 	1	Conn_01x02_Male	Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical	~	 	 
+J2 	1	REED	Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical	~	 	 
+J3 	1	RTC ( DS3231)	Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical	~	 	 
+J4 	1	Heizung	Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical	~	 	 
+J5 	1	Pumpe	Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical	~	 	 
+J6 	1	Conn_01x05	Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical	~	 	 
+J7 	1	L	Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical	~	 	 
+J8 	1	N	Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical	~	 	 
+J9 	1	Prog	Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical	~	 	 
+L1 	1	10uH	Inductor_SMD:L_Wuerth_MAPI-3015	~	 	710-74438335100 
+LED1 LED2 LED3 	3	WS2812D	WS2812D:WS2812D_THT		 	 
+PS1 	1	HLK-PM01	Converter_ACDC:Converter_ACDC_HiLink_HLK-PMxx	http://www.hlktech.net/product_detail.php?ProId=54	 	 
+Q1 	1	BSS138	Package_TO_SOT_SMD:SOT-23	https://www.fairchildsemi.com/datasheets/BS/BSS138.pdf	 	 
+R1 R4 	2	10k	Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	CRCW080510K0FKEAC
+R2 R30 	2	2k2	Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	71-CRCW08052K20FKEAC
+R3 R27 	2	1k8	Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	71-CRCW0805-1.8K-E3
+R5 	1	10k	Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	71-CRCW080510K0FKEAC
+R6 R7 	2	100k	Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal	~	 	603-MFR-25FBF52-100K 
+R10 	1	150R	Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	 
+R11 	1	150R	Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	CRCW0805150KFKEA
+R12 R24 	2	4k7	Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	CRCW08054K70FKEBC
+R13 R14 R21 R22 	4	2k2	Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	CRCW08052K20FKEAC
+R15 R17 	2	360R	Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal	~	 	71-CCF07360KGKE36
+R16 	1	330R	Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal	~	 	CCF07330RJKE36
+R18 	1	330R	Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal	~	 	71-CCF07330RJKE36
+R19 R20 	2	15k	Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	CRCW080515K0FKEBC
+R23 	1	39k	Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	CRCW080539K0FKEAC
+R25 	1	1k	Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	71-CRCW08051K00FKEAC
+R26 	1	3k9	Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	71-CRCW0805-3.92K-E3
+R28 	1	3k3	Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	71-CRCW08053K30FKEAC
+R29 	1	2k2	Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder	~	 	71-CRCW08052K20FKEAC 
+SW1 	1	Reset	Button_Switch_THT:SW_PUSH_6mm	~	 	 
+SW2 	1	SW1 ( Boot )	Button_Switch_THT:SW_PUSH_6mm	~	 	 
+SW3 	1	SW2	Button_Switch_THT:SW_PUSH_6mm	~	 	 
+SW4 	1	SW3	Button_Switch_THT:SW_PUSH_6mm	~	 	 
+T1 	1	QJ8025	Package_TO_SOT_SMD:TO-263-3_TabPin2		 	 
+T2 	1	QJ8025	Package_TO_SOT_SMD:TO-263-3_TabPin2		 	576-QJ8025NH4RP 
+U1 	1	ESP32-WROOM-32	RF_Module:ESP32-WROOM-32	https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_datasheet_en.pdf	 	 
+U2 	1	MCP6001-OT	Package_TO_SOT_SMD:SOT-23-5	http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf	4974992	579-MCP6001T-I/OT 
+U3 U4 	2	MOC3043M	Package_DIP:DIP-6_W7.62mm	http://www.fairchildsemi.com/ds/MO/MOC3031M.pdf	 	512-MOC3043M
+U5 	1	TCA9544A	Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm	http://www.ti.com/lit/ds/symlink/tca9544a.pdf	 	595-TCA9544APWR
+U6 	1	LM1117-3.3	Package_TO_SOT_SMD:SOT-223	http://www.ti.com/lit/ds/symlink/lm1117.pdf	 	926-LM1117MPX3.3NOPB
+						
+						
+						
+						
+BOM made with KICAD_BOM_WIZARD (https://github.com/HashDefineElectronics/KiCad_BOM_Wizard.git)						
+Generated 20.03.2020 17:53:38						

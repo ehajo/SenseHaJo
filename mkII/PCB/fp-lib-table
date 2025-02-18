@@ -1,0 +1,10 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "WS2812D")(type "KiCad")(uri "${KIPRJMOD}/WS2812D.pretty")(options "")(descr ""))
+  (lib (name "SC-74A_SOT753")(type "KiCad")(uri "D:/NextCloud/KiCad/User_Library/Footprints/SC-74A_SOT753.pretty")(options "")(descr ""))
+  (lib (name "ESP32_Handsolder")(type "KiCad")(uri "C:/Users/ms_ac/Nextcloud/KiCad/User_Library/Footprints/ESP32_Handsolder.pretty")(options "")(descr ""))
+  (lib (name "MCU_RaspberryPi_and_Boards")(type "KiCad")(uri "D:/NextCloud/KiCad/User_Library/RP2040/MCU_RaspberryPi_and_Boards.pretty")(options "")(descr ""))
+  (lib (name "WSL3921")(type "KiCad")(uri "D:/NextCloud/KiCad/User_Library/Vishay/WSL3921.pretty")(options "")(descr ""))
+  (lib (name "WS2812_HandSolder")(type "KiCad")(uri "D:/NextCloud/KiCad/User_Library/WS2812B_HandSolder/WS2812_HandSolder.pretty")(options "")(descr ""))
+  (lib (name "shai3c_com_SKU011012")(type "KiCad")(uri "D:/NextCloud/KiCad/User_Library/DC_DC_Converter/shai3c_com_SKU011012.pretty")(options "")(descr ""))
+)
