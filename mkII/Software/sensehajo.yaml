@@ -6,32 +6,68 @@ esphome:
     version: "0.1.0"
   on_boot:
     then:
-      - script.execute: script_all_off  # Alles ausschalten beim Start
+      - delay: 100ms  # Kurze Verzögerung, um sicherzustellen, dass der Reset vom Display intern korrekt ausgeführt wird
+      - script.execute: script_all_off  # Alles ausschalten nach Initialisierung
 
 esp32:
   board: esp32dev
   framework:
     type: arduino
 
-# Enable logging (auf INFO zurückgesetzt)
+# Enable logging
 logger:
   level: INFO
+
+# I2C-Konfiguration für das OLED-Display
+i2c:
+  sda: GPIO32  # Datenleitung (externe Pull-Ups erforderlich)
+  scl: GPIO14  # Taktleitung (externe Pull-Ups erforderlich)
+  scan: true   # Scannt beim Start nach I²C-Geräten
+
+# OLED-Display
+display:
+  - platform: ssd1306_i2c
+    model: "SSD1306 128x64"
+    address: 0x3C
+    id: oled_display
+    update_interval: 1s
+    lambda: |-
+      it.printf(0, 0, id(font_large), "SenseHaJo");
+      it.printf(0, 16, id(font_small), "Temp: %.1f°C", id(sensor_boilertemp).state);
+      it.printf(0, 32, id(font_small), "Status: %d", id(_sensehajo_state));
+      switch(id(_sensehajo_state)) {
+        case 0: it.print(0, 48, id(font_small), "AUS"); break;
+        case 10: it.print(0, 48, id(font_small), "STBY"); break;
+        case 15: it.print(0, 48, id(font_small), "READY"); break;
+        case 20: it.print(0, 48, id(font_small), "Kochen"); break;
+        case 40: it.print(0, 48, id(font_small), "Spülen"); break;
+        case 100: it.print(0, 48, id(font_small), "Error"); break;
+      }
+
+# Schriftarten für das Display
+font:
+  - file: "Arial.ttf"  # Lade eine TTF-Datei hoch oder nutze eine eingebaute Schriftart
+    id: font_large
+    size: 16
+  - file: "Arial.ttf"
+    id: font_small
+    size: 12
 
 # Enable Home Assistant API
 api:
   encryption:
-    key: "key here"
+    key: !secret api-key
 
 ota:
   - platform: esphome
-    password: "password here"
+    password: !secret ota-pw
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
   ap:
     ssid: "Sensehajo Fallback Hotspot"
-    password: "123123"
+    password: !secret fallback-pw
 
 captive_portal:
 
@@ -128,7 +164,7 @@ number:
     id: sensehajo_kaffeetemp
     name: "Brühtemperatur"
     icon: mdi:water-thermometer
-    min_value: 10
+    min_value: 50
     max_value: 90
     restore_value: true
     step: 1
@@ -214,12 +250,12 @@ binary_sensor:
     pin:
       number: GPIO21
   - platform: gpio
-    id: "sensehajo_Reed2"  # Reed-Kontakt Wasserstand 2 Tassen, jetzt allein für Fehlererkennung
+    id: "sensehajo_Reed2"  # Reed-Kontakt Wasserstand 2 Tassen
     name: "Reed 2"
     pin:
       number: GPIO34
       inverted: true
-    on_press:  # Wasser vorhanden
+    on_press:
       - lambda: |-
           if (id(_sensehajo_state) == 100) {
             id(_sensehajo_state) = 10;
@@ -233,7 +269,7 @@ binary_sensor:
             call2.set_effect("None");
             call2.perform();
           }
-    on_release:  # Zu wenig Wasser
+    on_release:
       - lambda: |-
           if(id(_sensehajo_state) == 20) {
             id(script_coffeetime).stop();
@@ -294,7 +330,7 @@ sensor:
     id: tempsense_resistance
     sensor: tempsense_source
     configuration: DOWNSTREAM
-    resistor: 2.53kOhm
+    resistor: 3.3kOhm
   - platform: adc
     id: tempsense_source
     attenuation: 11dB
@@ -350,7 +386,8 @@ script:
   # Fehlerbehandlung
   - id: script_error
     then:
-      - lambda: 'id(_sensehajo_state) = 100;'
+      - lambda: |-
+          id(_sensehajo_state) = 100;
       - light.turn_on:
           id: sensehajo_ws2812
           brightness: 50%
@@ -422,7 +459,8 @@ script:
     then:
       - if:
           condition:
-            lambda: 'return id(_sensehajo_state) == 0;'
+            lambda: |-
+                return id(_sensehajo_state) == 0;
           then:
             - script.execute: script_power_on
             - lambda: |-
@@ -433,11 +471,13 @@ script:
                 call.perform();
             - wait_until:
                 condition:
-                  lambda: 'return id(_sensehajo_state) == 15;'
+                  lambda: |-
+                      return id(_sensehajo_state) == 15;
                 timeout: 1min
       - script.execute:
           id: script_coffeetime
-          cups: !lambda 'return cups;'
+          cups: !lambda |-
+              return cups;
 
   # Kaffee kochen
   - id: script_coffeetime
@@ -466,7 +506,8 @@ script:
             call.perform();
           }
       - switch.turn_on: gpio_pumpe
-      - delay: !lambda "return cups * id(sensehajo_bruehzeit).state * 1000;"
+      - delay: !lambda |-
+          return cups * id(sensehajo_bruehzeit).state * 1000;
       - switch.turn_off: gpio_pumpe
       - light.turn_off: sensehajo_LED1
       - light.turn_off: sensehajo_LED3
@@ -478,7 +519,7 @@ script:
   - id: script_spuelen
     then:
       - lambda: |-
-          if ((id(_sensehajo_state) == 0 || id(_sensehajo_state) == 15) && id(sensehajo_Reed2).state) { 
+          if ((id(_sensehajo_state) == 0 || id(_sensehajo_state) == 15) && id(sensehajo_Reed2).state) {
             auto call = id(sensehajo_LED2).turn_on();
             call.set_brightness(0.5);
             call.set_rgb(0.5,0.5,1);
