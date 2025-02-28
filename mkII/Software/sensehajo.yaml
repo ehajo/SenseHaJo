@@ -6,29 +6,26 @@ esphome:
     version: "0.1.0"
   on_boot:
     then:
-      - delay: 100ms  # Kurze Verzögerung, um sicherzustellen, dass der Reset vom Display intern korrekt ausgeführt wird
-      - script.execute: script_all_off  # Alles ausschalten nach Initialisierung
+      - delay: 100ms
+      - script.execute: script_all_off
 
 esp32:
   board: esp32dev
   framework:
     type: arduino
 
-# Enable logging
 logger:
   level: INFO
 
-# I2C-Konfiguration für das OLED-Display
 i2c:
-  sda: GPIO32  # Datenleitung (externe Pull-Ups erforderlich)
-  scl: GPIO14  # Taktleitung (externe Pull-Ups erforderlich)
-  scan: true   # Scannt beim Start nach I²C-Geräten
+  sda: GPIO32
+  scl: GPIO14
+  frequency: 200kHz
 
-# OLED-Display
 display:
   - platform: ssd1306_i2c
     model: "SSD1306 128x64"
-    address: 0x3C
+    address: 0x3D
     id: oled_display
     update_interval: 1s
     lambda: |-
@@ -44,16 +41,14 @@ display:
         case 100: it.print(0, 48, id(font_small), "Error"); break;
       }
 
-# Schriftarten für das Display
 font:
-  - file: "Arial.ttf"  # Lade eine TTF-Datei hoch oder nutze eine eingebaute Schriftart
+  - file: "Arial.ttf"
     id: font_large
     size: 16
   - file: "Arial.ttf"
     id: font_small
     size: 12
 
-# Enable Home Assistant API
 api:
   encryption:
     key: !secret api-key
@@ -71,7 +66,6 @@ wifi:
 
 captive_portal:
 
-# Globale Variablen
 globals:
   - id: _sensehajo_state
     type: int
@@ -85,7 +79,6 @@ globals:
     # 40 ... Spülen
     # 100 ... error
 
-# LED Lichter der SenseHaJo
 light:
   - platform: neopixelbus
     id: "sensehajo_ws2812"
@@ -94,7 +87,7 @@ light:
     pin: GPIO18
     num_leds: 3
   - platform: partition
-    id: "sensehajo_LED1"  # LED 2 Tassen
+    id: "sensehajo_LED1"
     default_transition_length: 0s
     segments:
       - id: sensehajo_ws2812
@@ -112,7 +105,7 @@ light:
           min_brightness: 20%
           max_brightness: 50%
   - platform: partition
-    id: "sensehajo_LED2"  # LED Einschalter
+    id: "sensehajo_LED2"
     default_transition_length: 0s
     segments:
       - id: sensehajo_ws2812
@@ -130,7 +123,7 @@ light:
           min_brightness: 20%
           max_brightness: 50%
   - platform: partition
-    id: "sensehajo_LED3"  # LED 1 Tasse
+    id: "sensehajo_LED3"
     default_transition_length: 0s
     segments:
       - id: sensehajo_ws2812
@@ -148,7 +141,6 @@ light:
           min_brightness: 20%
           max_brightness: 50%
 
-# Einstellbar via Home Assistant
 number:
   - platform: template
     id: sensehajo_bruehzeit
@@ -171,7 +163,6 @@ number:
     optimistic: true
     unit_of_measurement: "°C"
 
-# Buttons um von HA aus zu steuern
 button:
   - platform: template
     name: "SenseHaJo einschalten"
@@ -196,10 +187,9 @@ button:
           id: script_prepare_coffee
           cups: 2
 
-# Eingänge
 binary_sensor:
   - platform: gpio
-    id: "sensehajo_Taste1"  # Taste 2 Tassen Kaffee
+    id: "sensehajo_Taste1"
     pin:
       number: GPIO23
       inverted: true
@@ -214,7 +204,7 @@ binary_sensor:
               id: script_prepare_coffee
               cups: 2
   - platform: gpio
-    id: "sensehajo_Taste2"  # Taste Ein/Ausschalten
+    id: "sensehajo_Taste2"
     pin:
       number: GPIO26
       inverted: true
@@ -231,7 +221,7 @@ binary_sensor:
         then:
           - script.execute: script_spuelen
   - platform: gpio
-    id: "sensehajo_Taste3"  # Taste 1 Tasse Kaffee
+    id: "sensehajo_Taste3"
     pin:
       number: GPIO27
       inverted: true
@@ -246,11 +236,11 @@ binary_sensor:
               id: script_prepare_coffee
               cups: 1
   - platform: gpio
-    id: "sensehajo_Hallsensor"  # Input Hallsensor
+    id: "sensehajo_Hallsensor"
     pin:
       number: GPIO21
   - platform: gpio
-    id: "sensehajo_Reed2"  # Reed-Kontakt Wasserstand 2 Tassen
+    id: "sensehajo_Reed2"
     name: "Reed 2"
     pin:
       number: GPIO34
@@ -259,10 +249,7 @@ binary_sensor:
       - lambda: |-
           if (id(_sensehajo_state) == 100) {
             id(_sensehajo_state) = 10;
-            auto call = id(heizungsregler).make_call();
-            call.set_preset("Activity");
-            call.set_target_temperature(id(sensehajo_kaffeetemp).state);
-            call.perform();
+            id(regulate_temperature).execute();
             auto call2 = id(sensehajo_LED2).turn_on();
             call2.set_brightness(0.5);
             call2.set_rgb(0,0,1);
@@ -289,7 +276,6 @@ binary_sensor:
             id(script_error).execute();
           }
 
-# Ausgänge
 switch:
   - platform: gpio
     pin: 5
@@ -302,7 +288,6 @@ switch:
     icon: mdi:thermometer-water
     restore_mode: ALWAYS_OFF
 
-# Erfassung des Widerstandswertes via ADC1-CH0
 sensor:
   - platform: template
     id: template_boilertemp
@@ -311,6 +296,8 @@ sensor:
     update_interval: 1s
     lambda: |-
         return id(sensor_boilertemp).state;
+    unit_of_measurement: "°C"
+    device_class: temperature
   - platform: template
     id: template_state
     name: "SenseHaJo State"
@@ -330,60 +317,17 @@ sensor:
     id: tempsense_resistance
     sensor: tempsense_source
     configuration: DOWNSTREAM
-    resistor: 3.3kOhm
+    resistor: 2.7kOhm
   - platform: adc
     id: tempsense_source
-    attenuation: 11dB
+    attenuation: 12dB
     update_interval: 0.1s
     pin: GPIO36
     raw: true
     filters:
-      - multiply: 0.00095238  # 3.9/4095, for attenuation 11db
-
-climate:
-  - platform: thermostat
-    id: heizungsregler
-    sensor: sensor_boilertemp
-    visual:
-      min_temperature: 0
-      max_temperature: 90
-      temperature_step: 1
-    min_heating_off_time: 1s
-    min_heating_run_time: 1s
-    min_idle_time: 1s
-    icon: mdi:coffee-maker
-    heat_action:
-      - switch.turn_on: gpio_heizung
-      - light.turn_on:
-          id: sensehajo_LED2
-          brightness: 50%
-          red: 0%
-          green: 0%
-          blue: 100%
-    idle_action:
-      - switch.turn_off: gpio_heizung
-      - light.turn_on:
-          id: sensehajo_LED2
-          brightness: 50%
-          red: 100%
-          green: 0%
-          blue: 0%
-      - lambda: |-
-          if (id(_sensehajo_state) == 10) {
-              id(_sensehajo_state) = 15;
-          }
-    default_preset: sleep
-    on_boot_restore_from: default_preset
-    preset:
-      - name: activity
-        default_target_temperature_low: 50 °C
-        mode: heat
-      - name: sleep
-        default_target_temperature_low: 10 °C
-        mode: "OFF"
+      - multiply: 0.00095238
 
 script:
-  # Fehlerbehandlung
   - id: script_error
     then:
       - lambda: |-
@@ -395,10 +339,9 @@ script:
           green: 0%
           blue: 0%
           effect: "Fast Pulse"
-      - delay: 10s
+      - delay: 30s
       - script.execute: script_all_off
 
-  # Einschalten (nur Reed2 verwendet)
   - id: script_power_on
     then:
       - lambda: |-
@@ -411,10 +354,7 @@ script:
             call.perform();
             if (id(_sensehajo_state) == 0) {
                 id(_sensehajo_state) = 10;
-                auto call = id(heizungsregler).make_call();
-                call.set_preset("Activity");
-                call.set_target_temperature(id(sensehajo_kaffeetemp).state);
-                call.perform();
+                id(regulate_temperature).execute();
             } else {
                 id(_sensehajo_state) = 0;
                 id(script_all_off).execute();
@@ -434,16 +374,13 @@ script:
             }
           }
 
-  # Alles ausschalten
   - id: script_all_off
     then:
       - lambda: |-
           id(script_spuelen).stop();
           id(script_coffeetime).stop();
           id(script_power_on).stop();
-          auto call = id(heizungsregler).make_call();
-          call.set_preset("SLEEP");
-          call.perform();
+          id(regulate_temperature).stop();
           id(_sensehajo_state) = 0;
       - switch.turn_off: gpio_heizung
       - switch.turn_off: gpio_pumpe
@@ -452,7 +389,6 @@ script:
       - light.turn_off: sensehajo_LED2
       - light.turn_off: sensehajo_LED3
 
-  # Kaffeezubereitung konsolidiert
   - id: script_prepare_coffee
     parameters:
       cups: int
@@ -479,7 +415,6 @@ script:
           cups: !lambda |-
               return cups;
 
-  # Kaffee kochen
   - id: script_coffeetime
     parameters:
       cups: int
@@ -515,7 +450,6 @@ script:
           id(_sensehajo_state) = 15;
       - script.execute: script_timout
 
-  # Maschine spülen
   - id: script_spuelen
     then:
       - lambda: |-
@@ -536,12 +470,29 @@ script:
           id(_sensehajo_state) = 0;
       - script.execute: script_all_off
 
-  # Auto-Power-Off
   - id: script_timout
     mode: restart
     then:
       - delay: 5min
       - script.execute: script_all_off
 
-# Reservierte Pins (Dokumentation)
-# GPIO0, GPIO2 (Boot), GPIO1, GPIO3 (UART) nicht verwenden!
+  # Benutzerdefinierte Temperaturregelung
+  - id: regulate_temperature
+    mode: single  # Läuft nur einmal, bis gestoppt
+    then:
+      - while:
+          condition:
+            lambda: 'return id(_sensehajo_state) == 10 || id(_sensehajo_state) == 15;'
+          then:
+            - lambda: |-
+                float current_temp = id(sensor_boilertemp).state;
+                float target_temp = id(sensehajo_kaffeetemp).state;
+                float error = target_temp - current_temp;
+                // Einfacher P-Regler
+                if (error > 0.5) {  // Heizen, wenn mehr als 0.5°C unter Sollwert
+                  id(gpio_heizung).turn_on();
+                } else if (error <= 0) {  // Ausschalten, wenn Sollwert erreicht
+                  id(gpio_heizung).turn_off();
+                  if (id(_sensehajo_state) == 10) id(_sensehajo_state) = 15;  // READY
+                }
+            - delay: 100ms  # Schnelle Regelung alle 100ms
