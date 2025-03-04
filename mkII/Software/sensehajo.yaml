@@ -6,7 +6,9 @@ esphome:
     version: "0.1.0"
   on_boot:
     then:
-      - delay: 100ms
+      - delay: 2s  # Zeige das Logo für 2 Sekunden
+      - lambda: |-
+          id(boot_finished) = true;
       - script.execute: script_all_off
 
 esp32:
@@ -22,30 +24,40 @@ i2c:
   scl: GPIO14
   frequency: 200kHz
 
+# Bildressource definieren
+image:
+  - file: "ehajo_bw.xbm"
+    id: ehajo_bw
+    type: BINARY
+
 display:
   - platform: ssd1306_i2c
     model: "SSD1306 128x64"
-    address: 0x3D
+    address: 0x3C
     id: oled_display
     update_interval: 1s
     lambda: |-
-      it.printf(0, 0, id(font_large), "SenseHaJo");
-      it.printf(0, 16, id(font_small), "Temp: %.1f°C", id(sensor_boilertemp).state);
-      it.printf(0, 32, id(font_small), "Status: %d", id(_sensehajo_state));
-      switch(id(_sensehajo_state)) {
-        case 0: it.print(0, 48, id(font_small), "AUS"); break;
-        case 10: it.print(0, 48, id(font_small), "STBY"); break;
-        case 15: it.print(0, 48, id(font_small), "READY"); break;
-        case 20: it.print(0, 48, id(font_small), "Kochen"); break;
-        case 40: it.print(0, 48, id(font_small), "Spülen"); break;
-        case 100: it.print(0, 48, id(font_small), "Error"); break;
+      if (id(boot_finished)) {
+        it.printf(20, 0, id(font_large), "SenseHaJo");
+        it.printf(15, 16, id(font_small), "Boiler: %.1f°C", id(sensor_boilertemp).state);
+        switch(id(_sensehajo_state)) {
+          case 0: it.print(52, 48, id(font_small), "AUS"); break;
+          case 10: it.print(47, 48, id(font_small), "STBY"); break;
+          case 15: it.print(42, 48, id(font_small), "READY"); break;
+          case 20: it.print(42, 48, id(font_small), "Kochen"); break;
+          case 40: it.print(42, 48, id(font_small), "Spülen"); break;
+          case 100: it.print(42, 48, id(font_small), "Error"); break;
+        }
+      }
+      else {
+        it.image(0, 0, id(ehajo_bw));
       }
 
 font:
-  - file: "Arial.ttf"
+  - file: "courbd.ttf"
     id: font_large
     size: 16
-  - file: "Arial.ttf"
+  - file: "courbd.ttf"
     id: font_small
     size: 12
 
@@ -78,6 +90,10 @@ globals:
     # 25 ... Aufheizen - Kaffee - Aus
     # 40 ... Spülen
     # 100 ... error
+  - id: boot_finished  # Neue Variable für Boot-Status
+    type: bool
+    restore_value: no
+    initial_value: 'false'
 
 light:
   - platform: neopixelbus
